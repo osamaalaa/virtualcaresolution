@@ -11,7 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="vcs,yasclinic,yasclinicgroup,virtualcaresolutions" />
 	<meta name="description" content="YAS Clinic Group , VCS" />
- 
+
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="assets/images/fav.ico">
 
@@ -49,13 +49,7 @@
 			</div>
 			<ul class="mobile-menu-content">
 
-				<li class="mobile-menu-item">
-					<a href="blog-full-width.html" class="dropdown">Doctors</a>
-					<!-- <ul class="mobile-submenu">
-								<li><a href="blog-full-width.html">full width</a></li>
-								<li><a href="blog-timeline.html">timeline</a></li>
-				            </ul> -->
-				</li>
+
 				<li class="mobile-menu-item">
 					<a href="#">Applications</a>
 					<!-- Drop Down -->
@@ -66,10 +60,15 @@
 					</ul>
 				</li>
 				<li class="mobile-menu-item">
-					<a href="about.html">about me</a>
-				</li>
+							<a class="nav-link page-scroll" href="">My Account</a>
+							<ul class="sub-menu dropdown-btn">
+								<li><a href="dashboard.php"><?php echo $_SESSION["username"] ?> <i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<a id="username" style="display: none;"><?php echo $_SESSION["username"] ?></a>
+								<li><a href="logout.php">Logout <i class="fa fa-sign-out"></i></a></li>
+							</ul>
+						</li>
 				<li class="mobile-menu-item">
-					<a href="contact.html">contact</a>
+					<a href="contactus.php">contact</a>
 				</li>
 			</ul>
 		</div>
@@ -84,12 +83,9 @@
 					</a>
 				</div>
 				<!-- Menu -->
-				<nav id="menu" class="col-md-10 col-sm-10">
+				<nav id="menu" class="col-md-10 col-sm-10" style="display:inline; margin-left:auto;">
 					<ul class="hidden-xs">
-						<li>
-							<a href="blog-full-width.html" class="dropdown">Doctors</a>
 
-						</li>
 						<li>
 							<a href="#">Applications</a>
 							<!-- Drop Down -->
@@ -104,13 +100,13 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link page-scroll" href="">My Account</a>
 							<ul class="sub-menu dropdown-btn">
-									<li><a href="dashboard.php"><?php echo $_SESSION["username"] ?> <i class="fa fa-user" aria-hidden="true"></i></a></li>
-									<a id="username" style="display: none;"><?php echo $_SESSION["username"] ?></a>
-									<li><a href="logout.php">Logout <i class="fa fa-sign-out"></i></a></li>
+								<li><a href="dashboard.php"><?php echo $_SESSION["username"] ?> <i class="fa fa-user" aria-hidden="true"></i></a></li>
+								<a id="username" style="display: none;"><?php echo $_SESSION["username"] ?></a>
+								<li><a href="logout.php">Logout <i class="fa fa-sign-out"></i></a></li>
 							</ul>
-                   		 </li>
+						</li>
 					</ul>
-					<div class="mobile-menu col-xs-2 pull-right visible-xs">
+					<div class="mobile-menu col-xs-2 pull-right visible-xs" style="display:inline-flex;">
 						<i class="fa fa-bars fa-2x"></i>
 					</div>
 				</nav>
@@ -120,93 +116,93 @@
 		<!-- /Header -->
 
 		<!-- Content -->
-		<section class="content fullpage transition">
-			<form action="javascript:void(0)" method="post" id="ajax-form">
-		<!-- Content -->
-		<section class="content fullpage transition">
-			<form action="javascript:void(0)" method="post" id="ajax-form">
-				<!-- Section One -->
-				<section class="section" id="section1">
-					<div class="darker"></div>
-					<div class="border">
-						<div class="frames">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-						<div class="corners">
-							<div></div>
-							<div></div>
-						</div>
-					</div>
-
-					<div class="cover-titles">
-						<div class="align-left">
-							<h1 class="title" style="padding: 35px;">Communicate</h1>
-							<p style="font-size: 34px;">For the future</p>
-
-							
+		<!-- <section class="content fullpage transition"> -->
+		<form action="javascript:void(0)" method="post" id="ajax-form">
+			<!-- Content -->
+			<section class="content fullpage transition">
+				<form action="javascript:void(0)" method="post" id="ajax-form">
+					<!-- Section One -->
+					<section class="section" id="section1" style="width:100%;height:100%">
+						<div class="darker"></div>
+						<div class="border">
+							<div class="frames">
+								<div></div>
+								<div></div>
+								<div></div>
+								<div></div>
+							</div>
+							<div class="corners">
+								<div></div>
+								<div></div>
+							</div>
 						</div>
 
-					</div>
-					</div>
-
-					</div>
-
-					<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
-				</section>
-				<section class="section" id="section2">
-				<div class="video-grid" id="video">
-					<div class="videoContainer">
-						<div id="local_stream" class="video-placeholder"></div>						 
-						<div id="local_video_info" class="video-profile hide"></div>
-						<div id="video_autoplay_local" class="autoplay-fallback hide"></div>
-						<div class="video-grid">
-
-						</div>						
-					</div>
-				</div>
-					</div>
-					<div class="cover-titles">
-						<div class="align-left">
-							 <a href="#" id="join" class="btn">
-								<span>Join</span>
-								<i class="fa fa-arrow-right"></i>
-							</a>
-
-							<a onclick="Copy()" href="#" class="btn" onclick="Copy()">
-								<span>COPY LINK</span>
-								<i class="fa fa-arrow-right"></i>
-							</a>
-
-							<a href="#" type="submit" name="leave" id="leave">
-								<span>LEAVE</span>
-								<i class="fa fa-sign-out"></i>
-							</a>
-
-							<div id="remainingTime" name="timer" class="timer">
+						<div class="cover-titles">
+							<div class="align-left">
+								<h1 class="title">Communicate</h1>
+								<p style="font-size: 34px;">For the future</p>
 							</div>
 
-							
+						</div>
 						</div>
 
-					</div>
-					<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
-				</section>
-			</form>
-			<!-- /Section One -->
+						</div>
+						<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
+					</section>
+					<style>
+				
+					</style>
+
+					<section class="section" id="section2" style="width:100%;height:100%">
+						<!-- style="display:flex;flex-wrap: wrap;align-content:margin: 0 -4px 0 0;padding: 0px; center;vertical-align: middle;margin: 0 auto; border: 1px solid red;" -->
+						<!-- <div class="1video-grid" id="1video" > -->
+						<div id="video" class="1videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
+							<div id="local_stream" class="sample 1video- placeholder"></div>
+							<!--<div id="local_video_info" class="sample 1video- profile hide"    ></div>-->
+							<div id="video_autoplay_local" class="sample 1autoplay- fallback hide"></div>
+
+							<!-- </div> -->
+						</div>
+
+						<div class="cover-titles">
+							<div class="align-left">
+								<a href="#" id="join" class="btn">
+									<span>Join</span>
+									<i class="fa fa-arrow-right"></i>
+								</a>
+
+								<a onclick="Copy()" href="#" class="btn" onclick="Copy()">
+									<span>COPY LINK</span>
+									<i class="fa fa-arrow-right"></i>
+								</a>
+
+								<a href="#" type="submit" class="btn" name="leave" id="leave">
+									<span>LEAVE</span>
+									<i class="fa fa-sign-out"></i>
+								</a>
+
+								<div id="remainingTime" name="timer" class="timer">
+								</div>
 
 
+							</div>
 
-		</section>
-		<!-- /Content -->
+						</div>
+						<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
+					</section>
+				</form>
+				<!-- /Section One -->
 
-		<!-- Footer -->
-		<footer id="footer" class="fixed white">
-			<p>© Yas Clinic Group 2022. All rights reserved.</p>
-		</footer>
-		<!-- /Footer -->
+				<!-- <a href="https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/" />		 -->
+
+			</section>
+			<!-- /Content -->
+
+			<!-- Footer -->
+			<footer id="footer" class="fixed white">
+				<p>© 2022 Copyright by.PQW - IT Managment consulting - Germany for YAS Clinic Group.</p>
+			</footer>
+			<!-- /Footer -->
 
 	</main>
 	<!-- /Container -->
@@ -224,7 +220,12 @@
 	<script type="text/javascript" src="assets/js/photoswipe.min.js"></script>
 	<script type="text/javascript" src="assets/js/photoswipe-ui-default.min.js"></script>
 	<!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-
+	<!-- START Smith.ai YCG Chat -->
+	<script type="text/javascript">
+		window.SMITH = {}, window.SMITH.smithChatAccount = "ec95fb4d-da0c-43d2-8145-d3f8884bd3fe", window.SMITH.baseUrl = "https://app.smith.ai";
+		var script = document.createElement("script");
+		script.async = !0, script.type = "text/javascript", script.src = "https://app.smith.ai/chat/widget-latest.js", document.getElementsByTagName("HEAD").item(0).appendChild(script);
+	</script>
 	<!-- Main js -->
 	<script src="assets/js/main.js"></script>
 	<script src="vendor/materialize.min.js"></script>
@@ -255,7 +256,6 @@
 		});
 
 		function Copy() {
-			console.log("Oosamsamsadasd")
 			Toast.notice("Link Copied to clipboard!");
 			var copyText = "https://virtualcaresolution.de/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
@@ -336,6 +336,7 @@
 		}
 
 		function addView(id, show) {
+
 			if (!$("#" + id)[0]) {
 				$("<div/>", {
 					id: "remote_video_panel_" + id,
@@ -357,11 +358,13 @@
 					class: "autoplay-fallback hide",
 				}).appendTo("#remote_video_panel_" + id)
 			}
+			console.log("Count", id, show)
+
 		}
 
 		function removeView(id) {
 			if ($("#remote_video_panel_" + id)[0]) {
-				// $("#remote_video_panel_" + id).remove()
+				$("#remote_video_panel_" + id).remove()
 			}
 		}
 

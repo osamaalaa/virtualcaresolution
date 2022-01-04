@@ -3,7 +3,7 @@ include_once 'db.php';
 session_start();
 if(isset($_POST['savesubmit']))
 {     
-  $uname = $_POST['uname'];
+     $uname = $_POST['uname'];
      $email = $_POST['email'];
      $phone = $_POST['phone']; 
      $password = $_POST['password'];

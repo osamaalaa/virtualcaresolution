@@ -43,9 +43,11 @@
     <script src="../assets/dashboard/assets/js/pages/jquery.todo.js"></script>
 
 </head>
+
  <!-- Topbar Start -->
- <div class="navbar-custom">
+         <div class="navbar-custom">
             <div class="container-fluid">
+
                 <ul class="list-unstyled topnav-menu float-end mb-0">
 
                     <li class="d-none d-lg-block">
@@ -93,29 +95,27 @@
                             <div class="p-lg-1">
                                 <div class="row g-0">
                                     <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
+                                        <a class="dropdown-icon-item" href="https://lms.virtualcaresolution.de/">
                                             <img src="assets/dashboard/assets/images/brands/slack.png" alt="slack">
                                             <span>LMS</span>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
+                                        <a class="dropdown-icon-item" href="https://emr.virtualcaresolution.de/">
                                             <img src="assets/dashboard/assets/images/brands/github.png" alt="Github">
                                             <span>EMR</span>
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a class="dropdown-icon-item" href="#">
+                                        <a class="dropdown-icon-item" href="https://fluclinic.virtualcaresolution.de/">
                                             <img src="assets/dashboard/assets/images/brands/dribbble.png" alt="dribbble">
                                             <span>FluClinic</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </li>
-
 
                     <li class="dropdown notification-list topbar-dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -123,7 +123,6 @@
                             <span class="badge bg-danger rounded-circle noti-icon-badge">1</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
                             <!-- item-->
                             <div class="dropdown-item noti-title">
                                 <h5 class="m-0">
@@ -145,10 +144,8 @@
                                         <small class="text-muted">1 min ago</small>
                                     </p>
                                 </a>
-
                             </div>
                     </li>
-
                     <li class="dropdown notification-list topbar-dropdown">
                         <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <img src=<?php echo $_SESSION["imgpath"] ?> alt="user-image" class="rounded-circle">
@@ -184,11 +181,11 @@
                         </div>
                     </li>
 
-                    <li class="dropdown notification-list">
+                    <!-- <li class="dropdown notification-list">
                         <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
                             <i class="fe-settings noti-icon"></i>
                         </a>
-                    </li>
+                    </li> -->
 
                 </ul>
 
@@ -235,7 +232,12 @@
                     </li>
 
                 </ul>
-                <div class="clearfix"></div>
+
+                <div class="clearfix">
+
+                </div>
+
             </div>
         </div>
         <!-- end Topbar -->
+
