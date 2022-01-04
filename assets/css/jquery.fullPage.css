@@ -93,6 +93,7 @@ html.fp-enabled,
 }
 #fp-nav {
     position: fixed;
+    display: none !important;
     z-index: 100;
     margin-top: -32px;
     top: 50%;
@@ -101,9 +102,11 @@ html.fp-enabled,
 }
 #fp-nav.right {
     right: 5.5rem;
+    display: none;
 }
 #fp-nav.left {
     left: 6rem;
+    display: none;
 }
 .fp-slidesNav{
     position: absolute;

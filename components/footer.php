@@ -7,7 +7,7 @@
                         <div class="col-md-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> &copy; YAS Clinic Group <a href=""></a>
+                            </script> &copy; Copyright by.PQW - IT Managment consulting - Germany for YAS Clinic Group <a href=""></a>
                         </div>
                         <!-- <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-sm-block">
@@ -19,4 +19,4 @@
                     </div>
                 </div>
             </footer>
-            <!-- end Footer -->
+            <!-- end Footer --> 

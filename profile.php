@@ -155,8 +155,7 @@
                                             <div class="my-3 mt-xl-0">
                                                 <label for="projectname" class="mb-0 form-label">Profile Image</label>
                                                 <p class="text-muted font-14">Recommended thumbnail size 800x400 (px).</p>
-                                                <a href="javascript:void(0);" class="d-inline-block" style="display: block;
-padding: 11px;">
+                                                <a href="javascript:void(0);" class="d-inline-block" style="display: block;padding: 11px;">
                                                        <center> <img src="<?php echo $_SESSION["imgpath"]; ?>" class="rounded-circle avatar-xxl" alt="friend" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Mike Baker"></center>
                                                 </a>
 
