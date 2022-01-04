@@ -162,7 +162,7 @@
                                                 </div>
                                                 <div class="row mt-2">
                                                     <div class="col-md-6 col-4">
-                                                         <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["user_id"] ?>">
+                                                         <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
                                                             <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
                                                     </div>
                                                     <div class="col-md-6 col-8 text-end">
