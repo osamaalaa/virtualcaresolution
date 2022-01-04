@@ -44,7 +44,7 @@
 	<main class="container">
 		<!-- Mobile Menu -->
 		<div class="mobile-menu-overlay transition">
-			<div class="mobile-menu" style="display:flex;align-items: center;">
+			<div class="mobile-menu">
 				<i class="fa fa-times fa-2x"></i>
 			</div>
 			<ul class="mobile-menu-content">
@@ -76,10 +76,10 @@
 
 		<!-- Header -->
 		<header class="transition header fixed">
-			<div class="main-menu" style="display:flex;">
+			<div class="main-menu">
 				<div id="logo">
 					<a href="index.php">
-						<img src="assets/images/yasLogo.png" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
+						<img src="assets/images/yasLogo.png" alt="yas-clinic-group">
 					</a>
 				</div>
 				<!-- Menu -->
@@ -257,7 +257,7 @@
 
 		function Copy() {
 			Toast.notice("Link Copied to clipboard!");
-			var copyText = "https://localhost/new-vcs/" + link;
+			var copyText = "https://virtualcaresolution.de/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
 			//  copyText.select();
 			//copyText.setSelectionRange(0, 99999);
@@ -340,22 +340,22 @@
 			if (!$("#" + id)[0]) {
 				$("<div/>", {
 					id: "remote_video_panel_" + id,
-					class: "video-view sample",
+					class: "video-view",
 				}).appendTo("#video")
 
 				$("<div/>", {
 					id: "remote_video_" + id,
-					class: "video-placeholder sample",
+					class: "video-placeholder",
 				}).appendTo("#remote_video_panel_" + id)
 
 				$("<div/>", {
 					id: "remote_video_info_" + id,
-					class: "video-profile " + (show ? "" : "hide sample"),
+					class: "video-profile " + (show ? "" : "hide"),
 				}).appendTo("#remote_video_panel_" + id)
 
 				$("<div/>", {
 					id: "video_autoplay_" + id,
-					class: "autoplay-fallback hide sample",
+					class: "autoplay-fallback hide",
 				}).appendTo("#remote_video_panel_" + id)
 			}
 			console.log("Count", id, show)

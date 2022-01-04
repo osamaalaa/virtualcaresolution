@@ -289,7 +289,7 @@ body .login_fields__submit input:hover {
     .videoContainer {
       display: grid;
       width: 100%;
-      /*grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     
   }
   .videoWrapper {
@@ -339,14 +339,14 @@ body .login_fields__submit input:hover {
       text-shadow: black 0.1em 0.1em 0.2em;
       display: block;
       color: #fff; }
- /*   .video-view,
+    .video-view,
  .video-placeholder,
  #local_stream, #local_video_info {
         width: 480px;
         height: 320px; 
       
       
-      }*/
+      }
 
 
 
