@@ -1,5 +1,5 @@
 <?php
-include_once 'db.php';?>
+include_once 'db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,27 +25,11 @@ include_once 'db.php';?>
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- jquery -->
-    <style>
-            @-webkit-viewport { width: device-width; }
-            @-moz-viewport { width: device-width; }
-            @-ms-viewport { width: device-width; }
-            @-o-viewport { width: device-width; }
-            @viewport { width: device-width; }
-
-            body { padding-top: 0px; }
-            
-            .column .text { color: #f00 !important; }
-            .cell { font-weight: bold; }
-        </style>
+  
 
 </head>
 
-<!-- body start -->
-
 <body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
-
-    <!-- Begin page -->
     <div id="wrapper">
         <?php include './components/header.php'; ?>
 
@@ -92,62 +76,63 @@ include_once 'db.php';?>
 
                             <div class="card">
                                 <div class="card-body">
-                                    
-                                        <div class=""><h3>Patient List for - <?php echo $_SESSION['username'];?></h3>
-            <table id="grid-basic" class="table table-condensed table-hover table-striped" style="width:100%;" >
-			<thead > 
-				<tr>
-					<!-- <th data-column-id="id" >Project #</th> -->
-                    <th data-column-id="pid">Patient ID</th>
-                    <th data-column-id="pname">Patient Name</th>
-                    <th data-column-id="cheifcomplaint">Chief Complaint</th>
-                    <th data-column-id="mri">MRI</th>
-                    <th data-column-id="sickleave">Sick Leave</th>
-                    <th data-column-id="wfh">WFH</th>
-                    <th></th>
-                 
-                   
-				</tr>
-			</thead>
-			<tbody>
-				
-            <?php
-				
-				$sql = $conn->query("SELECT * FROM patients where doctor_name='". $_SESSION['username'] ."' ") or die($conn->error);
-				if($sql->num_rows){
-					while($row = $sql->fetch_assoc()){
-						echo '
-						<tr>
-							<td>'.$row['pid'].'</td>
-                            <td>'.$row['pname'].'</td>
-                            <td>'.$row['cheifcomplaint'].'</td>
-							<td>'.$row['mri'].'</td>
-                            <td>'.$row['sickleave'].'</td>
-                            <td>'.$row['wfh'].'</td>                       
-							
-                           
-							<td></td>
-						</tr>
-						';
-					}
-				}
-				?>
-				
-			</tbody>
-			
-		</table>
 
-                                        </div> 
-                                   
-                                    <div class="row">                                      
-                                    <div class="col-lg-3">
+                                    <div class="">
+                                        <h3>Patient List for - <?php echo $_SESSION['username']; ?></h3>
+                                        <table id="grid-basic" class="table table-condensed table-hover table-striped" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <!-- <th data-column-id="id" >Project #</th> -->
+                                                    <th data-column-id="pid">Patient ID</th>
+                                                    <th data-column-id="pname">Patient Name</th>
+                                                    <th data-column-id="cheifcomplaint">Chief Complaint</th>
+                                                    <th data-column-id="mri">MRI</th>
+                                                    <th data-column-id="sickleave">Sick Leave</th>
+                                                    <th data-column-id="wfh">WFH</th>
+                                                    <th data-column-id="wfh">Date</th>
+                                                    <th></th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <?php
+
+                                                $sql = $conn->query("SELECT pid , pname , cheifcomplaint , mri , sickleave , wfh , DATE(created_at) created_at  FROM patients where doctor_name='" . $_SESSION['username'] . "' ") or die($conn->error);
+                                                if ($sql->num_rows) {
+                                                    while ($row = $sql->fetch_assoc()) {
+                                                        echo '
+                                                                    <tr>
+                                                                        <td>' . $row['pid'] . '</td>
+                                                                        <td>' . $row['pname'] . '</td>
+                                                                        <td>' . $row['cheifcomplaint'] . '</td>
+                                                                        <td>' . $row['mri'] . '</td>
+                                                                        <td>' . $row['sickleave'] . '</td>
+                                                                        <td>' . $row['wfh'] . '</td>  
+                                                                        <td>' . $row['created_at'] . '</td>                       
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    ';
+                                                    }
+                                                }
+                                                ?>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3">
                                             <!--<button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Add Patient</button>-->
 
-                                            
-                                        </div> 
-                                                                             
 
-                                         <!-- end col -->
+                                        </div>
+
+
+                                        <!-- end col -->
 
                                     </div> <!-- end row -->
                                 </div> <!-- end card body-->
@@ -162,70 +147,70 @@ include_once 'db.php';?>
                                             <h5 class="modal-title" id="modal-title">Patient Name</h5>
                                         </div>
                                         <div class="modal-body px-4 pb-4 pt-0">
-                                            <form class="needs-validation" method="post"  name="event-form" id="form-event" novalidate>
+                                            <form class="needs-validation" method="post" name="event-form" id="form-event" novalidate>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                    <div class="col-12">
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">PID</label>
+                                                                <!-- <input class="form-control" type="text" name="pid" value="110"  disabled /> -->
+                                                                <INPUT class="form-control patient-id" TYPE=TEXT NAME="ACCOUNT" id="event-title" VALUE="" MAXLENGTH=16 SIZE=16 disabled>
+                                                                <div class="invalid-feedback">Please provide a valid patient id</div>
+                                                            </div>
+                                                        </div>
                                                         <div class="mb-3">
-                                                            <label class="form-label">PID</label>
-                                                            <!-- <input class="form-control" type="text" name="pid" value="110"  disabled /> -->
-                                                            <INPUT class="form-control patient-id" TYPE=TEXT NAME="ACCOUNT" id="event-title" VALUE="" MAXLENGTH=16 SIZE=16 disabled >
-                                                            <div class="invalid-feedback">Please provide a valid patient id</div>
+                                                            <label class="form-label">Patients Name</label>
+                                                            <input class="form-control" type="text" id="pname" name="title" id="event-title" required />
+                                                            <div class="invalid-feedback">Please provide a valid patient name</div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">MRI </label>
+                                                                <input class="form-control" type="text" id="mri" name="mri" id="event-title" required />
+                                                                <div class="invalid-feedback">Please provide a valid MRI </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Cheif complaint</label>
+                                                                <textarea class="form-control" id="cheifcomplaint" name="cheifcomplaint" rows="3"></textarea>
+
+                                                                <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Sick Leave Recommendation </label>
+                                                                <!-- <input class="form-control"  type="text" name="sickleave" id="event-title" required /> -->
+                                                                <input id="toggle-on" id="sickleave" value="yes" name="sickleave" type="radio">
+                                                                <label class="form-label" for="toggle-on">Yes</label>
+                                                                <input id="toggle-off" id="sickleave" value="no" name="sickleave" type="radio">
+                                                                <label class="form-label" for="toggle-off">No</label>
+                                                                <div class="invalid-feedback">Please provide a valid Sick Leave Recommendation </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">WFH Recomendation </label>
+                                                                <input id="toggle-on" id="wfh" name="wfh" value="yes" type="radio">
+                                                                <label class="form-label" for="toggle-on">Yes</label>
+                                                                <input id="toggle-off" id="wfh" name="wfh" value="no" type="radio">
+                                                                <label class="form-label" for="toggle-off">No</label>
+                                                                <div class="invalid-feedback">Please provide a valid WFH Recommendation </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Patients Name</label>
-                                                        <input class="form-control" type="text"id="pname" name="title" id="event-title"  required />
-                                                        <div class="invalid-feedback">Please provide a valid patient name</div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">MRI </label>
-                                                            <input class="form-control" type="text" id="mri" name="mri" id="event-title" required />
-                                                            <div class="invalid-feedback">Please provide a valid MRI </div>
-                                                        </div>
-                                                    </div>
-                                                  
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Cheif complaint</label>
-                                                            <textarea class="form-control"id="cheifcomplaint"  name="cheifcomplaint" rows="3"></textarea>
-                                                           
-                                                            <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Sick Leave Recommendation </label>
-                                                            <!-- <input class="form-control"  type="text" name="sickleave" id="event-title" required /> -->
-                                                            <input id="toggle-on" id="sickleave" value="yes" name="sickleave" type="radio">
-                                                            <label class="form-label" for="toggle-on">Yes</label>
-                                                            <input id="toggle-off"  id="sickleave" value="no" name="sickleave" type="radio">
-                                                            <label class="form-label" for="toggle-off">No</label>
-                                                            <div class="invalid-feedback">Please provide a valid Sick Leave Recommendation </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">WFH Recomendation </label>
-                                                            <input id="toggle-on" id="wfh" name="wfh" value="yes" type="radio">
-                                                            <label class="form-label" for="toggle-on">Yes</label>
-                                                            <input id="toggle-off" id="wfh" name="wfh" value="no" type="radio">
-                                                            <label class="form-label" for="toggle-off">No</label>
-                                                            <div class="invalid-feedback">Please provide a valid WFH Recommendation </div>
-                                                        </div>
-                                                    </div>             
-                                                </div>
-                                                <div class="row mt-2">
-                                                    <div class="col-md-6 col-4">
-                                                         <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
+                                                    <div class="row mt-2">
+                                                        <div class="col-md-6 col-4">
+                                                            <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
                                                             <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
+                                                        </div>
+                                                        <div class="col-md-6 col-8 text-end">
+                                                            <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success" id="btn-save-patient">Save</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-6 col-8 text-end">
-                                                        <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-success" id="btn-save-patient">Save</button>
-                                                    </div>
-                                                </div>
                                             </form>
                                         </div>
                                     </div> <!-- end modal-content-->
@@ -240,7 +225,7 @@ include_once 'db.php';?>
 
             </div> <!-- content -->
             <!-- Footer Start -->
-              <?php include './components/footer.php'; ?>
+            <?php include './components/footer.php'; ?>
             <!-- end Footer -->
 
         </div>
@@ -269,64 +254,65 @@ include_once 'db.php';?>
 
     <!-- ====================================================================================== -->
     <script>
-function randomNumber(len) {
-  var randomNumber;
-  var n = '';
+        function randomNumber(len) {
+            var randomNumber;
+            var n = '';
 
-  for (var count = 0; count < len; count++) {
-    randomNumber = Math.floor(Math.random() * 10);
-    n += randomNumber.toString();
-  }
-  return n;
-}
+            for (var count = 0; count < len; count++) {
+                randomNumber = Math.floor(Math.random() * 10);
+                n += randomNumber.toString();
+            }
+            return n;
+        }
 
-$('.patient-id').val() = randomNumber(9);
-		function Toastify(options) {
-			M.toast({
-				html: options.text,
-				classes: options.classes
-			})
-		}
+        $('.patient-id').val() = randomNumber(9);
 
-		var Toast = {
-			info: (msg) => {
-				Toastify({
-					text: msg,
-					classes: "info-toast"
-				})
-			},
-			notice: (msg) => {
-				Toastify({
-					text: msg,
-					classes: "notice-toast"
-				})
-			},
-			error: (msg) => {
-				Toastify({
-					text: msg,
-					classes: "error-toast"
-				})
-			}
-		}
+        function Toastify(options) {
+            M.toast({
+                html: options.text,
+                classes: options.classes
+            })
+        }
+
+        var Toast = {
+            info: (msg) => {
+                Toastify({
+                    text: msg,
+                    classes: "info-toast"
+                })
+            },
+            notice: (msg) => {
+                Toastify({
+                    text: msg,
+                    classes: "notice-toast"
+                })
+            },
+            error: (msg) => {
+                Toastify({
+                    text: msg,
+                    classes: "error-toast"
+                })
+            }
+        }
 
         $(document).ready(function() {
- 
+
             $("#btn-save-patient").click(function() {
- 
+
                 var pname = $("#pname").val();
                 var mri = $("#mri").val();
                 var cheifcomplaint = $("#cheifcomplaint").val();
                 // var wfh = $("#wfh").val();
- 
-                if(pname==''||mri==''||cheifcomplaint=='') {
+
+                if (pname == '' || mri == '' || cheifcomplaint == '') {
                     alert("Please fill all fields.");
                     return false;
                 }
                 var sickleave = $('input[name="sickleave"]:checked').val();
                 var wfh = $('input[name="wfh"]:checked').val();
-                var doctor_name =  $("#doctor_name").val();
+                var doctor_name = $("#doctor_name").val();
                 var pid = Math.floor(100000 + Math.random() * 900000)
-                $.ajax({ 
+                $.ajax({
                     type: "POST",
                     url: "models/patients.php",
                     data: {
@@ -340,20 +326,18 @@ $('.patient-id').val() = randomNumber(9);
                     },
                     cache: false,
                     success: function(data) {
-                       Toast.notice("Link Copied to clipboard!");
+                        Toast.notice("Link Copied to clipboard!");
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr);
                     }
                 });
-                 
+
             });
- 
+
         });
     </script>
 
-
-    <!-- ======================================================================================= -->
 
 </body>
 

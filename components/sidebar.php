@@ -40,10 +40,17 @@
              </a>
          </li>
 
+         <li>
+             <a href="patientlist.php">
+                 <i data-feather="message-square"></i>
+                 <span> Patients </span>
+             </a>
+         </li>
+
          <!-- --------------------------------------------------------------------------->
 <!--          
          <li>
-             <a href="http://localhost/new-vcs/">
+             <a href="http://localhost/vcs/">
                  <i data-feather="message-square"></i>
                  <span> Chat </span>
              </a>
