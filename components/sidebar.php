@@ -50,7 +50,7 @@
          <!-- --------------------------------------------------------------------------->
 <!--          
          <li>
-             <a href="http://localhost/vcs/">
+             <a href="http://localhost/new-vcs/">
                  <i data-feather="message-square"></i>
                  <span> Chat </span>
              </a>

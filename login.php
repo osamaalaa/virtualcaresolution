@@ -278,7 +278,7 @@
 </style>
 <div class='login'>
     <div>
-        <img src="http://localhost/vcs/assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
+        <img src="http://localhost/new-vcs/assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
     </div>
     <div class='login_title'>
         <span>Login to your account</span>

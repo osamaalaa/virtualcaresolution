@@ -21,6 +21,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
         }
      } */
 } else {
-    header('Location: http://localhost/vcs/login.php');
+    header('Location: http://localhost/new-vcs/login.php');
     session_destroy();
 }
