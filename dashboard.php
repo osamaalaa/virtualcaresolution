@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-require_once "db.php";
-?>
-<head>
+    <?php
+    require_once "db.php";
+    ?>
 
+<head>
     <meta charset="utf-8" />
     <title>Dashboard | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,6 @@ require_once "db.php";
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <!-- body start -->
@@ -72,8 +71,6 @@ require_once "db.php";
                     <p class="text-muted">Admin Head</p>
                 </div>
                 <?php include './components/sidebar.php'; ?>
-               
-
                 <div class="clearfix"></div>
 
             </div>
@@ -130,14 +127,14 @@ require_once "db.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <?php 
-                                                   $username = $_SESSION['username'];
-                                                   $sql = mysqli_query($conn, "SELECT count(*) as total from sessions where doctor_name = '$username'");
-                                                   $data=mysqli_fetch_assoc($sql);
-                                                   echo " <h3>" .$data['total']. " </h3>";
-                                                 
-                                                       
-                                                       
+                                                <?php
+                                                $username = $_SESSION['username'];
+                                                $sql = mysqli_query($conn, "SELECT count(*) as total from sessions where doctor_name = '$username'");
+                                                $data = mysqli_fetch_assoc($sql);
+                                                echo " <h3>" . $data['total'] . " </h3>";
+
+
+
                                                 ?>
                                                 <p class="text-muted mb-1 text-truncate">Total Sessions</p>
                                             </div>
@@ -158,15 +155,12 @@ require_once "db.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                            <?php 
-                                                    $username = $_SESSION['username'];
-                                                    $sql = mysqli_query($conn, "SELECT count(*) as total from patients where doctor_name = '$username'");
-                                                    $data=mysqli_fetch_assoc($sql);
-                                                    echo " <h3>" .$data['total']. " </h3>";
-                                                 
-                                                       
-                                                       
-                                                ?>                         
+                                                <?php
+                                                $username = $_SESSION['username'];
+                                                $sql = mysqli_query($conn, "SELECT count(*) as total from patients where doctor_name = '$username'");
+                                                $data = mysqli_fetch_assoc($sql);
+                                                echo " <h3>" . $data['total'] . " </h3>";
+                                                ?>
                                                 <p class="text-muted mb-1 text-truncate">Total Patients</>
                                             </div>
                                         </div>
@@ -175,11 +169,7 @@ require_once "db.php";
                             </div> <!-- end widget-rounded-circle-->
                         </div> <!-- end col-->
 
-             <!-- end col-->
-
-                    <!-- end row-->
-
-                    <div class="row">
+                        <div class="row">
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
@@ -202,10 +192,7 @@ require_once "db.php";
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
                         </div>
-                    <!-- end row -->
-
-                    
-
+                        <!-- end row -->
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
@@ -675,17 +662,17 @@ require_once "db.php";
     <script src="assets/dashboard/assets/js/app.min.js"></script>
     <!-- Todo app -->
     <script src="assets/dashboard/assets/js/pages/jquery.todo.js"></script>
-      <!-- Vendor js -->
-      <script src="assets/js/vendor.min.js"></script>
-        
-        <!-- Chart JS -->
-        <script src="assets/libs/chart.js/Chart.bundle.min.js"></script>
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
 
-        <!-- Init js -->
-        <script src="assets/js/pages/chartjs.init.js"></script>
+    <!-- Chart JS -->
+    <script src="assets/libs/chart.js/Chart.bundle.min.js"></script>
 
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
+    <!-- Init js -->
+    <script src="assets/js/pages/chartjs.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
 
 </body>
 

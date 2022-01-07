@@ -111,7 +111,7 @@
                                                     <div class="col-12">
                                                         <div class="col-12">
                                                             <div class="mb-3">
-                                                                <label class="form-label">PID</label>
+                                                                <!-- <label class="form-label">PID</label> -->
                                                                 <input class="form-control" type="hidden"class="pid" name="pid" value=""  id ="pid"  disabled />
                                                                 <!-- <INPUT class="form-control patient-id" TYPE=TEXT NAME="ACCOUNT" id="event-title" VALUE="" MAXLENGTH=16 SIZE=16 disabled> -->
                                                                 <div class="invalid-feedback">Please provide a valid patient id</div>

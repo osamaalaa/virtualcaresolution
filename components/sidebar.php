@@ -15,18 +15,24 @@
          </li>
 
          <li class="menu-title mt-2">Apps</li>
-         <li>
+         <!-- <li>
              <a href="calendar.php">
                  <i data-feather="calendar"></i>
                  <span> Calendar </span>
              </a>
-         </li>
+         </li> -->
 
+         <li>
+             <a href="appointments.php">
+                 <i data-feather="calendar"></i>
+                 <span> Appointments </span>
+             </a>
+         </li>
          <!---------------------------------------------------------------------------->
 
          <li>
              <a href="sessions.php">
-                 <i data-feather="calendar"></i>
+                 <i data-feather="video"></i>
                  <span> Sessions </span>
              </a>
          </li>

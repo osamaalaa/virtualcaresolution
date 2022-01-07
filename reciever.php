@@ -63,18 +63,16 @@ if (isset($_GET['token']) && isset($_GET['uid']) && isset($_GET['channel'])) {
             <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            
                             <div class="hero-content">
-                            <p style="margin: auto;
-                                        padding: 15px;
-                                        color: white;"> I consent to use to my camera + microphone for telemedecine platform by YCG </p>
-                                        <p style="margin: auto;
-                                        padding: 15px;
-                                        color: white;font-size: larger;"> أوافق على استخدام الكاميرا + الميكروفون لمنصة الطب عن بُعد بواسطة مجموعة ياس الطبية</p>
-
+                                <p style="margin: auto;
+                                    padding: 15px;
+                                    color: white;"> I consent to use to my camera + microphone for telemedecine platform by YCG </p>
+                                      <p style="margin: auto;
+                                    padding: 15px;
+                                    color: white;font-size: larger;"> أوافق على استخدام الكاميرا + الميكروفون لمنصة الطب عن بُعد بواسطة مجموعة ياس الطبية</p>
                                 <ul class="nav">
-                                    <li><a class="main-btn" href="#"  id="join">Yes / Join <i class="fas fa-angle-right"></i></a></li>
-                                    <li><a class="main-btn" href="#"  id="leave">No / Leave<i class="fas fa-sign-out"></i></a></li>
+                                    <li><a class="main-btn" href="#"  id="join">JOIN <i class="fas fa-angle-right"></i></a></li>
+                                    <li><a class="main-btn" href="#"  id="leave">LEAVE<i class="fas fa-sign-out"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -96,23 +94,6 @@ if (isset($_GET['token']) && isset($_GET['uid']) && isset($_GET['channel'])) {
             <script src="./vendor/materialize.min.js"></script>
             <script src="AgoraRTCSDK-3.3.1.js"></script>
             <script>
-                
-            document.getElementById('b4').onclick = function(){
-                swal({
-                    title: "Are you sure?",
-                    text: "You will not be able to recover this imaginary file!",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: '#DD6B55',
-                    confirmButtonText: 'Yes, delete it!',
-                    closeOnConfirm: false,
-                    //closeOnCancel: false
-                },
-                function(){
-                    swal("Deleted!", "Your imaginary file has been deleted!", "success");
-                });
-            };
-
                 var token = "<?php echo $request['token']; ?>";
                 var uid = <?php echo $request['uid']; ?> + 1;
                 var channel = "<?php echo $request['channel'] ?>";

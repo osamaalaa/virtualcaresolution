@@ -96,9 +96,7 @@ include_once 'db.php'; ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
-
                                                 <?php
-
                                                 $sql = $conn->query("SELECT pid , pname , cheifcomplaint , mri , sickleave , wfh , DATE(created_at) created_at  FROM patients where doctor_name='" . $_SESSION['username'] . "' ") or die($conn->error);
                                                 if ($sql->num_rows) {
                                                     while ($row = $sql->fetch_assoc()) {
@@ -117,106 +115,11 @@ include_once 'db.php'; ?>
                                                     }
                                                 }
                                                 ?>
-
                                             </tbody>
-
                                         </table>
-
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <!--<button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Add Patient</button>-->
-
-
-                                        </div>
-
-
-                                        <!-- end col -->
-
-                                    </div> <!-- end row -->
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
-
-                            <!-- Add New Event MODAL -->
-                            <div class="modal fade" id="event-modal" tabindex="-1">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            <h5 class="modal-title" id="modal-title">Patient Name</h5>
-                                        </div>
-                                        <div class="modal-body px-4 pb-4 pt-0">
-                                            <form class="needs-validation" method="post" name="event-form" id="form-event" novalidate>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">PID</label>
-                                                                <!-- <input class="form-control" type="text" name="pid" value="110"  disabled /> -->
-                                                                <INPUT class="form-control patient-id" TYPE=TEXT NAME="ACCOUNT" id="event-title" VALUE="" MAXLENGTH=16 SIZE=16 disabled>
-                                                                <div class="invalid-feedback">Please provide a valid patient id</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Patients Name</label>
-                                                            <input class="form-control" type="text" id="pname" name="title" id="event-title" required />
-                                                            <div class="invalid-feedback">Please provide a valid patient name</div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">MRI </label>
-                                                                <input class="form-control" type="text" id="mri" name="mri" id="event-title" required />
-                                                                <div class="invalid-feedback">Please provide a valid MRI </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Cheif complaint</label>
-                                                                <textarea class="form-control" id="cheifcomplaint" name="cheifcomplaint" rows="3"></textarea>
-
-                                                                <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Sick Leave Recommendation </label>
-                                                                <!-- <input class="form-control"  type="text" name="sickleave" id="event-title" required /> -->
-                                                                <input id="toggle-on" id="sickleave" value="yes" name="sickleave" type="radio">
-                                                                <label class="form-label" for="toggle-on">Yes</label>
-                                                                <input id="toggle-off" id="sickleave" value="no" name="sickleave" type="radio">
-                                                                <label class="form-label" for="toggle-off">No</label>
-                                                                <div class="invalid-feedback">Please provide a valid Sick Leave Recommendation </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">WFH Recomendation </label>
-                                                                <input id="toggle-on" id="wfh" name="wfh" value="yes" type="radio">
-                                                                <label class="form-label" for="toggle-on">Yes</label>
-                                                                <input id="toggle-off" id="wfh" name="wfh" value="no" type="radio">
-                                                                <label class="form-label" for="toggle-off">No</label>
-                                                                <div class="invalid-feedback">Please provide a valid WFH Recommendation </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-2">
-                                                        <div class="col-md-6 col-4">
-                                                            <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
-                                                            <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
-                                                        </div>
-                                                        <div class="col-md-6 col-8 text-end">
-                                                            <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-success" id="btn-save-patient">Save</button>
-                                                        </div>
-                                                    </div>
-                                            </form>
-                                        </div>
-                                    </div> <!-- end modal-content-->
-                                </div> <!-- end modal dialog-->
-                            </div>
-                            <!-- end modal-->
                         </div>
                         <!-- end col-12 -->
                     </div> <!-- end row -->

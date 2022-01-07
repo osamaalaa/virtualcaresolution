@@ -15,7 +15,7 @@
 	<link rel="icon" type="image/png" href="assets/images/favicon.ico">
 
 	<!-- Page Title -->
-	<title>Contact Us | Virtual Care Solutions</title>
+	<title>Contact Us | Virtual Care Solution</title>
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900,200' rel='stylesheet' type='text/css'>
@@ -57,9 +57,7 @@
 						<li><a href="https://hr.daspqw.com/" target="_blank">HxM</a></li>
 					</ul>
 				</li>
-				<li class="mobile-menu-item">
-					<a href="blog-full-width.html" class="dropdown">Doctors</a>
-				</li>
+				
 				<li class="mobile-menu-item">
 					<a href="#" class="dropdown">My Account</a>
 					<ul class="mobile-submenu">
