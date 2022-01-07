@@ -1,7 +1,7 @@
 <?php 
 
-include 'db.php';
-
+require_once "db.php";
+include "src/gaurd.php"; 
 $id = $_POST['id'];
 
 $sql = "DELETE FROM tasks WHERE id='$id'";
