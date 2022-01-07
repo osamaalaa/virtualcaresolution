@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 require_once "db.php";
+
 ?>
 <head>
 
@@ -227,7 +228,7 @@ require_once "db.php";
                             
                             <div class="inputFields">
                                 <input type="text" id="taskValue" placeholder="Enter a task.">
-                                <button type="submit" id="addBtn" class="btn"><i class="fa fa-plus"></i></button>
+                                <button type="submit" id="addBtn" class="btn" ><i class="fa fa-plus"></i></button>
                             </div>
 		<div class="content">
 			<ul id="tasks">
@@ -824,26 +825,7 @@ require_once "db.php";
         <script src="assets/js/app.min.js"></script>
         
         <!-- todo app -->
-        <script>
-                        $(document).on('submit','#todoForm', function(event){
-                var formData = $(this).serialize();
-                $.ajax({
-                        url: "action.php",
-                        method: "POST",              
-                        data: formData,
-                        dataType:"json",
-                        success: function(data) {     
-                            var html = $("#taskHTML").html();					
-                            html = html.replace(/TO_DO_ID/g, data.id);
-                            html = html.replace(/TASK_NAME/g, data.task);					
-                            $("#sortable").append(html).fadeIn('slow');
-                            $('#todo').val('');
-                            countTodos();
-                        }
-                });		
-                return false;
-            });
-        </script>
+       
 </body>
 
 </html>
