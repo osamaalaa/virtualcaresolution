@@ -56,7 +56,7 @@
          <!-- --------------------------------------------------------------------------->
 <!--          
          <li>
-             <a href="http://localhost/new-vcs/">
+             <a href="https://virtualcaresolution.de/">
                  <i data-feather="message-square"></i>
                  <span> Chat </span>
              </a>

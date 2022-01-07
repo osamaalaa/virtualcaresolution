@@ -5,6 +5,7 @@
     ?>
 
 <head>
+
     <meta charset="utf-8" />
     <title>Dashboard | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +28,7 @@
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <!-- body start -->
@@ -71,6 +73,8 @@
                     <p class="text-muted">Admin Head</p>
                 </div>
                 <?php include './components/sidebar.php'; ?>
+
+
                 <div class="clearfix"></div>
 
             </div>
@@ -160,6 +164,9 @@
                                                 $sql = mysqli_query($conn, "SELECT count(*) as total from patients where doctor_name = '$username'");
                                                 $data = mysqli_fetch_assoc($sql);
                                                 echo " <h3>" . $data['total'] . " </h3>";
+
+
+
                                                 ?>
                                                 <p class="text-muted mb-1 text-truncate">Total Patients</>
                                             </div>

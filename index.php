@@ -150,7 +150,6 @@
 						<style>
 							.sample {
 								width: 80%;
-								background-color: ;
 								margin: 0;
 								padding: 0;
 
@@ -171,7 +170,7 @@
 						<section class="section" id="section2" style="width:100%;height:100%">
 							<!-- style="display:flex;flex-wrap: wrap;align-content:margin: 0 -4px 0 0;padding: 0px; center;vertical-align: middle;margin: 0 auto; border: 1px solid red;" -->
 							<!-- <div class="1video-grid" id="1video" > -->
-							<div id="video" class="1videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; center;vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
+							<div id="video" class="1videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
 								<div id="local_stream" class="sample 1video- placeholder"></div>
 								<!--<div id="local_video_info" class="sample 1video- profile hide"    ></div>-->
 								<div id="video_autoplay_local" class="sample 1autoplay- fallback hide"></div>
