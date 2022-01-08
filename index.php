@@ -179,7 +179,7 @@
 							</div>
 
 							<div class="cover-titles">
-								<div class="align-left">
+								<div class="align-left" style="margin: auto;padding: 100px;">
 									<a href="#" id="join" class="btn">
 										<span>Join</span>
 										<i class="fa fa-arrow-right"></i>

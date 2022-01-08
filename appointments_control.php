@@ -1,6 +1,8 @@
+
+
 <?php
-  require_once "../db.php";
-  include "./src/gaurd.php"; 
+  require_once "db.php";
+  include "src/gaurd.php"; 
   
 $username = $_SESSION['username'];
 $sql = "SELECT * FROM appointments WHERE doctor_name = '$username' ORDER BY appointments_id";

@@ -23,18 +23,8 @@
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css"/> -->
-  
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
- 
-        alert("hi");
-        $('#example').DataTable();
-    });
-</script>
+    <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
+
 
 </head>
 
@@ -57,8 +47,8 @@
                         <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown">Geneva Kennedy</a>
                         <div class="dropdown-menu user-pro-dropdown">
 
-                           <!-- item-->
-                           <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <i class="fe-user me-1"></i>
                                 <span>My Account</span>
                             </a>
@@ -79,7 +69,7 @@
                     </div>
                     <!-- <p class="text-muted">Admin Head</p> -->
                 </div>
- 
+
                 <?php include './components/sidebar.php'; ?>
 
                 <div class="clearfix"></div>
@@ -168,22 +158,22 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
-                                                            <div class="mb-3"> 
-                                                                <label class="form-label">Time</label>
-                                                                <input type="time" class="form-control" name="time" id="time"  name="time" />
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Time</label>
+                                                            <input type="time" class="form-control" name="time" id="time" name="time" />
 
-                                                                <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
-                                                            </div>
+                                                            <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
+                                                        </div>
                                                     </div>
                                                     <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="form-label">Notes</label>
-                                                                <textarea class="form-control" name="notes" id="notes"  name="notes" rows="3"></textarea>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Notes</label>
+                                                            <textarea class="form-control" name="notes" id="notes" name="notes" rows="3"></textarea>
 
-                                                                <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
-                                                            </div>
+                                                            <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
+                                                        </div>
                                                     </div>
-                                                    <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>"> 
+                                                    <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
                                                 </div>
                                                 <div class="row mt-2">
                                                     <div class="col-md-6 col-4">
@@ -203,14 +193,37 @@
                         </div>
                         <!-- end col-12 -->
                     </div> <!-- end row -->
-                 
+                    <div class="row">
+                        <div class="col-12">
 
+                            <div class="card">
+                                <div class="card-body">
+                                     <div class="table-responsive" id="appointments-container">
+                                     <table id="appointment-table" class="display">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Patient Name</th>
+                                                            <th>Phone Number</th>
+                                                            <th>Notes</th>
+                                                            <th>Date</th>
+                                                            <th>Time</th>
+                                                        </tr>
+                                                    </thead>
+                                                    </table>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div> <!-- container -->
 
             </div> <!-- content -->
 
+
+
             <!-- Footer Start -->
-              <?php include './components/footer.php'; ?>
+            <?php include './components/footer.php'; ?>
             <!-- end Footer -->
 
         </div>
@@ -238,8 +251,35 @@
 
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
-
-
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/js/dataTables.buttons.min.js"></script>
+     <script>
+   $(document).ready(function () {  
+            $('#appointment-table').DataTable({  
+                "ajax": {  
+                    "url": "appointments_control.php",  
+                    "type": "GET",  
+                    "datatype": "json" ,
+                    "dataSrc": "",
+                    // "serverSide": "true",
+                    dom: 'Bfrtip',
+            buttons: [
+                'pdf',
+                'pdfHtml5'
+            ]
+                },  
+                "columns": [  
+                    { "data": "appointments_id" },  
+                    { "data": "patient_name" }, 
+                    { "data": "phone_number" }, 
+                    { "data": "notes" },  
+                    { "data": "date" }, 
+                    { "data": "time" }
+               
+                ]  
+            });  
+        });     
+    </script>
 </body>
 
 </html>

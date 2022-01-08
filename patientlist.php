@@ -8,7 +8,7 @@ include_once 'db.php'; ?>
     <title>Patients Portal | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
-    <meta content="Coderthemes" name="author" />
+    <meta content="PQW" name="PQW" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="./assets/images/fav.ico">
@@ -25,7 +25,7 @@ include_once 'db.php'; ?>
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-  
+    <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
 
 </head>
 
@@ -33,7 +33,7 @@ include_once 'db.php'; ?>
     <div id="wrapper">
         <?php include './components/header.php'; ?>
 
-        <!-- ========== Left Sidebar Start ========== -->
+        <!-- ========== Left Sidebar Start ========== --> 
         <div class="left-side-menu">
             <div class="h-100" data-simplebar>
                 <?php include './components/sidebar.php'; ?>
@@ -78,8 +78,8 @@ include_once 'db.php'; ?>
                                 <div class="card-body">
 
                                     <div class="">
-                                        <h3>Patient List for - <?php echo $_SESSION['username']; ?></h3>
-                                        <table id="grid-basic" class="table table-condensed table-hover table-striped" style="width:100%;">
+                                        <h3>Patients | <?php echo $_SESSION['username']; ?></h3>
+                                        <table id="patients-table" class="table table-condensed table-hover table-striped" style="width:100%;">
                                             <thead>
                                                 <tr>
                                                     <!-- <th data-column-id="id" >Project #</th> -->
@@ -90,7 +90,7 @@ include_once 'db.php'; ?>
                                                     <th data-column-id="sickleave">Sick Leave</th>
                                                     <th data-column-id="wfh">WFH</th>
                                                     <th data-column-id="wfh">Date</th>
-                                                    <th></th>
+                                                    <!-- <th></th> -->
 
 
                                                 </tr>
@@ -108,8 +108,7 @@ include_once 'db.php'; ?>
                                                                         <td>' . $row['mri'] . '</td>
                                                                         <td>' . $row['sickleave'] . '</td>
                                                                         <td>' . $row['wfh'] . '</td>  
-                                                                        <td>' . $row['created_at'] . '</td>                       
-                                                                        <td></td>
+                                                                        <td>' . $row['created_at'] . '</td>  
                                                                     </tr>
                                                                     ';
                                                     }
@@ -154,7 +153,14 @@ include_once 'db.php'; ?>
 
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
-
+    <script src="assets/dashboard/assets/js/app.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script>
+        // $.noConflict();
+        $(document).ready(function() {
+            $('#patients-table').DataTable();
+        });
+    </script>
     <!-- ====================================================================================== -->
     <script>
         function randomNumber(len) {
