@@ -5,7 +5,7 @@ include "src/gaurd.php";
 $username = $_SESSION['username'];
 $task = $_POST['task'];
 
-if ($task != ""){
+if ($task != " " ){
 $sql = "INSERT INTO tasks (title, doctor_name, createdAt) VALUES ('$task','$username',now())";
 $result = mysqli_query($conn, $sql);
 }
