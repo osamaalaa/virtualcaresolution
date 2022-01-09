@@ -1,8 +1,9 @@
 <?php 
 
 include 'db.php';
-
-$sql = "SELECT * FROM tasks";
+include "src/gaurd.php"; 
+$username = $_SESSION['username'];
+$sql = "SELECT * FROM tasks where doctor_name  = '$username' ";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
