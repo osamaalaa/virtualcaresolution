@@ -1,3 +1,14 @@
+
+<head>
+    <meta charset="utf-8" />
+    <title>VCS | Virtual Care Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="PQW IT Germany for Yas Clinic Group." name="description" />
+    <meta content="Yas Clinic Group" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+</head>
 <style>
     @import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
 
@@ -278,7 +289,7 @@
 </style>
 <div class='login'>
     <div>
-        <img src="http://localhost/new-vcs/assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
+        <img src="https://virtualcaresolution.de/assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
     </div>
     <div class='login_title'>
         <span>Login to your account</span>

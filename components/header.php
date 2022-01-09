@@ -3,47 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <title>Dashboard | Virtual Care Solutions VCS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="./assets/images/fav.ico">
-
-    <!-- Plugins css -->
-    <link href="../assets/dashboard/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/dashboard/assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
-
-    <!-- App css -->
-    <link href="../assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
-    <link href="../assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
-
-    <link href="../assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-    <link href="../assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
-
-    <!-- icons -->
-    <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <script src="../assets/dashboard/assets/js/vendor.min.js"></script>
-
-    <!-- Plugins js-->
-    <script src="../assets/dashboard/assets/libs/flatpickr/flatpickr.min.js"></script>
-    <script src="../assets/dashboard/assets/libs/apexcharts/apexcharts.min.js"></script>
-
-    <script src="../assets/dashboard/assets/libs/selectize/js/standalone/selectize.min.js"></script>
-
-    <!-- Dashboar 1 init js-->
-    <script src="../assets/dashboard/assets/js/pages/dashboard-1.init.js"></script>
-
-    <!-- App js-->
-    <script src="../assets/dashboard/assets/js/app.min.js"></script>
-    <!-- Todo app -->
-    <script src="../assets/dashboard/assets/js/pages/jquery.todo.js"></script>
-
-</head>
-
  <!-- Topbar Start -->
          <div class="navbar-custom">
             <div class="container-fluid">
@@ -240,4 +199,3 @@
             </div>
         </div>
         <!-- end Topbar -->
-

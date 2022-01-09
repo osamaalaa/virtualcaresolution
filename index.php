@@ -11,12 +11,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="vcs,yasclinic,yasclinicgroup,virtualcaresolutions" />
 	<meta name="description" content="YAS Clinic Group , VCS" />
-
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="assets/images/fav.ico">
 
 	<!-- Page Title -->
-	<title>VCS | Virtual Care Solutions</title>
+	<title>VCS | Virtual Care Solution</title>
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900,200' rel='stylesheet' type='text/css'>
@@ -44,12 +43,10 @@
 	<main class="container">
 		<!-- Mobile Menu -->
 		<div class="mobile-menu-overlay transition">
-			<div class="mobile-menu">
+			<div class="mobile-menu" style="display:flex;align-items: center;">
 				<i class="fa fa-times fa-2x"></i>
 			</div>
 			<ul class="mobile-menu-content">
-
-
 				<li class="mobile-menu-item">
 					<a href="#">Applications</a>
 					<!-- Drop Down -->
@@ -66,7 +63,7 @@
 								<a id="username" style="display: none;"><?php echo $_SESSION["username"] ?></a>
 								<li><a href="logout.php">Logout <i class="fa fa-sign-out"></i></a></li>
 							</ul>
-						</li>
+				</li>
 				<li class="mobile-menu-item">
 					<a href="contactus.php">contact</a>
 				</li>
@@ -76,16 +73,15 @@
 
 		<!-- Header -->
 		<header class="transition header fixed">
-			<div class="main-menu">
+			<div class="main-menu" style="display:flex;">
 				<div id="logo">
 					<a href="index.php">
-						<img src="assets/images/yasLogo.png" alt="yas-clinic-group">
+						<img src="assets/images/yasLogo.png" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
 					</a>
 				</div>
 				<!-- Menu -->
 				<nav id="menu" class="col-md-10 col-sm-10" style="display:inline; margin-left:auto;">
 					<ul class="hidden-xs">
-
 						<li>
 							<a href="#">Applications</a>
 							<!-- Drop Down -->
@@ -116,93 +112,111 @@
 		<!-- /Header -->
 
 		<!-- Content -->
-		<!-- <section class="content fullpage transition"> -->
-		<form action="javascript:void(0)" method="post" id="ajax-form">
-			<!-- Content -->
-			<section class="content fullpage transition">
-				<form action="javascript:void(0)" method="post" id="ajax-form">
-					<!-- Section One -->
-					<section class="section" id="section1" style="width:100%;height:100%">
-						<div class="darker"></div>
-						<div class="border">
-							<div class="frames">
-								<div></div>
-								<div></div>
-								<div></div>
-								<div></div>
-							</div>
-							<div class="corners">
-								<div></div>
-								<div></div>
-							</div>
-						</div>
+		<section class="content fullpage transition">
+			<form action="javascript:void(0)" method="post" id="ajax-form">
+				<!-- Content -->
+				<section class="content fullpage transition">
+					<form action="javascript:void(0)" method="post" id="ajax-form">
+						<!-- Section One -->
+						<section class="section" id="section1">
+							<!-- <div class="darker"></div>
+							<div class="border">
+								<div class="frames">
+									<div></div>
+									<div></div>
+									<div></div>
+									<div></div>
+								</div>
+								<div class="corners">
+									<div></div>
+									<div></div>
+								</div>
+							</div> -->
 
-						<div class="cover-titles">
-							<div class="align-left">
-								<h1 class="title">Communicate</h1>
-								<p style="font-size: 34px;">For the future</p>
-							</div>
+							<div class="cover-titles">
+								<div class="align-left">
+									<h1 class="title">Communicate</h1>
+									<p style="font-size: 34px;">For the future</p>
 
-						</div>
-						</div>
-
-						</div>
-						<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
-					</section>
-					<style>
-				
-					</style>
-
-					<section class="section" id="section2" style="width:100%;height:100%">
-						<!-- style="display:flex;flex-wrap: wrap;align-content:margin: 0 -4px 0 0;padding: 0px; center;vertical-align: middle;margin: 0 auto; border: 1px solid red;" -->
-						<!-- <div class="1video-grid" id="1video" > -->
-						<div id="video" class="1videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
-							<div id="local_stream" class="sample 1video- placeholder"></div>
-							<!--<div id="local_video_info" class="sample 1video- profile hide"    ></div>-->
-							<div id="video_autoplay_local" class="sample 1autoplay- fallback hide"></div>
-
-							<!-- </div> -->
-						</div>
-
-						<div class="cover-titles">
-							<div class="align-left">
-								<a href="#" id="join" class="btn">
-									<span>Join</span>
-									<i class="fa fa-arrow-right"></i>
-								</a>
-
-								<a onclick="Copy()" href="#" class="btn" onclick="Copy()">
-									<span>COPY LINK</span>
-									<i class="fa fa-arrow-right"></i>
-								</a>
-
-								<a href="#" type="submit" class="btn" name="leave" id="leave">
-									<span>LEAVE</span>
-									<i class="fa fa-sign-out"></i>
-								</a>
-
-								<div id="remainingTime" name="timer" class="timer">
 								</div>
 
+							</div>
+							</div>
 
 							</div>
 
-						</div>
-						<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
-					</section>
-				</form>
-				<!-- /Section One -->
+							<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
+						</section>
+						<style>
+							.sample {
+								width: 80%;
+								margin: 0;
+								padding: 0;
 
-				<!-- <a href="https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/" />		 -->
+							}
 
-			</section>
-			<!-- /Content -->
+							@media only screen and (max-width: 700px) {
+								body {
+									margin: 0;
+									padding: 0;
+								}
 
-			<!-- Footer -->
-			<footer id="footer" class="fixed white">
-				<p>© 2022 Copyright by.PQW - IT Managment consulting - Germany for YAS Clinic Group.</p>
-			</footer>
-			<!-- /Footer -->
+								.sample {
+									width: 100%;
+								}
+							}
+						</style>
+
+						<section class="section" id="section2" style="width:100%;height:100%">
+							<!-- style="display:flex;flex-wrap: wrap;align-content:margin: 0 -4px 0 0;padding: 0px; center;vertical-align: middle;margin: 0 auto; border: 1px solid red;" -->
+							<!-- <div class="1video-grid" id="1video" > -->
+							<div id="video" class="1videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
+								<div id="local_stream" class="sample 1video- placeholder"></div>
+								<!--<div id="local_video_info" class="sample 1video- profile hide"    ></div>-->
+								<div id="video_autoplay_local" class="sample 1autoplay- fallback hide"></div>
+
+								<!-- </div> -->
+							</div>
+
+							<div class="cover-titles">
+								<div class="align-left" style="margin: auto;padding: 100px;">
+									<a href="#" id="join" class="btn">
+										<span>Join</span>
+										<i class="fa fa-arrow-right"></i>
+									</a>
+
+									<a onclick="Copy()" href="#" class="btn" onclick="Copy()">
+										<span>COPY LINK</span>
+										<i class="fa fa-arrow-right"></i>
+									</a>
+
+									<a href="#" type="submit" class="btn" name="leave" id="leave">
+										<span>LEAVE</span>
+										<i class="fa fa-sign-out"></i>
+									</a>
+
+									<div id="remainingTime" name="timer" class="timer">
+									</div>
+
+
+								</div>
+
+							</div>
+							<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
+						</section>
+					</form>
+					<!-- /Section One -->
+
+
+ 
+				</section>
+				<!-- /Content -->
+
+				<!-- Footer -->
+				<footer id="footer" class="fixed white">
+					<p>© 2022 Copyright by.PQW - IT Managment consulting - Germany for YAS Clinic Group.</p>
+				</footer>
+				<!-- /Footer -->
 
 	</main>
 	<!-- /Container -->
@@ -220,12 +234,7 @@
 	<script type="text/javascript" src="assets/js/photoswipe.min.js"></script>
 	<script type="text/javascript" src="assets/js/photoswipe-ui-default.min.js"></script>
 	<!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-	<!-- START Smith.ai YCG Chat -->
-	<script type="text/javascript">
-		window.SMITH = {}, window.SMITH.smithChatAccount = "ec95fb4d-da0c-43d2-8145-d3f8884bd3fe", window.SMITH.baseUrl = "https://app.smith.ai";
-		var script = document.createElement("script");
-		script.async = !0, script.type = "text/javascript", script.src = "https://app.smith.ai/chat/widget-latest.js", document.getElementsByTagName("HEAD").item(0).appendChild(script);
-	</script>
+
 	<!-- Main js -->
 	<script src="assets/js/main.js"></script>
 	<script src="vendor/materialize.min.js"></script>
@@ -256,6 +265,7 @@
 		});
 
 		function Copy() {
+			console.log("Oosamsamsadasd")
 			Toast.notice("Link Copied to clipboard!");
 			var copyText = "https://virtualcaresolution.de/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
@@ -336,35 +346,32 @@
 		}
 
 		function addView(id, show) {
-
 			if (!$("#" + id)[0]) {
 				$("<div/>", {
 					id: "remote_video_panel_" + id,
-					class: "video-view",
+					class: "video-view sample",
 				}).appendTo("#video")
 
 				$("<div/>", {
 					id: "remote_video_" + id,
-					class: "video-placeholder",
+					class: "video-placeholder sample",
 				}).appendTo("#remote_video_panel_" + id)
 
 				$("<div/>", {
 					id: "remote_video_info_" + id,
-					class: "video-profile " + (show ? "" : "hide"),
+					class: "video-profile " + (show ? "" : "hide sample"),
 				}).appendTo("#remote_video_panel_" + id)
 
 				$("<div/>", {
 					id: "video_autoplay_" + id,
-					class: "autoplay-fallback hide",
+					class: "autoplay-fallback hide sample",
 				}).appendTo("#remote_video_panel_" + id)
 			}
-			console.log("Count", id, show)
-
 		}
 
 		function removeView(id) {
 			if ($("#remote_video_panel_" + id)[0]) {
-				$("#remote_video_panel_" + id).remove()
+				// $("#remote_video_panel_" + id).remove()
 			}
 		}
 
@@ -778,7 +785,6 @@
 
 					clearInterval(setIntervalId);
 				}
-				console.log("osama")
 			}, 1000);
 		}
 

@@ -64,6 +64,12 @@ if (isset($_GET['token']) && isset($_GET['uid']) && isset($_GET['channel'])) {
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-content">
+                                <p style="margin: auto;
+                                    padding: 15px;
+                                    color: white;"> I consent to use to my camera + microphone for telemedecine platform by YCG </p>
+                                      <p style="margin: auto;
+                                    padding: 15px;
+                                    color: white;font-size: larger;"> أوافق على استخدام الكاميرا + الميكروفون لمنصة الطب عن بُعد بواسطة مجموعة ياس الطبية</p>
                                 <ul class="nav">
                                     <li><a class="main-btn" href="#"  id="join">JOIN <i class="fas fa-angle-right"></i></a></li>
                                     <li><a class="main-btn" href="#"  id="leave">LEAVE<i class="fas fa-sign-out"></i></a></li>

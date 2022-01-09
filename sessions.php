@@ -1,15 +1,12 @@
-
-
- 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" /> 
+    <meta charset="utf-8" />
     <title>Sessions | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
-    <meta content="Coderthemes" name="author" />
+    <meta content="Yas Clinic Group" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="./assets/images/fav.ico">
@@ -27,18 +24,40 @@
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
 </head>
 
+<style>
+    .paging-nav {
+        text-align: right;
+        padding-top: 2px;
+    }
+
+    .paging-nav a {
+        margin: auto 1px;
+        text-decoration: none;
+        display: inline-block;
+        padding: 1px 7px;
+        background: #91b9e6;
+        color: white;
+        border-radius: 3px;
+    }
+
+    .paging-nav .selected-page {
+        background: #187ed5;
+        font-weight: bold;
+    }
+</style>
 <!-- body start -->
 
 <body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
 
-    <!-- Begin page --> 
-
+    <!-- Begin page -->
     <div id="wrapper">
         <?php include './components/header.php'; ?>
-       
         <!-- ========== Left Sidebar Start ========== -->
         <div class="left-side-menu">
             <div class="h-100" data-simplebar>
@@ -70,16 +89,14 @@
 
                         </div>
                     </div>
-                    <p class="text-muted">Admin Head</p>
                 </div>
                 <?php include './components/sidebar.php'; ?>
-               
+
 
                 <div class="clearfix"></div>
 
             </div>
             <!-- Sidebar -left -->
-
         </div>
         <!-- Left Sidebar End -->
 
@@ -116,91 +133,47 @@
                         </div>
                     </div>
                     <!-- end page title -->
-                    </div>
+                </div>
 
-                    <!-- end row-->
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Export PDF</a>
-                                            <!-- item-->
-                                            <!-- <a href="javascript:void(0);" class="dropdown-item">Export Report</a> -->
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Export Excel</a>
-                                        </div>
-                                    </div>
-
-                                    <!-- <h4 class="header-title mb-3">Top 5 Users Balances</h4> -->
-
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless table-hover table-nowrap table-centered m-0">
-
-                                            <thead class="table-light">
-                                                <tr>
-                                                    <th colspan="2">Name Of the doctor</th>
-                                                    <th>Duration</th>
-                                                    <th>Session Date</th>
-                                                    <!-- <th>Reserved in orders</th>
-                                                    <th>Action</th> -->
-                                                </tr>
-                                            </thead>
-                                          
-                                            <tbody>
-                                                <tr>
-                                                    <td style="width: 36px;">
-                                                        <img src="<?php echo $_SESSION["imgpath"]; ?>" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                                                    </td>
-
-                                                    <td>
-                                                        <h5 class="m-0 fw-normal" id="doctor_name"></h5>
-                                                        <p class="mb-0 text-muted"><small>YAS Clinic Group</small></p>
-                                                    </td>
-
-                                                    <td>
-                                                       <span id ="session_time"></span>
-                                                    </td>
-
-                                                    <td>
-                                                          <span id ="created_at"></span>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                         
-                                        </table>
-                                        <span id="session_time"></span>
+                <!-- end row-->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="dropdown float-end">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Export PDF</a>
+                                        <a href="javascript:void(0);" class="dropdown-item">Export Excel</a>
                                     </div>
                                 </div>
+                                <div>
+                                    <div class="table-responsive" id="table-container"></div>
+
+                                </div>
                             </div>
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
+                        </div>
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
 
-                </div> <!-- container -->
+            </div> <!-- container -->
 
-            </div> <!-- content -->
+        </div> <!-- content -->
 
-            <?php include './components/footer.php'; ?>
+        <?php include './components/footer.php'; ?>
 
-        </div>
+    </div>
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
 
     </div>
-    <!-- END wrapper -->
-
-    <!-- Right Sidebar -->
-
 
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
@@ -219,26 +192,23 @@
 
     <!-- App js-->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
-    <!-- Todo app --> 
+
+    <!-- Todo app -->
     <script src="assets/dashboard/assets/js/pages/jquery.todo.js"></script>
     <script>
-
-        $(document).ready(function($){ 
+        $(document).ready(function($) {
             $.ajax({
-                type:"POST",
+                type: "GET",
                 url: "get_sessions.php",
-                dataType: 'json',
-           
-                success: function(res){
-                    $('#session_time').html(res.session_time);
-                    $('#created_at').html(res.created_at);
-                    $('#doctor_name').html(res.doctor_name);
-                    }
-            })
+                dataType: "html",
+                success: function(data) {
+                    $("#table-container").html(data);
 
-            
+                }
+            });
+
         })
-    </script>                                            
+    </script>
 
 </body>
 

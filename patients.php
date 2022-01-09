@@ -79,7 +79,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Add Patient</button>
+                                            <button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event" ><i class="mdi mdi-plus-circle-outline"></i> Add Patient</button>
 
                                             <div id="external-events">
                                                 <br>
@@ -106,70 +106,70 @@
                                             <h5 class="modal-title" id="modal-title">Patient Name</h5>
                                         </div>
                                         <div class="modal-body px-4 pb-4 pt-0">
-                                            <form class="needs-validation" method="post"  name="event-form" id="form-event" novalidate>
+                                            <form class="needs-validation" method="post" name="event-form" id="form-event" novalidate>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                    <div class="col-12">
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <!-- <label class="form-label">PID</label> -->
+                                                                <input class="form-control" type="hidden"class="pid" name="pid" value=""  id ="pid"  disabled />
+                                                                <!-- <INPUT class="form-control patient-id" TYPE=TEXT NAME="ACCOUNT" id="event-title" VALUE="" MAXLENGTH=16 SIZE=16 disabled> -->
+                                                                <div class="invalid-feedback">Please provide a valid patient id</div>
+                                                            </div>
+                                                        </div>
                                                         <div class="mb-3">
-                                                            <label class="form-label">PID</label>
-                                                            <!-- <input class="form-control" type="text" name="pid" value="110"  disabled /> -->
-                                                            <INPUT class="form-control patient-id" TYPE=TEXT NAME="ACCOUNT" id="event-title" VALUE="" MAXLENGTH=16 SIZE=16 disabled >
-                                                            <div class="invalid-feedback">Please provide a valid patient id</div>
+                                                            <label class="form-label">Patients Name</label>
+                                                            <input class="form-control" type="text" id="pname" name="title" id="event-title" required />
+                                                            <div class="invalid-feedback">Please provide a valid patient name</div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">MRI </label>
+                                                                <input class="form-control" type="text" id="mri" name="mri" id="event-title" required />
+                                                                <div class="invalid-feedback">Please provide a valid MRI </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Cheif complaint</label>
+                                                                <textarea class="form-control" id="cheifcomplaint" name="cheifcomplaint" rows="3"></textarea>
+
+                                                                <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Sick Leave Recommendation </label>
+                                                                <!-- <input class="form-control"  type="text" name="sickleave" id="event-title" required /> -->
+                                                                <input id="toggle-on" id="sickleave" value="yes" name="sickleave" type="radio">
+                                                                <label class="form-label" for="toggle-on">Yes</label>
+                                                                <input id="toggle-off" id="sickleave" value="no" name="sickleave" type="radio">
+                                                                <label class="form-label" for="toggle-off">No</label>
+                                                                <div class="invalid-feedback">Please provide a valid Sick Leave Recommendation </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">WFH Recomendation </label>
+                                                                <input id="toggle-on" id="wfh" name="wfh" value="yes" type="radio">
+                                                                <label class="form-label" for="toggle-on">Yes</label>
+                                                                <input id="toggle-off" id="wfh" name="wfh" value="no" type="radio">
+                                                                <label class="form-label" for="toggle-off">No</label>
+                                                                <div class="invalid-feedback">Please provide a valid WFH Recommendation </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Patients Name</label>
-                                                        <input class="form-control" type="text"id="pname" name="title" id="event-title"  required />
-                                                        <div class="invalid-feedback">Please provide a valid patient name</div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">MRI </label>
-                                                            <input class="form-control" type="text" id="mri" name="mri" id="event-title" required />
-                                                            <div class="invalid-feedback">Please provide a valid MRI </div>
-                                                        </div>
-                                                    </div>
-                                                  
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Cheif complaint</label>
-                                                            <textarea class="form-control"id="cheifcomplaint"  name="cheifcomplaint" rows="3"></textarea>
-                                                           
-                                                            <div class="invalid-feedback">Please provide a valid Cheif complaint</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">Sick Leave Recommendation </label>
-                                                            <!-- <input class="form-control"  type="text" name="sickleave" id="event-title" required /> -->
-                                                            <input id="toggle-on" id="sickleave" value="yes" name="sickleave" type="radio">
-                                                            <label class="form-label" for="toggle-on">Yes</label>
-                                                            <input id="toggle-off"  id="sickleave" value="no" name="sickleave" type="radio">
-                                                            <label class="form-label" for="toggle-off">No</label>
-                                                            <div class="invalid-feedback">Please provide a valid Sick Leave Recommendation </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label class="form-label">WFH Recomendation </label>
-                                                            <input id="toggle-on" id="wfh" name="wfh" value="yes" type="radio">
-                                                            <label class="form-label" for="toggle-on">Yes</label>
-                                                            <input id="toggle-off" id="wfh" name="wfh" value="no" type="radio">
-                                                            <label class="form-label" for="toggle-off">No</label>
-                                                            <div class="invalid-feedback">Please provide a valid WFH Recommendation </div>
-                                                        </div>
-                                                    </div>             
-                                                </div>
-                                                <div class="row mt-2">
-                                                    <div class="col-md-6 col-4">
-                                                         <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
+                                                    <div class="row mt-2">
+                                                        <div class="col-md-6 col-4">
+                                                            <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
                                                             <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
+                                                        </div>
+                                                        <div class="col-md-6 col-8 text-end">
+                                                            <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success" id="btn-save-patient">Save</button>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-6 col-8 text-end">
-                                                        <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-success" id="btn-save-patient">Save</button>
-                                                    </div>
-                                                </div>
                                             </form>
                                         </div>
                                     </div> <!-- end modal-content-->
@@ -184,7 +184,7 @@
 
             </div> <!-- content -->
             <!-- Footer Start -->
-              <?php include './components/footer.php'; ?>
+            <?php include './components/footer.php'; ?>
             <!-- end Footer -->
 
         </div>
@@ -213,64 +213,28 @@
 
     <!-- ====================================================================================== -->
     <script>
-function randomNumber(len) {
-  var randomNumber;
-  var n = '';
-
-  for (var count = 0; count < len; count++) {
-    randomNumber = Math.floor(Math.random() * 10);
-    n += randomNumber.toString();
-  }
-  return n;
-}
-
-$('.patient-id').val() = randomNumber(9);
-		function Toastify(options) {
-			M.toast({
-				html: options.text,
-				classes: options.classes
-			})
-		}
-
-		var Toast = {
-			info: (msg) => {
-				Toastify({
-					text: msg,
-					classes: "info-toast"
-				})
-			},
-			notice: (msg) => {
-				Toastify({
-					text: msg,
-					classes: "notice-toast"
-				})
-			},
-			error: (msg) => {
-				Toastify({
-					text: msg,
-					classes: "error-toast"
-				})
-			}
-		}
-
+     
         $(document).ready(function() {
- 
+
             $("#btn-save-patient").click(function() {
- 
+
                 var pname = $("#pname").val();
                 var mri = $("#mri").val();
                 var cheifcomplaint = $("#cheifcomplaint").val();
                 // var wfh = $("#wfh").val();
- 
-                if(pname==''||mri==''||cheifcomplaint=='') {
+
+                if (pname == '' || mri == '' || cheifcomplaint == '') {
                     alert("Please fill all fields.");
                     return false;
                 }
                 var sickleave = $('input[name="sickleave"]:checked').val();
                 var wfh = $('input[name="wfh"]:checked').val();
-                var doctor_name =  $("#doctor_name").val();
+                var doctor_name = $("#doctor_name").val();
                 var pid = Math.floor(100000 + Math.random() * 900000)
-                $.ajax({ 
+
+
+                console.log("pid", pid, doctor_name, wfh, sickleave, mri, cheifcomplaint, pname)
+                $.ajax({
                     type: "POST",
                     url: "models/patients.php",
                     data: {
@@ -284,16 +248,22 @@ $('.patient-id').val() = randomNumber(9);
                     },
                     cache: false,
                     success: function(data) {
-                       Toast.notice("Link Copied to clipboard!");
+                        Toast.notice("Link Copied to clipboard!");
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr);
                     }
                 });
-                 
+
             });
- 
+
         });
+        $(function() {
+            var randomnumber = Math.floor(Math.random() * 11)
+            $('.pid input[type="text"]').val(randomnumber);
+            console.log("random" ,      $('.pid input[type="text"]').val(randomnumber))
+
+            })
     </script>
 
 
