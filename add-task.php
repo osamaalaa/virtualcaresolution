@@ -6,7 +6,7 @@ $username = $_SESSION['username'];
 $task = $_POST['task'];
 
 if ($task != ""){
-$sql = "INSERT INTO tasks (title, doctor_name, created_at) VALUES ('$task','$username',now())";
+$sql = "INSERT INTO tasks (title, doctor_name, createdAt) VALUES ('$task','$username',now())";
 $result = mysqli_query($conn, $sql);
 }
 
