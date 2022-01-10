@@ -124,7 +124,7 @@ require_once "db.php";
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                                <i class="fe-heart font-22 avatar-title text-primary"></i>
+                                                <i class="fe-calendar font-22 avatar-title text-primary"></i>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -152,7 +152,7 @@ require_once "db.php";
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                                <i class="fe-user font-22 avatar-title text-success"></i>
+                                                <i class="fe-users font-22 avatar-title text-success"></i>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -180,7 +180,7 @@ require_once "db.php";
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                                                <i class="fe-user font-22 avatar-title text-success"></i>
+                                                <i class="fe-clock font-22 avatar-title text-success"></i>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -238,7 +238,7 @@ require_once "db.php";
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="header-title">Sessions</h4>
-                                        <div class="mt-10 chartjs-chart">
+                                        <div class="mt-4 chartjs-chart">
                                         <canvas id="graphCanvas1"></canvas>
                                         </div>
                                     </div> <!-- end card-body-->
@@ -401,25 +401,37 @@ require_once "db.php";
 
 			loadTasks();
 
-			// Add Task
-			$("#addBtn").on("click", function(e) {
-				e.preventDefault();
+			  // Add Task
+              $("#addBtn").on("click", function(e) {
 
-				var task = $("#taskValue").val();
 
-				$.ajax({
-					url: "add-task.php",
-					type: "POST",
-					data: {task: task},
-					success: function(data) {
-						loadTasks();
-						$("#taskValue").val(' ');
-						if (data == 0) {
-							alert("Something wrong went. Please try again.");
-						}
-					}
-				});
-			});
+                e.preventDefault();
+
+                var task = $("#taskValue").val();
+                console.log("jasim", task)
+                if (task === '' || task.length == 0) {
+                    alert("please Fill The Task!")
+                    //   break;
+
+                } else {
+                    $.ajax({
+                        url: "add-task.php",
+                        type: "POST",
+                        data: {
+                            task: task
+                        },
+                        success: function(data) {
+                            loadTasks();
+                            $("#taskValue").val('');
+                            if (data == 0) {
+                                alert("Something wrong went. Please try again.");
+                            }
+                        }
+                    });
+                }
+
+                });
+
 
 			// Remove Task
 			$(document).on("click", "#removeBtn", function(e) {
@@ -483,249 +495,7 @@ require_once "db.php";
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content pt-0">
-                <div class="tab-pane" id="chat-tab" role="tabpanel">
-
-                    <form class="search-bar p-3">
-                        <div class="position-relative">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="mdi mdi-magnify"></span>
-                        </div>
-                    </form>
-
-                    <h6 class="fw-medium px-3 mt-2 text-uppercase">Group Chats</h6>
-
-                    <div class="p-2">
-                        <a href="javascript: void(0);" class="text-reset notification-item ps-3 mb-2 d-block">
-                            <i class="mdi mdi-checkbox-blank-circle-outline me-1 text-success"></i>
-                            <span class="mb-0 mt-1">App Development</span>
-                        </a>
-
-                        <a href="javascript: void(0);" class="text-reset notification-item ps-3 mb-2 d-block">
-                            <i class="mdi mdi-checkbox-blank-circle-outline me-1 text-warning"></i>
-                            <span class="mb-0 mt-1">Office Work</span>
-                        </a>
-
-                        <a href="javascript: void(0);" class="text-reset notification-item ps-3 mb-2 d-block">
-                            <i class="mdi mdi-checkbox-blank-circle-outline me-1 text-danger"></i>
-                            <span class="mb-0 mt-1">Personal Group</span>
-                        </a>
-
-                        <a href="javascript: void(0);" class="text-reset notification-item ps-3 d-block">
-                            <i class="mdi mdi-checkbox-blank-circle-outline me-1"></i>
-                            <span class="mb-0 mt-1">Freelance</span>
-                        </a>
-                    </div>
-
-                    <h6 class="fw-medium px-3 mt-3 text-uppercase">Favourites <a href="javascript: void(0);" class="font-18 text-danger"><i class="float-end mdi mdi-plus-circle"></i></a></h6>
-
-                    <div class="p-2">
-                        <a href="javascript: void(0);" class="text-reset notification-item">
-                            <div class="d-flex align-items-start noti-user-item">
-                                <div class="position-relative me-2">
-                                    <img src="assets/dashboard/assets/images/users/user-10.jpg" class="rounded-circle avatar-sm" alt="user-pic">
-                                    <i class="mdi mdi-circle user-status online"></i>
-                                </div>
-                                <div class="overflow-hidden">
-                                    <h6 class="mt-0 mb-1 font-14">Andrew Mackie</h6>
-                                    <div class="font-13 text-muted">
-                                        <p class="mb-0 text-truncate">It will seem like simplified English.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="javascript: void(0);" class="text-reset notification-item">
-                            <div class="d-flex align-items-start noti-user-item">
-                                <div class="position-relative me-2">
-                                    <img src="assets/dashboard/assets/images/users/user-1.jpg" class="rounded-circle avatar-sm" alt="user-pic">
-                                    <i class="mdi mdi-circle user-status away"></i>
-                                </div>
-                                <div class="overflow-hidden">
-                                    <h6 class="mt-0 mb-1 font-14">Rory Dalyell</h6>
-                                    <div class="font-13 text-muted">
-                                        <p class="mb-0 text-truncate">To an English person, it will seem like simplified</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                                        <style>
-                                            .wrapper .title {
-                                                font-weight: 800;
-                                                text-align: center;
-                                                font-size: 2rem;
-                                                color: #111;
-                                            }
-
-                                            .wrapper .inputFields {
-                                                margin: 25px 0;
-                                                display: flex;
-                                                justify-content: space-between;
-                                                align-items: center;
-                                                height: 50px;
-                                            }
-
-                                            .wrapper .inputFields input[type="text"] {
-                                                border: 1px solid rgba(0, 0, 0, .3);
-                                                outline: none;
-                                                width: calc(100% - 60px);
-                                                height: 100%;
-                                                border-radius: 3px;
-                                                padding: 0 10px;
-                                                font-size: 1rem;
-                                                transition: .3s;
-                                            }
-
-                                            .wrapper .inputFields input[type="text"]:focus {
-                                                border-color: #6c5ce7;
-                                            }
-
-                                            .wrapper .inputFields button.btn {
-                                                width: 50px;
-                                                height: 100%;
-                                                background: #6c5ce7;
-                                                color: #FFF;
-                                                outline: none;
-                                                border: none;
-                                                box-shadow: 0 0 5px rgba(0, 0, 0, .1);
-                                                border-radius: 3px;
-                                                font-size: 1rem;
-                                                cursor: pointer;
-                                                opacity: .8;
-                                                transition: .3s;
-                                            }
-
-                                            .wrapper .inputFields button.btn:hover {
-                                                opacity: 1;
-                                            }
-
-                                            .wrapper .content ul li {
-                                                background: #f1f1f1;
-                                                border-radius: 3px;
-                                                margin: 8px 0;
-                                                padding: 10px 0;
-                                                border: 1px solid rgba(0, 0, 0, .1);
-                                                display: flex;
-                                                justify-content: space-between;
-                                                align-items: center;
-                                                font-size: 1rem;
-                                                position: relative;
-                                                overflow: hidden;
-                                            }
-
-                                            .wrapper .content ul li .text {
-                                                color: #111;
-                                                padding-left: 10px;
-                                            }
-
-                                            .wrapper .content ul li .icon {
-                                                width: 50px;
-                                                height: 100%;
-                                                background: #e74c3c;
-                                                position: absolute;
-                                                right: -50px;
-                                                top: 0;
-                                                color: #FFF;
-                                                display: flex;
-                                                justify-content: center;
-                                                align-items: center;
-                                                cursor: pointer;
-                                                border-radius: 0 3px 3px 0;
-                                                transition: .3s linear;
-                                            }
-
-                                            .wrapper .content ul li:hover .icon {
-                                                right: 0;
-                                            }
-
-                                            .wrapper .content .pending-text {
-                                                color: #111;
-                                                font-weight: 500;
-                                                font-size: 1rem;
-                                                margin-top: 10px;
-                                                text-transform: capitalize;
-                                            }
-                                        </style>
-                                        <script>
-                                            $(document).ready(function() {
-
-
-                                            })
-                                            $(document).ready(function() {
-                                                // Show Tasks
-                                                function loadTasks() {
-                                                    $.ajax({
-                                                        url: "show-tasks.php",
-                                                        type: "POST",
-                                                        success: function(data) {
-                                                            $("#tasks").html(data);
-                                                        }
-                                                    });
-                                                }
-
-                                                loadTasks();
-
-                                                // Add Task
-                                                $("#addBtn").on("click", function(e) {
-
-
-                                                    e.preventDefault();
-
-                                                    var task = $("#taskValue").val();
-                                                    console.log("jasim", task)
-                                                    if (task === '' || task.length == 0) {
-                                                        alert("please Fill The Task!")
-                                                        //   break;
-
-                                                    } else {
-                                                        $.ajax({
-                                                            url: "add-task.php",
-                                                            type: "POST",
-                                                            data: {
-                                                                task: task
-                                                            },
-                                                            success: function(data) {
-                                                                loadTasks();
-                                                                $("#taskValue").val('');
-                                                                if (data == 0) {
-                                                                    alert("Something wrong went. Please try again.");
-                                                                }
-                                                            }
-                                                        });
-                                                    }
-
-                                                });
-
-                                                // Remove Task
-                                                $(document).on("click", "#removeBtn", function(e) {
-                                                    e.preventDefault();
-                                                    var id = $(this).data('id');
-
-                                                    $.ajax({
-                                                        url: "remove-task.php",
-                                                        type: "POST",
-                                                        data: {
-                                                            id: id
-                                                        },
-                                                        success: function(data) {
-                                                            loadTasks();
-                                                            if (data == 0) {
-                                                                alert("Something wrong went. Please try again.");
-                                                            }
-                                                        }
-                                                    });
-                                                });
-                                            });
-                                        </script>
-                                    </div>
-                                    <!-- end row -->
-
+           
                                 </div> <!-- container -->
 
                             </div> <!-- content -->
@@ -797,16 +567,16 @@ require_once "db.php";
                 function (data)
                 {
                     console.log(data);
-                     var id = [];
+                     var pname = [];
                     var created_at = [];
 
                     for (var i in data) {
-                        id.push(data[i].id);
+                        pname.push(data[i].pname);
                         created_at.push(data[i].created_at);
                     }
 
                     var chartdata = {
-                        labels: created_at,
+                        labels: pname,
                         datasets: [
                             {
                                 label: 'Patients',
@@ -814,7 +584,7 @@ require_once "db.php";
                                 borderColor: '#46d5f1',
                                 hoverBackgroundColor: '#CCCCCC',
                                 hoverBorderColor: '#666666',
-                                data: id
+                                data: pname
                             },
                           
                         ]
@@ -858,14 +628,16 @@ require_once "db.php";
                                 hoverBackgroundColor: '#CCCCCC',
                                 hoverBorderColor: '#666666',
                                 data: session_id
-                            },
+                            }],
+                           
                           
-                        ]
+                          
+                        
                     };
                     var graphTarget = $("#graphCanvas1");
 
                     var barGraph = new Chart(graphTarget, {
-                        type: 'bubble',
+                        type: 'line',
                         data: chartdata
                     });
                 });
@@ -876,7 +648,7 @@ require_once "db.php";
         </script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
