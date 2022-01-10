@@ -5,7 +5,7 @@ include "db.php";
 include "src/guard.php";
 $username = $_SESSION['username'];
 
-$sqlQuery = "SELECT session_id,created_at FROM sessions";
+$sqlQuery = "SELECT session_id,created_at FROM sessions where doctor_name='$username'";
 
 $result = mysqli_query($conn,$sqlQuery);
 
