@@ -18,14 +18,11 @@ if (mysqli_num_rows($result) > 0) {
 
 <?php
     }
-<<<<<<< HEAD
-    echo '<div class="pending-text">You have ' . mysqli_num_rows($result) . ' pending tasks.</div>';
+    echo '<div class="pending-text">You have ' . mysqli_num_rows($result) . ' pending Request.</div>';
 } else {
-    echo "<li><span class='text'>No Record Found.</span></li>";
+    echo "<li><span class='text'>No Requests Found.</span></li>";
 }
-=======
-    }
     
->>>>>>> 7ceea9416db0a38e883fed17c36cbda366d30c5c
+    
 
 ?>

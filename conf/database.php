@@ -6,8 +6,8 @@ class Database
     // specify your own database credentials
     private $host = "localhost";
     private $db_name = "virtualcaresolution"; //virtualcaresolution
-    private $username ="root";// "vcsdb";
-    private $password = "";//"Rehab@2021";
+    private $username ="vcsdb";// "vcsdb";
+    private $password = "Rehab@2021"; //"Rehab@2021";
     const AppId = "59d107639dca474c9ac93fc22d9301c3";
     const KEY = "34c06e4669304ce98e30e73ce761bb08";
 

@@ -198,20 +198,20 @@
 
                             <div class="card">
                                 <div class="card-body">
-                                     <div class="table-responsive" id="appointments-container">
-                                     <table id="appointment-table" class="display">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID</th>
-                                                            <th>Patient Name</th>
-                                                            <th>Phone Number</th>
-                                                            <th>Notes</th>
-                                                            <th>Date</th>
-                                                            <th>Time</th>
-                                                        </tr>
-                                                    </thead>
-                                                    </table>
-                                     </div>
+                                    <div class="table-responsive" id="appointments-container">
+                                        <table id="appointment-table" class="display">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Patient Name</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Notes</th>
+                                                    <th>Date</th>
+                                                    <th>Time</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -253,32 +253,43 @@
     <script src="assets/dashboard/assets/js/app.min.js"></script>
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="assets/js/dataTables.buttons.min.js"></script>
-     <script>
-   $(document).ready(function () {  
-            $('#appointment-table').DataTable({  
-                "ajax": {  
-                    "url": "appointments_control.php",  
-                    "type": "GET",  
-                    "datatype": "json" ,
+    <script>
+        $(document).ready(function() {
+            $('#appointment-table').DataTable({
+                "ajax": {
+                    "url": "appointments_control.php",
+                    "type": "GET",
+                    "datatype": "json",
                     "dataSrc": "",
                     // "serverSide": "true",
                     dom: 'Bfrtip',
-            buttons: [
-                'pdf',
-                'pdfHtml5'
-            ]
-                },  
-                "columns": [  
-                    { "data": "appointments_id" },  
-                    { "data": "patient_name" }, 
-                    { "data": "phone_number" }, 
-                    { "data": "notes" },  
-                    { "data": "date" }, 
-                    { "data": "time" }
-               
-                ]  
-            });  
-        });     
+                    buttons: [
+                        'pdf',
+                        'pdfHtml5'
+                    ]
+                },
+                "columns": [{
+                        "data": "appointments_id"
+                    },
+                    {
+                        "data": "patient_name"
+                    },
+                    {
+                        "data": "phone_number"
+                    },
+                    {
+                        "data": "notes"
+                    },
+                    {
+                        "data": "date"
+                    },
+                    {
+                        "data": "time"
+                    }
+
+                ]
+            });
+        });
     </script>
 </body>
 
