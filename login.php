@@ -1,11 +1,12 @@
-
 <head>
     <meta charset="utf-8" />
-    <title>VCS | Virtual Care Solutions</title>
+    <title>Login | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="PQW IT Germany for Yas Clinic Group." name="description" />
-    <meta content="Yas Clinic Group" name="author" />
+    <meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
+    <meta content="YAsClinicGroup" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="./assets/images/fav.ico">
 
 
 </head>

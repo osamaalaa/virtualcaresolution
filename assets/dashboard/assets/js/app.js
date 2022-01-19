@@ -1,8 +1,8 @@
 /*
 Template Name: Ubold - Responsive Bootstrap 4 Admin Dashboard
-Author: CoderThemes
-Website: https://coderthemes.com/
-Contact: support@coderthemes.com
+Author: YasClinicGroup
+Website: https://YasClinicGroup.com/
+Contact: support@YasClinicGroup.com
 File: Layout
 */
 
@@ -724,9 +724,9 @@ function ($) {
 }(window.jQuery);
 /*
 Template Name: Ubold - Responsive Bootstrap 4 Admin Dashboard
-Author: CoderThemes
-Website: https://coderthemes.com/
-Contact: support@coderthemes.com
+Author: YasClinicGroup
+Website: https://YasClinicGroup.com/
+Contact: support@YasClinicGroup.com
 File: Main Js File
 */
 

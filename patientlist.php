@@ -29,11 +29,11 @@ include_once 'db.php'; ?>
 
 </head>
 
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+<body >
     <div id="wrapper">
         <?php include './components/header.php'; ?>
 
-        <!-- ========== Left Sidebar Start ========== --> 
+        <!-- ========== Left Sidebar Start ========== -->
         <div class="left-side-menu">
             <div class="h-100" data-simplebar>
                 <?php include './components/sidebar.php'; ?>

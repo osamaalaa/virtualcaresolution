@@ -10,6 +10,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="vcs,yasclinic,yasclinicgroup,virtualcaresolutions" />
+	<meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
 	<meta name="description" content="YAS Clinic Group , VCS" />
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="assets/images/fav.ico">
@@ -57,12 +58,12 @@
 					</ul>
 				</li>
 				<li class="mobile-menu-item">
-							<a class="nav-link page-scroll" href="">My Account</a>
-							<ul class="sub-menu dropdown-btn">
-								<li><a href="dashboard.php"><?php echo $_SESSION["username"] ?> <i class="fa fa-user" aria-hidden="true"></i></a></li>
-								<a id="username" style="display: none;"><?php echo $_SESSION["username"] ?></a>
-								<li><a href="logout.php">Logout <i class="fa fa-sign-out"></i></a></li>
-							</ul>
+					<a class="nav-link page-scroll" href="">My Account</a>
+					<ul class="sub-menu dropdown-btn">
+						<li><a href="dashboard.php"><?php echo $_SESSION["username"] ?> <i class="fa fa-user" aria-hidden="true"></i></a></li>
+						<a id="username" style="display: none;"><?php echo $_SESSION["username"] ?></a>
+						<li><a href="logout.php">Logout <i class="fa fa-sign-out"></i></a></li>
+					</ul>
 				</li>
 				<li class="mobile-menu-item">
 					<a href="contactus.php">contact</a>
@@ -170,7 +171,7 @@
 						<section class="section" id="section2" style="width:100%;height:100%">
 							<!-- style="display:flex;flex-wrap: wrap;align-content:margin: 0 -4px 0 0;padding: 0px; center;vertical-align: middle;margin: 0 auto; border: 1px solid red;" -->
 							<!-- <div class="1video-grid" id="1video" > -->
-							<div id="video" class="1videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
+							<div id="video" class="videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
 								<div id="local_stream" class="sample 1video- placeholder"></div>
 								<!--<div id="local_video_info" class="sample 1video- profile hide"    ></div>-->
 								<div id="video_autoplay_local" class="sample 1autoplay- fallback hide"></div>
@@ -197,18 +198,18 @@
 
 									<div id="remainingTime" name="timer" class="timer">
 									</div>
-
+									<div id="price" name="timer" class="timer" style="display: none;">
+									</div>
 
 								</div>
 
 							</div>
-							<!-- <a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a> -->
+
+							<a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a>
 						</section>
 					</form>
 					<!-- /Section One -->
 
-
- 
 				</section>
 				<!-- /Content -->
 
@@ -265,7 +266,6 @@
 		});
 
 		function Copy() {
-			console.log("Oosamsamsadasd")
 			Toast.notice("Link Copied to clipboard!");
 			var copyText = "https://virtualcaresolution.de/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
@@ -540,28 +540,6 @@
 
 			// init client
 			rtc.client.init(option.appID, function() {
-				console.log("init success")
-
-				/**
-				 * Joins an AgoraRTC Channel
-				 * This method joins an AgoraRTC channel.
-				 * Parameters
-				 * tokenOrKey: string | null
-				 *    Low security requirements: Pass null as the parameter value.
-				 *    High security requirements: Pass the string of the Token or Channel Key as the parameter value. See Use Security Keys for details.
-				 *  channel: string
-				 *    A string that provides a unique channel name for the Agora session. The length must be within 64 bytes. Supported character scopes:
-				 *    26 lowercase English letters a-z
-				 *    26 uppercase English letters A-Z
-				 *    10 numbers 0-9
-				 *    Space
-				 *    "!", "#", "$", "%", "&", "(", ")", "+", "-", ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", "{", "}", "|", "~", ","
-				 *  uid: number | null
-				 *    The user ID, an integer. Ensure this ID is unique. If you set the uid to null, the server assigns one and returns it in the onSuccess callback.
-				 *   Note:
-				 *      All users in the same channel should have the same type (number or string) of uid.
-				 *      If you use a number as the user ID, it should be a 32-bit unsigned integer with a value ranging from 0 to (232-1).
-				 **/
 				rtc.client.join(option.token ? option.token : null, option.channel, option.uid ? +option.uid : null, function(uid) {
 					Toast.notice("join channel: " + option.channel + " success, uid: " + uid)
 					console.log("join channel: " + option.channel + " success, uid: " + uid)
@@ -570,7 +548,8 @@
 					rtc.params.uid = uid
 					let twentyFourHours = 0;
 					const display = $('#remainingTime');
-					Timer(twentyFourHours, display);
+					const price = $('#price');
+					Timer(twentyFourHours, display, price);
 					// create local stream
 					rtc.localStream = AgoraRTC.createStream({
 						streamID: rtc.params.uid,
@@ -741,15 +720,16 @@
 				$("#title-banner").show();
 				$(".video-conf").hide();
 				leave(rtc)
-				// const display = $('#remainingTime');
-				console.log("time", document.getElementById("remainingTime").innerHTML)
+
 				$.ajax({
 					type: "POST",
 					url: "time.php",
 					// data:'name='+ document.getElementById("remainingTime").innerHTML+'time='+ document.getElementById("remainingTime").innerHTML,
 					data: {
 						timer: document.getElementById("remainingTime").innerHTML,
-						username: document.getElementById("username").innerHTML
+						username: document.getElementById("username").innerHTML,
+						price: document.getElementById("price").innerHTML,
+
 					},
 					success: function() {
 
@@ -763,7 +743,7 @@
 			})
 		})
 
-		function Timer(duration, display) {
+		function Timer(duration, display, price) {
 
 			let timer = duration,
 				hours, minutes, seconds;
@@ -778,11 +758,10 @@
 				seconds = seconds < 10 ? "0" + seconds : seconds;
 
 				display.text(hours + ":" + minutes + ":" + seconds);
-
-				++timer;
+				price.text(timer * 0.0041)
+					++timer;
 
 				if (rtc.joined === false) {
-
 					clearInterval(setIntervalId);
 				}
 			}, 1000);
@@ -792,9 +771,12 @@
 			// For testing purpose set the value to 10 seconds.
 			let twentyFourHours = 60 * 60;
 			const display = $('#remainingTime');
+
+
 			Timer(twentyFourHours, display);
 		}
 	</script>
+
 </body>
 
 </html>
