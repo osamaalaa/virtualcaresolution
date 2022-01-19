@@ -189,7 +189,7 @@ require_once "db.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <h3 class="text-dark my-1">$<span data-plugin="counterup"><?php
+                                                <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
                                                                                                             $username = $_SESSION['username'];
                                                                                                             $sql = mysqli_query($conn, "SELECT  FLOOR(SUM(DISTINCT total_cost)) as total from sessions WHERE doctor_name = '" . $username . "'");
                                                                                                             $data = mysqli_fetch_assoc($sql);
