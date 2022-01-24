@@ -379,7 +379,7 @@ require_once "db.php";
                                     }
                                 </style>
                                 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
- 
+
                                 <script>
                                     $(document).ready(function() {
                                         // Show Tasks
@@ -392,12 +392,6 @@ require_once "db.php";
                                                 }
                                             });
                                         }
-
-
-
-
-
-
                                         loadTasks();
 
                                         // Add Task
@@ -482,8 +476,8 @@ require_once "db.php";
     </div>
     <!-- END wrapper -->
     <div class="rightbar-overlay"></div>
-  <!-- plugin js -->
-  <script src="assets/dashboard/assets/libs/moment/min/moment.min.js"></script>
+    <!-- plugin js -->
+    <script src="assets/dashboard/assets/libs/moment/min/moment.min.js"></script>
     <script src="assets/dashboard/assets/libs/fullcalendar/main.min.js"></script>
     <!-- Vendor js -->
     <script src="assets/dashboard/assets/js/vendor.min.js"></script>

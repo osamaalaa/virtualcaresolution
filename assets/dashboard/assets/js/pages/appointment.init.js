@@ -72,6 +72,7 @@
                                 a.$selectedEvent.setProp("classNames", [l("#event-category").val()]);
                             else { var n = { title: l("#patient_name").val(), start: a.$newEventData.date, allDay: a.$newEventData.allDay, className: l("#event-category").val() }; a.$calendarObj.addEvent(n) }
                             a.$modal.hide()
+                          
                         } else e.stopPropagation(), t.classList.add("was-validated")
                     }),
                     l(a.$btnDeleteEvent.on("click", function (e) {

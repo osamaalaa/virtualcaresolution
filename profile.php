@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Profile | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Virtual Care Solution | VCS" name="description" />
     <meta content="YasClinicGroup" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
@@ -30,18 +30,15 @@
 
 <!-- body start -->
 
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
-
+<body >
     <!-- Begin page -->
     <div id="wrapper">
-
         <?php include './components/header.php'; ?>
 
         <!-- ========== Left Sidebar Start ========== -->
         <div class="left-side-menu">
 
             <div class="h-100" data-simplebar>
-
                 <!-- User box -->
                 <div class="user-box text-center">
                     <img src="assets/dashboard/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
@@ -196,9 +193,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- end file preview template -->
-                                            </div>
-
-                                         
+                                            </div>   
                                         </div> <!-- end col-->
                                     </div>
                                     <!-- end row -->

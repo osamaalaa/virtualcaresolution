@@ -15,15 +15,13 @@
         </li>
 
         <li class="menu-title mt-2">Apps</li>
-
-
         <li>
             <a href="appointments.php">
                 <i data-feather="users"></i>
                 <span> Appointments </span>
             </a>
         </li>
-        <!---------------------------------------------------------------------------->
+
 
         <li>
             <a href="sessions.php">
@@ -31,16 +29,12 @@
                 <span> Sessions </span>
             </a>
         </li>
-
-        <!------------------------------------------------------------------------------>
-
         <li>
             <a href="patients.php">
                 <i data-feather="calendar"></i>
                 <span> VMR </span>
             </a>
         </li>
-
         <li>
             <a href="patientlist.php">
                 <i data-feather="activity"></i>
@@ -59,7 +53,37 @@
                 <span> Checkout </span>
             </a>
         </li>
-        <!-- --------------------------------------------------------------------------->
+
+
+        <!-- --------------------------------------Admin------------------------------------->
+
+        <?php
+        $role = $_SESSION["role_id"];
+        if ($role == 4){ ?>
+
+            <li class="menu-title mt-2">Admin</li>
+            <li>
+                <a href="admin-dashboard.php">
+                    <i data-feather="airplay"></i>
+                    <span> Admin Dashboard </span>
+                </a>
+            </li>
+            <li>
+                <a href="admin_users.php">
+                    <i data-feather="users"></i>
+                    <span> Users </span>
+                </a>
+            </li>
+
+        <?php } ?>
+       
+        <!-- ----------------------------------------------------------------------------------------    -->
+
+
+
+
+
+
     </ul>
 </div>
 

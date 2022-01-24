@@ -286,15 +286,13 @@ require_once "db.php";
     </script>
     <script type="text/javascript">
                 $(document).ready(function($){
-          
-                // var id = $(this).data('id');
                 var doctor_name = $('#doctor_name').val();
                 // ajax
                 $.ajax({
                 type:"POST",
                 url: "models/total_price.php",
                 data: { doctor_name: doctor_name },
-                dataType: 'json',
+                dataType: 'json', 
                 success: function(res){
                     $('#total').html(res.total);
                     $('#currency').html(res.currency)
@@ -304,5 +302,5 @@ require_once "db.php";
                 });
     </script>
 </body>
-
+ 
 </html>

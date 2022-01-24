@@ -1,13 +1,16 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <title>Appointments | Virtual Care Solutions VCS</title>
+    <title>Appointments| Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
     <meta content="YasClinicGroup" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="./assets/images/fav.ico">
 
@@ -19,10 +22,12 @@
     <link href="assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
 
     <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+   
     <link href="assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
 
 
@@ -30,8 +35,7 @@
 
 <!-- body start -->
 
-<body class="loading" data-layout='{"mode": "light", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "light", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
-
+<body>
     <!-- Begin page -->
     <div id="wrapper">
         <?php include './components/header.php'; ?>
@@ -199,7 +203,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="table-responsive" id="appointments-container">
-                                        <table id="appointment-table" class="display">
+                                        <table id="appointment-table" class="table table-striped dt-responsive nowrap w-100">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -231,8 +235,6 @@
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
-
-
     </div>
     <!-- END wrapper -->
 
@@ -247,27 +249,49 @@
     <script src="assets/dashboard/assets/libs/fullcalendar/main.min.js"></script>
 
     <!-- Calendar init -->
-    <script src="assets/dashboard/assets/js/pages/appointment.init.js"></script> 
+    <script src="assets/dashboard/assets/js/pages/appointment.init.js"></script>
 
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
-    <script src="assets/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="assets/js/dataTables.buttons.min.js"></script>
+
+    <script src="assets/dashboard/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="assets/dashboard/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+        <script src="assets/dashboard/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+        <script src="assets/dashboard/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+        <!-- third party js ends -->
+    
     <script>
         $(document).ready(function() {
             $('#appointment-table').DataTable({
+                dom: '<"top"Bif>rt<"bottom"lp><"clear">',
+                lengthChange: !1,
+                    buttons: ["print", "pdf"],
+                    buttons: {
+                    buttons: [
+                               { extend: "print", className: "btn-light" },
+                                 { extend: "pdf", className: "btn-light" }]
+                    },
                 "ajax": {
                     "url": "appointments_control.php",
                     "type": "GET",
                     "datatype": "json",
                     "dataSrc": "",
-                    // "serverSide": "true",
-                    dom: 'Bfrtip',
-                    buttons: [
-                        'pdf',
-                        'pdfHtml5'
-                    ]
+                 
+                   
                 },
+                drawCallback: function () {
+                $(".dataTables_paginate > .pagination")
+                    .addClass("pagination-rounded")
+            },
                 "columns": [{
                         "data": "appointments_id"
                     },
