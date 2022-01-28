@@ -1,7 +1,7 @@
 <?php
         require_once "../db.php"; 
         "../src/gaurd.php";
-        // $doctor_name = mysqli_real_escape_string($conn, $_POST['doctor_name']);
+        $pname = mysqli_real_escape_string($conn, $_POST['pname']);
         $query="SELECT usr.id , usr.username username, usr.date_added, usr.mobile, usr.email, usr.imgpath, usr.role_id , rol.role_name  , rol.role_description
 		FROM users usr 
          LEFT JOIN roles rol
@@ -12,7 +12,7 @@
         $json_array = array();
         
         while ($row = mysqli_fetch_assoc($result)) 
-        {
+        { 
             $id = $row['id'];
             $username = $row['username'];
             $date_added = $row['date_added'];

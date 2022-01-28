@@ -38,7 +38,8 @@
                                 },
                                 cache: false,
                                 success: function(data) {
-                                    console.log("osma.AddNewUser" , data)
+                                    $('#datatable-users').DataTable().ajax.reload();
+                                 
                                 },
                                 error: function(xhr, status, error) { 
                                     console.error("errNewUser", xhr , error);
@@ -47,6 +48,11 @@
 
                             $("#form-addUsers")[0].reset();
                             a.$modal.hide()
+                            Swal.fire
+                            ({title:"Success !",
+                            text:"User has been added successfully!",
+                            icon:"success"})
+                          
                         } else e.stopPropagation(), t.classList.add("was-validated")
                     }),
                     l(a.$btnDeleteEvent.on("click", function (e) {

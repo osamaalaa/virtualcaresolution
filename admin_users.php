@@ -21,7 +21,8 @@
     <link href="assets/dashboard/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/dashboard/assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <!-- third party css end -->
-
+            <!-- Sweet Alert-->
+            <link href="assets/dashboard/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <!-- Select CSS  -->
     <link href="assets/dashboard/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
     <!--  -->
@@ -110,6 +111,7 @@
                                     </ol>
                                 </div>
                                 <h4 class="page-title">Users</h4>
+                                <input style="display: none;" id="userId" value="<?php echo $_SESSION['user_id'];?>" />
                             </div>
                         </div>
                     </div>
@@ -145,27 +147,29 @@
                                     <p class="text-muted font-13 mb-4">
                                         Table contains all VCS users including doctors , patients also Moderators
                                     </p>
+                             
+                                        <table id="datatable-users" class="table activate-select dt-responsive nowrap w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>UserName</th>
+                                                    <th>Join Date</th>
+                                                    <th>Phone No.</th>
+                                                    <th>E-mail</th>
+                                                    <th>Role</th>
+                                                    <th>Description</th>
+                                                    <th></th>
+                                                  
+                                                </tr>
+                                            </thead>
 
-                                    <table id="datatable-users" class="table table-striped dt-responsive nowrap w-100">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>UserName</th>
-                                                <th>Join Date</th>
-                                                <th>Phone No.</th>
-                                                <th>E-mail</th>
-                                                <th>Role</th>
-                                                <th>Description</th>
-                                            </tr>
-                                        </thead>
+
+                                            <tbody>
 
 
-                                        <tbody>
-
-
-                                        </tbody>
-                                    </table>
-
+                                            </tbody>
+                                        </table>
+                                    
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
                         </div><!-- end col-->
@@ -175,7 +179,7 @@
 
             </div> <!-- content -->
 
-
+           
 
             <!-- Footer Start -->
             <?php include './components/footer.php'; ?>
@@ -188,61 +192,61 @@
         <!-- ============================================================== -->
     </div>
     <!-- END wrapper -->
-  <!-- Modal -->
-  <div class="modal fade" id="addUser-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-light">
-                        <h4 class="modal-title" id="myCenterModalLabel">Add New User</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
-                    </div>
-                    <div class="modal-body p-4">
-                        <form class="needs-validation" method="POST" name="form-addUsers" id="form-addUsers" >
-                            <div class="mb-3">
-                                <label for="name" class="form-label">User Name</label>
-                                <input type="text" class="form-control" id="username" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" id="mobile" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Password</label>
-                                <input type="text" class="form-control" id="password" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">SessionNo.</label>
-                                <input type="text" class="form-control" id="channel" value="<?php echo substr(sha1(mt_rand()),17,6);?>" disabled >
-                            </div>
-                            <div class="mb-3">
-                                <label for="company" class="form-label">Company</label>
-                                <input type="text" class="form-control" id="company-user" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="position" class="form-label">Role</label>
-                                <!-- <input type="text" class="form-control" id="position" > -->
-                                <select class="form-control" data-toggle="select2" id="role_id" data-width="100%" required>
-                                                    <option>Select VCS Role</option>
-                                                    <option value="1">Doctor</option>
-                                                    <option value="2">Patient</option>
-                                                    <option value="3">IT</option>
-                                                    <option value="4">Admin</option>    
-                                              
-                                </select>
-                            </div>
-                            <div class="text-end">
-                                <button type="submit" id="btn-save-event" class="btn btn-success waves-effect waves-light">Save</button>
-                                <!-- <button type="button" class="btn btn-danger waves-effect waves-light" data-bs-dismiss="modal">Continue</button> -->
-                            </div>
-                        </form>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="addUser-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h4 class="modal-title" id="myCenterModalLabel">Add New User</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form class="needs-validation" method="POST" name="form-addUsers" id="form-addUsers">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">User Name</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="mobile">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Password</label>
+                            <input type="text" class="form-control" id="password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">SessionNo.</label>
+                            <input type="text" class="form-control" id="channel" value="<?php echo substr(sha1(mt_rand()), 17, 6); ?>" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" class="form-control" id="company-user">
+                        </div>
+                        <div class="mb-3">
+                            <label for="position" class="form-label">Role</label>
+                            <!-- <input type="text" class="form-control" id="position" > -->
+                            <select class="form-control" data-toggle="select2" id="role_id" data-width="100%" required>
+                                <option>Select VCS Role</option>
+                                <option value="1">Doctor</option>
+                                <option value="2">Patient</option>
+                                <option value="3">IT</option>
+                                <option value="4">Admin</option>
+
+                            </select>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" id="btn-save-event" class="btn btn-success waves-effect waves-light">Save</button>
+                            <!-- <button type="button" class="btn btn-danger waves-effect waves-light" data-bs-dismiss="modal">Continue</button> -->
+                        </div>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
@@ -252,15 +256,15 @@
     <!-- plugin js -->
     <!-- <script src="assets/dashboard/assets/libs/moment/min/moment.min.js"></script>
         <script src="assets/dashboard/assets/libs/fullcalendar/main.min.js"></script> -->
-   <!-- plugin js -->
-   <script src="assets/dashboard/assets/libs/moment/min/moment.min.js"></script>
+    <!-- plugin js -->
+    <script src="assets/dashboard/assets/libs/moment/min/moment.min.js"></script>
     <!-- Calendar init -->
     <script src="assets/dashboard/assets/js/pages/addUsers.init.js"></script>
 
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
 
-
+ 
     <!-- third party js -->
     <script src="assets/dashboard/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="assets/dashboard/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
@@ -287,13 +291,14 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#datatable-users').DataTable({
+            var table =   $('#datatable-users').DataTable({
                 dom: '<"top"Bif>rt<"bottom"lp><"clear">',
+                editButton: true,
                 lengthChange: !1,
                 buttons: ["print", "pdf"],
                 buttons: {
                     buttons: [{
-                            extend: "print",
+                            extend: "print", 
                             className: "btn-light"
                         },
                         {
@@ -303,7 +308,7 @@
                     ]
                 },
                 "ajax": {
-                    "url": "./models/total_doctors.php",
+                    "url": "./models/total_users.php",
                     "type": "GET",
                     "datatype": "json",
                     "dataSrc": "",
@@ -316,7 +321,8 @@
                     $(".dataTables_paginate > .pagination")
                         .addClass("pagination-rounded")
                 },
-                "columns": [{
+                "columns": [
+                    {
                         "data": "id"
                     },
                     {
@@ -337,12 +343,81 @@
                     },
                     {
                         "data": "role_description"
-                    }
+                    },
+
+                    {data: "id" , render : function ( data, type, row, meta ) {
+                        var thisId = $('#userId').val();
+                        console.log("ThisId" , thisId)
+                            return (type === 'display' && data != thisId)  ?
+                                '<button class="btn btn-danger" id="removeUser" data-row= "'+ row +'" data-id="'+ data +'" ><span class="mdi mdi-delete-circle"></span></button>' :
+                                '<button class="btn btn-success" id="yourUser"> <span class="mdi mdi-account-remove"></span></button>';
+                            }}, 
+                        
                 ]
+            });
+            $('#datatable-users tbody').on( 'click', 'tr', function () {
+                        if ( $(this).hasClass('selected') ) {
+                                
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            table.$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+            } );
+ 
+            // $('#button').click( function () {
+            //     table.row('.selected').remove().draw( false );
+            // } );
+ 
+             // Remove Task
+             $(document).on("click", "#removeUser", function(e) {
+                    e.preventDefault();
+                    var id = $(this).data('id');
+                    var row = $(this).data('row');
+                    $.ajax({
+                        url: "./models/remove_user.php",
+                        type: "POST",
+                        data: {
+                            id: id
+                        },
+                        success: function(data) {
+                            
+                            if (data == 0) {
+                                
+                                Swal.fire
+                                ({title:"Error !",
+                                text:"Not able to Remove this user!",
+                                icon:"error"})
+                                
+                            }else {
+                                $('#datatable-users').DataTable().ajax.reload();
+                                Swal.fire
+                                ({title:"Success !",
+                                text:"User has been Removed successfully!",
+                                icon:"success"})
+                               
+                            }
+                        }
+
+                    });
+            });
+            $(document).on("click", "#yourUser", function(e) {
+                    e.preventDefault();
+                   
+                    Swal.fire
+                                ({title:"Error !",
+                                text:"Not Able To Remove Your User!",
+                                icon:"error"})
+                 
             });
         });
     </script>
+        <!-- Sweet Alerts js -->
+        <script src="assets/dashboard/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
 
+        <!-- Sweet alert init js-->
+        <script src="../assets/js/pages/sweet-alerts.init.js"></script>
 
     <!-- ------------------------------------------------------------------------------ -->
 

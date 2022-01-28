@@ -9,6 +9,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $servant->$key = $value;
     }
     if ($servant->signin()) {
-        echo "true";
+        
+        echo $_SESSION["role_id"];
     }
 }

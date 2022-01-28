@@ -78,7 +78,19 @@
         <?php } ?>
        
         <!-- ----------------------------------------------------------------------------------------    -->
-
+        <li class="menu-title mt-2">Patient</li>
+            <li>
+                <a href="patient/patient_dashboard.php">
+                    <i data-feather="airplay"></i>
+                    <span> Patient Dashboard </span>
+                </a>
+            </li>
+            <li>
+                <a href="admin_users.php">
+                    <i data-feather="users"></i>
+                    <span> Users </span>
+                </a>
+            </li>
 
 
 

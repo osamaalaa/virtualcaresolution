@@ -48,7 +48,7 @@ class Servant
             $_SESSION['email'] = $row['email'];
             $_SESSION["imgpath"] = $row['imgpath'];
             $_SESSION["role_id"] = $row['role_id'];
-            return true;
+            return $_SESSION["role_id"];
         } else {
             return false;
         }

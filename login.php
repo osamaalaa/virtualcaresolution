@@ -290,7 +290,7 @@
 </style>
 <div class='login'>
     <div>
-        <img src="https://virtualcaresolution.de/assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
+        <img src="http://localhost/new-vcs/assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
     </div>
     <div class='login_title'>
         <span>Login to your account</span>
@@ -393,11 +393,12 @@
                 type: 'POST',
                 data: data,
                 success: function(response) {
-                    console.log("respoo", response)
-                    if (response === "true") {
-                        setTimeout(function() {
+                    if(response){
+                        if(response === "2"){
+                            window.location.href = "./patient/index.php";
+                        }else {
                             window.location.href = "./index.php";
-                        }, 2500);
+                        }
                     }
                 }
             });
