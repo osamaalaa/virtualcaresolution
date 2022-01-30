@@ -19,21 +19,28 @@ require_once "../db.php";
     <link href="../assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="../assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
     <!-- <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" /> -->
+    <!-- Lightbox css -->
+    <link href="../assets/dashboard/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
 
     <!-- icons -->
     <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link type="text/css" href="../assets/dashboard/assets/css/jquery.signature.css" rel="stylesheet"> 
+    <link type="text/css" href="../assets/dashboard/assets/css/jquery.signature.css" rel="stylesheet">
     <style>
-        .kbw-signature { width: 800px; height: 200px;}
-        #signature canvas{
-        width: 100% !important;
-        height: auto;
+        .kbw-signature {
+            width: 800px;
+            height: 200px;
         }
+
+        #signature canvas {
+            width: 100% !important;
+            height: auto;
+        }
+
         /* .container{
         margin-left: 420px;
         
         } */
-        </style>
+    </style>
 </head>
 
 <!-- body start -->
@@ -89,7 +96,7 @@ require_once "../db.php";
                 </div>
 
                 <!--- Sidemenu -->
-                <?php include './components/sidebar.php'; ?> 
+                <?php include './components/sidebar.php'; ?>
                 <!-- End Sidebar -->
 
                 <div class="clearfix"></div>
@@ -122,46 +129,65 @@ require_once "../db.php";
                                     </ol>
                                 </div>
                                 <h4 class="page-title">Patient Signature - <?php echo $_SESSION['username']; ?> </h4>
-                                <input value="<?php echo $_SESSION['username']; ?>" id="pname" style="display: none;" />
+                                <input style="display: none;" id="userId" value="<?php echo $_SESSION['user_id']; ?>" />
+
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
                     <div class="row">
 
-                            <div class="col-md-12" >
-                                    <div class="card bg-pattern">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                     <div id="signature" ></div>
-                                                </div>
-                                                <br/>
-                                                <button class="btn btn-danger"  id="clear">Clear Signature</button>
-                                                <button class="btn btn-success" id="Submit">Submit</button>
-                                                <textarea id="sigpad" name="signature_image" style="display: none"></textarea>
-                                            </div>
-                                        
-                                            <br/>
+                        <div class="col-md-12">
+                            <div class="card bg-pattern">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div id="signature"></div>
                                     </div>
+                                    <br />
+                                    <button class="btn btn-danger" id="clear">Clear Signature</button>
+                                    <button class="btn btn-success" id="Submit">Submit</button>
+                                    <textarea id="sigpad" name="signature_image" style="display: none"></textarea>
+                                </div>
+
+                                <br />
                             </div>
                         </div>
-                    
-                        
-                        <span id="res" style="color: green;"></span>
                     </div>
-                </div> <!-- container -->
 
-            </div> <!-- content -->
 
-            <!-- Footer Start -->
-            <?php include './components/footer.php'; ?>
-            <!-- end Footer -->
+                    <span id="res" style="color: green;"></span>
+                </div>
 
-        </div>
+                <div class="row filterable-content">
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+                    <div class="col-sm-6 col-xl-3 filter-item all web illustrator">
+                        <div class="gal-box">
+                            <a href="../images/signatures/<?php echo $_SESSION['user_id']; ?>.png" class="image-popup" title="Screenshot-1">
+                                <img src="../images/signatures/<?php echo $_SESSION['user_id']; ?>.png" class="img-fluid" alt="confidential signature">
+                            </a>
+                            <div class="gall-info">
+                                <h4 class="font-16 mt-0">Your Signature</h4>
+                                <a href="javascript: void(0);">
+                                    <img src="assets_patients/patient_avatar.png" alt="user-img" class="rounded-circle" height="24" />
+                                    <span class="text-muted ms-1"><?php echo $_SESSION['username']; ?></span>
+                                </a>
+                            </div> <!-- gallery info -->
+                        </div> <!-- end gal-box -->
+                    </div> <!-- end col -->
+                </div>
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <?php include './components/footer.php'; ?>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
 
 
     </div>
@@ -186,13 +212,15 @@ require_once "../db.php";
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
- 
+
     <!-- --------------------------------Signature-------------------------------------------------------- -->
     <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.signature.js"></script>
     <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.signature.min.js"></script>
     <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.ui.touch-punch.js"></script>
     <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.ui.touch-punch.min.js"></script>
 
+    <!-- Magnific Popup-->
+    <script src="../assets/dashboard/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
     <!-- ------------------------------------------------------------------------------------------------------ -->
     <script type="text/javascript">
         $(document).ready(function() {
@@ -202,9 +230,9 @@ require_once "../db.php";
                 type: "POST",
                 url: "../models/patient_appointments.php",
                 data: {
-                        pname: pname,
-                       
-                    },
+                    pname: pname,
+
+                },
                 dataType: 'JSON',
                 success: function(res) {
 
@@ -234,35 +262,42 @@ require_once "../db.php";
         });
     </script>
     <script type="text/javascript">
-    var signature = $('#signature').signature({syncField: '#sigpad', syncFormat: 'PNG'});
-    $('#clear').click(function(e) {
-    e.preventDefault();
-    signature.signature('clear');
-    $("#sigpad").val('');
-    });
-    </script>
-    
-    <script type="text/javascript">
-    $("#Submit").click(function(){
-    
-    //url = "http://192.168.1.147:8080/sign/signature.php";
-    url = "../models/signature.php";
-    sigpad= $("#sigpad").val();
-    $('#res').html('loading....');
-    $.ajax({
-    type : 'POST',
-    url : url,
-    data : {signature_image: sigpad},
-    success: function(result){
-    $('#res').html('Signature Uploaded successfully');
-    // location.reload();
-    
-    },
-    }) ;
-    
-    });
+        var signature = $('#signature').signature({
+            syncField: '#sigpad',
+            syncFormat: 'PNG'
+        });
+        $('#clear').click(function(e) {
+            e.preventDefault();
+            signature.signature('clear');
+            $("#sigpad").val('');
+        });
     </script>
 
+    <script type="text/javascript">
+        $("#Submit").click(function() {
+
+            //url = "http://192.168.1.147:8080/sign/signature.php";
+            url = "../models/signature.php";
+            sigpad = $("#sigpad").val();
+            var userId = $("#userId").val();
+            $('#res').html('loading....');
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    signature_image: sigpad,
+                    user_id: userId
+                },
+                success: function(result) {
+                    $('#res').html('Signature Uploaded successfully');
+                    // location.reload();
+
+                },
+            });
+
+        });
+    </script>
+   
     <!-- ------------------------------------------------------------------------------ -->
 </body>
 
