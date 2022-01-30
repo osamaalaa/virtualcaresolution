@@ -324,7 +324,7 @@ require_once "db.php";
     <script src="assets/dashboard/assets/js/pages/dashboard-4.init.js"></script>
 
     <!-- App js -->
-    <script src="assets/dashboard/assets/js/app.min.js"></script>
+    <script src="assets/dashboard/assets/js/app.min.js"></script> 
     <!-- -----------------------------Doctors------------------------------------------ -->
 
     <script type="text/javascript">

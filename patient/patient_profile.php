@@ -118,7 +118,7 @@
                         <div class="col-lg-4 col-xl-4">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <img src="../<?php echo $_SESSION["imgpath"] ?>"class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                    <img src="assets_patients/patient_avatar.png"class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
 
                                     <h4 class="mb-0"><?php echo $_SESSION["username"] ?></h4>
                                     <p class="text-muted">External ID :</p>

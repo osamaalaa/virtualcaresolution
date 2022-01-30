@@ -107,7 +107,7 @@
                     </li>
                     <li class="dropdown notification-list topbar-dropdown">
                         <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="../<?php echo $_SESSION["imgpath"] ?>" alt="user-image" class="rounded-circle">
+                            <img src="assets_patients/patient_avatar.png" alt="user-image" class="rounded-circle">
                             <span class="pro-user-name ms-1">
                                 <?php echo $_SESSION["username"] ?> <i class="mdi mdi-chevron-down"></i>
                             </span>

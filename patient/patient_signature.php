@@ -6,7 +6,7 @@ require_once "../db.php";
 
 <head>
     <meta charset="utf-8" />
-    <title>Patient Dashboard | Virtual Care Solution</title>
+    <title>Patient Signature | Virtual Care Solution</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Virtual Care Solution" name="description" />
     <meta content="Coderthemes" name="author" />
@@ -22,7 +22,18 @@ require_once "../db.php";
 
     <!-- icons -->
     <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
+    <link type="text/css" href="../assets/dashboard/assets/css/jquery.signature.css" rel="stylesheet"> 
+    <style>
+        .kbw-signature { width: 800px; height: 200px;}
+        #signature canvas{
+        width: 100% !important;
+        height: auto;
+        }
+        /* .container{
+        margin-left: 420px;
+        
+        } */
+        </style>
 </head>
 
 <!-- body start -->
@@ -110,188 +121,34 @@ require_once "../db.php";
                                         <li class="breadcrumb-item active">Dashboard</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Patient Dashboard - <?php echo $_SESSION['username']; ?> </h4>
+                                <h4 class="page-title">Patient Signature - <?php echo $_SESSION['username']; ?> </h4>
                                 <input value="<?php echo $_SESSION['username']; ?>" id="pname" style="display: none;" />
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
-                        <div class="col-xl-4 col-md-6">
-                            <!-- Portlet card -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-widgets">
-                                        <a href="javascript: void(0);" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
-                                        <a data-bs-toggle="collapse" href="#cardCollpase1" role="button" aria-expanded="false" aria-controls="cardCollpase1"><i class="mdi mdi-minus"></i></a>
-                                        <a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close"></i></a>
-                                    </div>
-                                    <h4 class="header-title mb-0">Users</h4>
 
-                                    <div id="cardCollpase1" class="collapse pt-3 show">
-                                        <div class="text-center">
-                                            <div class="row mt-2">
-                                                <div class="col-4">
-                                                    <h3 data-plugin="counterup"><?php
-                                                                                $username = $_SESSION['username'];
-                                                                                $sql = mysqli_query($conn, "SELECT COUNT(*) AS total_users FROM users");
-                                                                                $data = mysqli_fetch_assoc($sql);
-                                                                                $_SESSION['total_users'] = $data['total_users'];
-                                                                                echo "" . $_SESSION['total_users'] . "";
-                                                                                ?></h3>
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Total Users</p>
+                            <div class="col-md-12" >
+                                    <div class="card bg-pattern">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                     <div id="signature" ></div>
                                                 </div>
-                                                <div class="col-4">
-                                                    <h3 data-plugin="counterup"><?php
-                                                                                $username = $_SESSION['username'];
-                                                                                $sql = mysqli_query($conn, "SELECT COUNT(*) AS total_doctors FROM users WHERE role_id = 1");
-                                                                                $data = mysqli_fetch_assoc($sql);
-                                                                                $_SESSION['total_doctors'] = $data['total_doctors'];
-                                                                                echo "" . $_SESSION['total_doctors'] . "";
-                                                                                ?></h3>
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Doctors</p>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h3 data-plugin="counterup">
-                                                        <?php
-                                                        $username = $_SESSION['username'];
-                                                        $sql = mysqli_query($conn, "SELECT COUNT(*) AS total_patients FROM users WHERE role_id = 2");
-                                                        $data = mysqli_fetch_assoc($sql);
-                                                        $_SESSION['total_patients'] = $data['total_patients'];
-                                                        echo "" . $_SESSION['patients'] . "";
-                                                        ?></h3>
-
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Patients</p>
-                                                </div>
-                                            </div> <!-- end row -->
-
-                                            <div dir="ltr">
-                                                <div id="lifetime-sales" data-colors="#4fc6e1,#6658dd,#ebeff2" data-users=<?php echo "" . $_SESSION['total_users'] . ""; ?> data-doctors=<?php echo "" . $_SESSION['total_doctors'] . ""; ?> data-patients=<?php echo "" . $_SESSION['total_patients'] . ""; ?> style="height: 270px;" class="morris-chart mt-3"></div>
+                                                <br/>
+                                                <button class="btn btn-danger"  id="clear">Clear Signature</button>
+                                                <button class="btn btn-success" id="Submit">Submit</button>
+                                                <textarea id="sigpad" name="signature_image" style="display: none"></textarea>
                                             </div>
-                                        </div>
-                                    </div> <!-- end collapse-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-widgets">
-                                        <a href="javascript: void(0);" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
-                                        <a data-bs-toggle="collapse" href="#cardCollpase3" role="button" aria-expanded="false" aria-controls="cardCollpase3"><i class="mdi mdi-minus"></i></a>
-                                        <a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close"></i></a>
+                                        
+                                            <br/>
                                     </div>
-                                    <h4 class="header-title mb-0">Statistics</h4>
-
-                                    <div id="cardCollpase3" class="collapse pt-3 show">
-                                        <div class="text-center">
-
-                                            <div class="row mt-2">
-                                                <div class="col-6">
-                                                    <h3 data-plugin="counterup">1,284</h3>
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Total Sessions</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h3 data-plugin="counterup">41</h3>
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Open Sessions</p>
-                                                </div>
-                                            </div> <!-- end row -->
-
-                                            <div dir="ltr">
-                                                <div id="statistics-chart" data-colors="#02c0ce" style="height: 270px;" class="morris-chart mt-3"></div>
-                                            </div>
-
-                                        </div>
-                                    </div> <!-- end collapse-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-xl-4 col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-widgets">
-                                        <a href="javascript: void(0);" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
-                                        <a data-bs-toggle="collapse" href="#cardCollpase2" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="mdi mdi-minus"></i></a>
-                                        <a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close"></i></a>
-                                    </div>
-                                    <h4 class="header-title mb-0">Income Amounts</h4>
-
-                                    <div id="cardCollpase2" class="collapse pt-3 show">
-                                        <div class="text-center">
-                                            <div class="row mt-2">
-                                                <div class="col-4">
-                                                    <h3 data-plugin="counterup"><?php
-                                                                                $username = $_SESSION['username'];
-                                                                                $sql = mysqli_query($conn, "SELECT 
-                                                        FLOOR(SUM(DISTINCT total_cost)) total_price , currency FROM sessions");
-                                                                                $data = mysqli_fetch_assoc($sql);
-                                                                                $_SESSION['total_price'] = $data['total_price'];
-                                                                                echo "" .   $_SESSION['total_price'] . "";
-                                                                                ?></h3>
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Total Price</p>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h3 data-plugin="counterup">41</h3>
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Open Sessions</p>
-                                                </div>
-                                                <div class="col-4">
-                                                    <h3 data-plugin="counterup">201</h3>
-                                                    <p class="text-muted font-13 mb-0 text-truncate">Daily Sessions</p>
-                                                </div>
-                                            </div> <!-- end row -->
-
-                                            <div dir="ltr">
-                                                <div id="income-amounts" data-colors="#4a81d4,#e3eaef" style="height: 270px;" class="morris-chart mt-3"></div>
-                                            </div>
-
-
-                                        </div>
-                                    </div> <!-- end collapse-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
+                            </div>
+                        </div>
+                    
+                        
+                        <span id="res" style="color: green;"></span>
                     </div>
-                    <!-- end row -->
-                    <!-- end row -->
-
-                    <div class="row">
-                        <div class="col-12">
-                            <!-- Portlet card -->
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-widgets">
-                                        <a href="javascript: void(0);" data-toggle="reload"><i class="mdi mdi-refresh"></i></a>
-                                        <a data-bs-toggle="collapse" href="#cardCollpase4" role="button" aria-expanded="false" aria-controls="cardCollpase4"><i class="mdi mdi-minus"></i></a>
-                                        <a href="javascript: void(0);" data-toggle="remove"><i class="mdi mdi-close"></i></a>
-                                    </div>
-                                    <h4 class="header-title mb-0">Appointemts</h4>
-
-                                    <div id="cardCollpase4" class="collapse pt-3 show">
-                                        <div class="table-responsive">
-                                            <table id="patientAppointment" class="table table-centered table-nowrap table-borderless mb-0">
-                                                <thead class="table-light">
-                                                    <tr>
-                                                        <th> ID </th>
-                                                        <th>Doctor Name</th>
-                                                        <th>Notes</th>
-                                                        <th>Date</th>
-                                                        <th>Time</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                </tbody>
-                                            </table>
-                                        </div> <!-- .table-responsive -->
-                                    </div> <!-- end collapse-->
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div>
-                    <!-- end row -->
                 </div> <!-- container -->
 
             </div> <!-- content -->
@@ -317,16 +174,26 @@ require_once "../db.php";
     <script src="../assets/dashboard/assets/js/vendor.min.js"></script>
 
     <!-- Plugins js -->
-    <script src="../assets/dashboard/assets/libs/morris.js06/morris.min.js"></script>
-    <script src="../assets/dashboard/assets/libs/raphael/raphael.min.js"></script>
+    <!-- <script src="../assets/dashboard/assets/libs/morris.js06/morris.min.js"></script>
+    <script src="../assets/dashboard/assets/libs/raphael/raphael.min.js"></script> -->
 
     <!-- Dashboard init-->
     <script src="../assets/dashboard/assets/js/pages/dashboard-4.init.js"></script>
 
     <!-- App js -->
     <script src="../assets/dashboard/assets/js/app.min.js"></script>
-    <!-- -----------------------------Doctors------------------------------------------ -->
+    <!-- -----------------------------Doctors------------------------------------------------------------ -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+ 
+    <!-- --------------------------------Signature-------------------------------------------------------- -->
+    <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.signature.js"></script>
+    <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.signature.min.js"></script>
+    <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.ui.touch-punch.js"></script>
+    <script type="text/javascript" src="../assets/dashboard/assets/js/pages/jquery.ui.touch-punch.min.js"></script>
 
+    <!-- ------------------------------------------------------------------------------------------------------ -->
     <script type="text/javascript">
         $(document).ready(function() {
             var pname = $("#pname").val();
@@ -366,7 +233,35 @@ require_once "../db.php";
 
         });
     </script>
-
+    <script type="text/javascript">
+    var signature = $('#signature').signature({syncField: '#sigpad', syncFormat: 'PNG'});
+    $('#clear').click(function(e) {
+    e.preventDefault();
+    signature.signature('clear');
+    $("#sigpad").val('');
+    });
+    </script>
+    
+    <script type="text/javascript">
+    $("#Submit").click(function(){
+    
+    //url = "http://192.168.1.147:8080/sign/signature.php";
+    url = "../models/signature.php";
+    sigpad= $("#sigpad").val();
+    $('#res').html('loading....');
+    $.ajax({
+    type : 'POST',
+    url : url,
+    data : {signature_image: sigpad},
+    success: function(result){
+    $('#res').html('Signature Uploaded successfully');
+    // location.reload();
+    
+    },
+    }) ;
+    
+    });
+    </script>
 
     <!-- ------------------------------------------------------------------------------ -->
 </body>
