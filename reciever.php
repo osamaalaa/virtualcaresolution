@@ -49,7 +49,7 @@ if (isset($_GET['token']) && isset($_GET['uid']) && isset($_GET['channel'])) {
                     <div class="col-lg-12">
                         <div class="navigation">
                             <nav class="navbar navbar-expand-lg navbar-light">
-                                <a class="navbar-brand" href="https://yasclinicgroup.ae/"><img src="assets/images/yasLogo.png" alt="YasClinic" style="width: 60%;"></a>
+                                <a class="navbar-brand" href="https://yasclinicgroup.ae/"><img src="assets/images/pqw-logo-white.svg" alt="YasClinic" style="width: 60%;"></a>
                               
                             </nav>
                         </div> <!-- navigation -->

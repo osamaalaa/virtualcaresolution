@@ -77,7 +77,7 @@
 			<div class="main-menu" style="display:flex;">
 				<div id="logo">
 					<a href="index.php">
-						<img src="assets/images/yasLogo.png" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
+						<img src="assets/images/pqw-logo-white.svg" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
 					</a>
 				</div>
 				<!-- Menu -->
@@ -267,7 +267,7 @@
 
 		function Copy() {
 			Toast.notice("Link Copied to clipboard!");
-			var copyText = "https://virtualcaresolution.de/" + link;
+			var copyText = "http://localhost/new-vcs/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
 			//  copyText.select();
 			//copyText.setSelectionRange(0, 99999);

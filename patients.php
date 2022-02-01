@@ -13,14 +13,11 @@
 
     <!-- Plugin css -->
     <link href="assets/dashboard/assets/libs/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
-
     <!-- App css -->
     <link href="assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
-
     <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
     <link href="assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
-
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
@@ -74,17 +71,15 @@
                     <!-- end page title -->
                     <div class="row">
                         <div class="col-12">
-
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event" ><i class="mdi mdi-plus-circle-outline"></i> Add Patient</button>
+                                            <button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Add Patient</button>
 
                                             <div id="external-events">
                                                 <br>
                                                 <!-- <p class="text-muted">Drag and drop your event or click in the calendar</p> -->
-
                                             </div>
 
                                         </div> <!-- end col-->
@@ -105,6 +100,7 @@
                                             <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                                             <h5 class="modal-title" id="modal-title">Patient Name</h5>
                                         </div>
+
                                         <div class="modal-body px-4 pb-4 pt-0">
                                             <form class="needs-validation" method="post" name="event-form" id="form-event" novalidate>
                                                 <div class="row">
@@ -112,7 +108,7 @@
                                                         <div class="col-12">
                                                             <div class="mb-3">
                                                                 <!-- <label class="form-label">PID</label> -->
-                                                                <input class="form-control" type="hidden"class="pid" name="pid" value=""  id ="pid"  disabled />
+                                                                <input class="form-control" type="hidden" class="pid" name="pid" value="" id="pid" disabled />
                                                                 <!-- <INPUT class="form-control patient-id" TYPE=TEXT NAME="ACCOUNT" id="event-title" VALUE="" MAXLENGTH=16 SIZE=16 disabled> -->
                                                                 <div class="invalid-feedback">Please provide a valid patient id</div>
                                                             </div>
@@ -122,6 +118,8 @@
                                                             <input class="form-control" type="text" id="pname" name="title" id="event-title" required />
                                                             <div class="invalid-feedback">Please provide a valid patient name</div>
                                                         </div>
+
+
                                                         <div class="col-12">
                                                             <div class="mb-3">
                                                                 <label class="form-label">MRI </label>
@@ -141,7 +139,7 @@
                                                         <div class="col-12">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Sick Leave Recommendation </label>
-                                                                <!-- <input class="form-control"  type="text" name="sickleave" id="event-title" required /> -->
+
                                                                 <input id="toggle-on" id="sickleave" value="yes" name="sickleave" type="radio">
                                                                 <label class="form-label" for="toggle-on">Yes</label>
                                                                 <input id="toggle-off" id="sickleave" value="no" name="sickleave" type="radio">
@@ -160,6 +158,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="row mt-2">
                                                         <div class="col-md-6 col-4">
                                                             <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
@@ -213,7 +212,6 @@
 
     <!-- ====================================================================================== -->
     <script>
-     
         $(document).ready(function() {
 
             $("#btn-save-patient").click(function() {
@@ -261,9 +259,9 @@
         $(function() {
             var randomnumber = Math.floor(Math.random() * 11)
             $('.pid input[type="text"]').val(randomnumber);
-            console.log("random" ,      $('.pid input[type="text"]').val(randomnumber))
+            console.log("random", $('.pid input[type="text"]').val(randomnumber))
 
-            })
+        })
     </script>
 
 

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +20,18 @@
     <link href="assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
 
     <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-   
+
     <link href="assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
+    <!-- Sweet Alert-->
+    <link href="assets/dashboard/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- Select CSS  -->
+    <link href="assets/dashboard/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <!--  -->
 
 
 </head>
@@ -156,6 +159,14 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
+                                                            <label class="form-label">UUID</label>
+                                                            <input type="text" class="form-control" name="uuid" id="uuid" name="uuid" />
+
+                                                            <div class="invalid-feedback">Please provide a valid uuid</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
                                                             <label class="form-label">Phone Number</label>
                                                             <input class="form-control" placeholder="" type="text" name="phone_number" id="phone_number" required />
                                                             <div class="invalid-feedback">Please provide a valid Phone Number</div>
@@ -199,19 +210,22 @@
                     </div> <!-- end row -->
                     <div class="row">
                         <div class="col-12">
-
+ 
                             <div class="card">
                                 <div class="card-body">
                                     <div class="table-responsive" id="appointments-container">
-                                        <table id="appointment-table" class="table table-striped dt-responsive nowrap w-100">
+                                        <table id="appointment-table"class="table activate-select dt-responsive nowrap w-100">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Patient Name</th>
-                                                    <th>Phone Number</th>
-                                                    <th>Notes</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
+                                                    <!-- <th> Appointment ID </th> -->
+                                                    <th> UUID </th>
+                                                    <th> Patient Name </th>
+                                                    <th> Phone Number </th>
+                                                    <th> Notes </th>
+                                                    <th> Date </th> 
+                                                    <th> Time </th>
+                                                    <th> Status </th>
+                                                    <th colspan="3"> Action </th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -223,9 +237,6 @@
                 </div> <!-- container -->
 
             </div> <!-- content -->
-
-
-
             <!-- Footer Start -->
             <?php include './components/footer.php'; ?>
             <!-- end Footer -->
@@ -253,47 +264,59 @@
 
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
-
     <script src="assets/dashboard/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-        <script src="assets/dashboard/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
-        <script src="assets/dashboard/assets/libs/pdfmake/build/pdfmake.min.js"></script>
-        <script src="assets/dashboard/assets/libs/pdfmake/build/vfs_fonts.js"></script>
-        <!-- third party js ends -->
-    
+    <script src="assets/dashboard/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/dashboard/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/dashboard/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="assets/dashboard/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- Sweet alert init js-->
+    <script src="../assets/js/pages/sweet-alerts.init.js"></script>
+    <!-- third party js ends -->
+
+
     <script>
         $(document).ready(function() {
-            $('#appointment-table').DataTable({
+           var table = $('#appointment-table').DataTable({
                 dom: '<"top"Bif>rt<"bottom"lp><"clear">',
                 lengthChange: !1,
-                    buttons: ["print", "pdf"],
-                    buttons: {
-                    buttons: [
-                               { extend: "print", className: "btn-light" },
-                                 { extend: "pdf", className: "btn-light" }]
-                    },
+                buttons: ["print", "pdf"],
+                buttons: {
+                    buttons: [{
+                            extend: "print",
+                            className: "btn-light"
+                        },
+                        {
+                            extend: "pdf",
+                            className: "btn-light"
+                        }
+                    ]
+                },
                 "ajax": {
                     "url": "appointments_control.php",
                     "type": "GET",
                     "datatype": "json",
                     "dataSrc": "",
-                 
-                   
+
+
                 },
-                drawCallback: function () {
-                $(".dataTables_paginate > .pagination")
-                    .addClass("pagination-rounded")
-            },
-                "columns": [{
-                        "data": "appointments_id"
+                drawCallback: function() {
+                    $(".dataTables_paginate > .pagination")
+                        .addClass("pagination-rounded")
+                },
+                "columns": [
+               
+                    {
+                        "data": "uuid"
                     },
                     {
                         "data": "patient_name"
@@ -309,9 +332,97 @@
                     },
                     {
                         "data": "time"
-                    }
-
+                    },
+                    {
+                        "data": "status_name"
+                    },
+                    {data: "status" , render : function ( data, type, row, meta ) {
+                        var thisId = $('#appointments_id').val();
+                            console.log("ThisId" , row.appointments_id)
+                            return (type === 'display' && data == 1)  ?
+                                '<button class="btn btn-info"  id="notConfirmed" data-row= "'+ row.appointments_id +'" data-id="'+ data +'" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>'
+                                  :(type === 'display' && data == 2) ? 
+                                  '<button class="btn btn-success" title="Confirm Appointment" data-row= "'+ row.appointments_id +'" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' :
+                                   'Done'
+                            }}, 
                 ]
+            });
+ 
+            $('#appointment-table tbody').on( 'click', 'tr', function () {
+                        if ( $(this).hasClass('selected') ) {
+                                
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            table.$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+            } );
+            $(document).on("click", "#removeAppoint", function(e) { 
+                    e.preventDefault();
+                    var appointments_id = $(this).data('remove');
+
+          
+                    $.ajax({
+                        url: "./models/delete_appointments.php",
+                        type: "POST",
+                        data: {
+                            appointments_id: appointments_id
+                        },
+                        success: function(data) {
+                            $('#appointment-table').DataTable().ajax.reload();
+                                Swal.fire
+                                ({title:"Success !",
+                                text:"Appointment has been Deleted successfully!",
+                                icon:"success"})
+                
+                        }
+
+                    });
+            });
+            $(document).on("click", "#notConfirmed", function(e) { 
+                    e.preventDefault();
+                    var appointments_id = $(this).data('row');
+
+          
+                    $.ajax({
+                        url: "./models/updateNotConfirmed.php",
+                        type: "POST",
+                        data: {
+                            appointments_id: appointments_id
+                        },
+                        success: function(data) {
+                            $('#appointment-table').DataTable().ajax.reload();
+                                Swal.fire
+                                ({title:"Success !",
+                                text:"Appointment has been Updated Successfully!",
+                                icon:"success"})
+                
+                        }
+
+                    });
+            });
+            $(document).on("click", "#confirmed", function(e) { 
+                    e.preventDefault();
+                    var appointments_id = $(this).data('row');
+
+          
+                    $.ajax({
+                        url: "./models/updateConfirmed.php",
+                        type: "POST",
+                        data: {
+                            appointments_id: appointments_id
+                        },
+                        success: function(data) {
+                            $('#appointment-table').DataTable().ajax.reload();
+                                Swal.fire
+                                ({title:"Success !",
+                                text:"Appointment Done Successfully!",
+                                icon:"success"})
+                
+                        }
+
+                    });
             });
         });
     </script>

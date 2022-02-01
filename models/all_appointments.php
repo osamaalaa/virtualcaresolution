@@ -3,7 +3,7 @@
   include "./src/gaurd.php"; 
   
 $username = $_SESSION['username'];
-$sql = "SELECT * FROM appointments WHERE doctor_name = '$username' ORDER BY appointments_id";
+$sql = "SELECT * FROM appointments WHERE doctor_name = '$username' AND deleted = 0 ORDER BY appointments_id";
 $result = mysqli_query($conn,$sql);
 
 $json_array = array();
