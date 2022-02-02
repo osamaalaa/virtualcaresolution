@@ -1,7 +1,7 @@
 
 
 <?php
-  require_once "db.php";
+  require_once "db.php"; 
   include "src/gaurd.php"; 
   
 $username = $_SESSION['username'];

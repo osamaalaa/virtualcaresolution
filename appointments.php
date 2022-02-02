@@ -200,7 +200,7 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                        </div>
+                                        </div> 
                                     </div> <!-- end modal-content-->
                                 </div> <!-- end modal dialog-->
                             </div>
@@ -213,27 +213,34 @@
  
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="table-responsive" id="appointments-container">
-                                        <table id="appointment-table"class="table activate-select dt-responsive nowrap w-100">
-                                            <thead>
-                                                <tr>
-                                                    <!-- <th> Appointment ID </th> -->
-                                                    <th> UUID </th>
-                                                    <th> Patient Name </th>
-                                                    <th> Phone Number </th>
-                                                    <th> Notes </th>
-                                                    <th> Date </th> 
-                                                    <th> Time </th>
-                                                    <th> Status </th>
-                                                    <th colspan="3"> Action </th>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
+                                <div class="row"> 
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive" id="appointments-container">
+                                                <table id="appointment-table"class="table activate-select dt-responsive nowrap w-100">
+                                                    <thead>
+                                                        <tr>
+                                                            <!-- <th> Appointment ID </th> -->
+                                                            <th> UUID </th>
+                                                            <th> Patient Name </th>
+                                                            <th> Phone Number </th>
+                                                            <th> Notes </th>
+                                                            <th> Date </th> 
+                                                            <th> Time </th>
+                                                            <th> Status </th>
+                                                            <th colspan="3"> Action </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                         </div>
+                                     </div>    
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- ------------------------------------Rasa------------------------------------- -->
+  
+                    <!-- -------------------------------------------------------------------------------- -->
                 </div> <!-- container -->
 
             </div> <!-- content -->
@@ -338,11 +345,12 @@
                     },
                     {data: "status" , render : function ( data, type, row, meta ) {
                         var thisId = $('#appointments_id').val();
+                        
                             console.log("ThisId" , row.appointments_id)
                             return (type === 'display' && data == 1)  ?
-                                '<button class="btn btn-info"  id="notConfirmed" data-row= "'+ row.appointments_id +'" data-id="'+ data +'" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>'
+                                '<button class="btn btn-info"  id="notConfirmed" title="Confirm Appointment ?"  data-row= "'+ row.appointments_id +'" data-id="'+ data +'" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>'
                                   :(type === 'display' && data == 2) ? 
-                                  '<button class="btn btn-success" title="Confirm Appointment" data-row= "'+ row.appointments_id +'" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' :
+                                  '<button class="btn btn-success" title="Finished ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' :
                                    'Done'
                             }}, 
                 ]
@@ -405,24 +413,64 @@
             $(document).on("click", "#confirmed", function(e) { 
                     e.preventDefault();
                     var appointments_id = $(this).data('row');
+                    var patient_name = $(this).data('patient_name');
+                    var phone_number = $(this).data('phone_number');
+                    var uuid =  $(this).data('uuid');
+                    var date =  $(this).data('date');
+                    // var rows = $("#appointment-table tr").map(function() {
+                    //                 return {
+                    //                     phone_number: $('#phone_number').val(),
+                    //                     // ...
+                    //                 };
+                    //             });
 
-          
-                    $.ajax({
-                        url: "./models/updateConfirmed.php",
+
+                                console.log("RRow" , uuid ,phone_number, patient_name , date )
+
+
+                     $.ajax({
+                        url: "./models/patient_insertion.php",
                         type: "POST",
                         data: {
-                            appointments_id: appointments_id
+                            appointments_id: appointments_id,
+                            patient_name: patient_name,
+                            phone_number: phone_number,
+                            uuid: uuid,
+                            date: date
                         },
-                        success: function(data) {
-                            $('#appointment-table').DataTable().ajax.reload();
-                                Swal.fire
-                                ({title:"Success !",
-                                text:"Appointment Done Successfully!",
-                                icon:"success"})
+                        success: function(data) { 
+                            // $('#appointment-table').DataTable().ajax.reload();
+                                // Swal.fire
+                                // ({title:"Success !",
+                                // text:"Appointment Done Successfully!",
+                                // icon:"success"})
+                                
+                                $.ajax({
+                                    url: "./models/updateConfirmed.php",
+                                    type: "POST",
+                                    data: {
+                                        appointments_id: appointments_id
+                                    },
+                                    success: function(data) {
+
+
+                                    
+
+
+                                        $('#appointment-table').DataTable().ajax.reload();
+                                            Swal.fire
+                                            ({title:"Success !",
+                                            text:"Appointment Done Successfully!",
+                                            icon:"success"})
+                            
+                                    }
+
+                                });
                 
                         }
 
                     });
+
             });
         });
     </script>

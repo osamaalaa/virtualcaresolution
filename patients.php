@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Patients Portal | Virtual Care Solutions VCS</title>
+    <title>VMR | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
     <meta content="YasClinicGroup" name="author" />
@@ -64,7 +64,7 @@
                                         <li class="breadcrumb-item active">VMR</li>
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Patients</h4>
+                                <h4 class="page-title">VMR</h4>
                             </div>
                         </div>
                     </div>
@@ -73,21 +73,74 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
+
                                     <div class="row">
-                                        <div class="col-lg-3">
-                                            <button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Add Patient</button>
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body">
 
-                                            <div id="external-events">
-                                                <br>
-                                                <!-- <p class="text-muted">Drag and drop your event or click in the calendar</p> -->
-                                            </div>
+                                                    <h5 class="mt-0">Patients Data</h5>
+                                                    <p class="sub-header">Patient Table For Doctor only.</p>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-centered mb-0" id="btn-editable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th> # </th>
+                                                                    <th> Name </th>
+                                                                    <th> UUID </th>
+                                                                    <th> Title </th>
+                                                                    <th> language </th>
+                                                                    <th> DOB </th>
+                                                                    <th> Street </th>
+                                                                    <th> postal code </th>
 
-                                        </div> <!-- end col-->
+                                                                    <th> City </th>
+                                                                    <th> State </th>
+                                                                    <th> Country Code </th>
+                                                                    <th> Phone number </th>
+                                                                    <th> Email </th>
+                                                                    <th> Date </th>
+                                                                    <th> Sex </th>
+                                                                    <th> Religion </th>
+                                                                    <th> SickLeave </th>
+                                                                    <th> WFH </th>
+                                                                    <th> MRI </th>
+                                                                  
+                                                                </tr>
+                                                            </thead>
 
-                                        <div class="col-lg-9">
-                                            <div id="calendar"></div>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Osama</td>
+                                                                    <td>784112345</td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+
+
+                                                                </tr>
+
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div> <!-- end .table-responsive-->
+                                                </div> <!-- end card-body -->
+                                            </div> <!-- end card -->
                                         </div> <!-- end col -->
-
                                     </div> <!-- end row -->
                                 </div> <!-- end card body-->
                             </div> <!-- end card -->
@@ -211,7 +264,7 @@
     <script src="assets/dashboard/assets/js/app.min.js"></script>
 
     <!-- ====================================================================================== -->
-    <script>
+    <!-- <script>
         $(document).ready(function() {
 
             $("#btn-save-patient").click(function() {
@@ -262,10 +315,176 @@
             console.log("random", $('.pid input[type="text"]').val(randomnumber))
 
         })
-    </script>
+    </script>    -->
 
 
     <!-- ======================================================================================= -->
+
+
+    <!-- App js -->
+    <script src="assets/dashboard/assets/js/app.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/dashboard/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="assets/dashboard/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/dashboard/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="assets/dashboard/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- Sweet alert init js-->
+    <script src="../assets/js/pages/sweet-alerts.init.js"></script>
+    <!-- third party js ends -->
+    <!-- Table Editable plugin-->
+    <script src="assets/dashboard/assets/libs/jquery-tabledit/jquery.tabledit.min.js"></script>
+
+    <!-- Table editable init-->
+    <script src="assets/dashboard/assets/js/pages/tabledit.init.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#datatable-vmr').DataTable({
+                dom: '<"top"Bif>rt<"bottom"lp><"clear">',
+                lengthChange: !1,
+                buttons: ["print", "pdf"],
+                buttons: {
+                    buttons: [{
+                            extend: "print",
+                            className: "btn-light"
+                        },
+                        {
+                            extend: "pdf",
+                            className: "btn-light"
+                        }
+                    ]
+                },
+                "ajax": {
+                    "url": "appointments_control.php",
+                    "type": "GET",
+                    "datatype": "json",
+                    "dataSrc": "",
+
+
+                },
+                drawCallback: function() {
+                    $(".dataTables_paginate > .pagination")
+                        .addClass("pagination-rounded")
+                },
+                "columns": [
+
+                    {
+                        "data": "uuid"
+                    },
+                    {
+                        "data": "patient_name"
+                    },
+                    {
+                        "data": "phone_number"
+                    },
+                    {
+                        "data": "notes"
+                    },
+                    {
+                        "data": "status_name"
+                    },
+                    {
+                        data: "status",
+                        render: function(data, type, row, meta) {
+                            var thisId = $('#appointments_id').val();
+                            console.log("ThisId", row.appointments_id)
+                            return (type === 'display' && data == 1) ?
+                                '<button class="btn btn-info"  id="notConfirmed" data-row= "' + row.appointments_id + '" data-id="' + data + '" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="' + row.appointments_id + '"><span class="mdi mdi-delete-circle"></span></button>' :
+                                (type === 'display' && data == 2) ?
+                                '<button class="btn btn-success" title="Confirm Appointment" data-row= "' + row.appointments_id + '" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="' + row.appointments_id + '"><span class="mdi mdi-delete-circle"></span></button>' :
+                                'Done'
+                        }
+                    },
+                ]
+            });
+
+
+            $('#datatable-vmr tbody').on('click', 'tr', function() {
+                if ($(this).hasClass('selected')) {
+
+                    $(this).removeClass('selected');
+                } else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+            $(document).on("click", "#removeAppoint", function(e) {
+                e.preventDefault();
+                var appointments_id = $(this).data('remove');
+
+
+                $.ajax({
+                    url: "./models/delete_appointments.php",
+                    type: "POST",
+                    data: {
+                        appointments_id: appointments_id
+                    },
+                    success: function(data) {
+                        $('#appointment-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Appointment has been Deleted successfully!",
+                            icon: "success"
+                        })
+
+                    }
+
+                });
+            });
+            $(document).on("click", "#notConfirmed", function(e) {
+                e.preventDefault();
+                var appointments_id = $(this).data('row');
+                $.ajax({
+                    url: "./models/updateNotConfirmed.php",
+                    type: "POST",
+                    data: {
+                        appointments_id: appointments_id
+                    },
+                    success: function(data) {
+                        $('#appointment-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Appointment has been Updated Successfully!",
+                            icon: "success"
+                        })
+                    }
+                });
+            });
+            $(document).on("click", "#confirmed", function(e) {
+                e.preventDefault();
+                var appointments_id = $(this).data('row');
+
+
+                $.ajax({
+                    url: "./models/updateConfirmed.php",
+                    type: "POST",
+                    data: {
+                        appointments_id: appointments_id
+                    },
+                    success: function(data) {
+                        $('#appointment-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Appointment Done Successfully!",
+                            icon: "success"
+                        })
+
+                    }
+
+                });
+            });
+        });
+    </script>
 
 </body>
 

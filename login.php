@@ -326,6 +326,11 @@
         <h2>Authentication Failed</h2>
         <p>PLEASE RESTART YOUR SITE</p>
     </div>
+    <div id="rasa-chat-widget" data-websocket-url="http://3.19.59.149:5005"></div>
+    <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+
+
+
     <div class='disclaimer'>
         <p>© Copyright by.PQW - IT Managment consulting - Germany for YAS Clinic Group 2022</p>
     </div>
