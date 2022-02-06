@@ -152,21 +152,21 @@
         <div class="logo-box">
             <a href="index.php" class="logo logo-dark text-center">
                 <span class="logo-sm">
-                    <img src="../assets/images/pqw-logo-white.svg" alt="" height="30">
+                    <img src="../assets/images/yasLogo.png" alt="" height="30">
                     <!-- <span class="logo-lg-text-light">UBold</span> -->
                 </span>
                 <span class="logo-lg">
-                    <img src="../assets/images/pqw-logo-white.svg" alt="" height="30">
+                    <img src="../assets/images/yasLogo.png" alt="" height="30">
                     <!-- <span class="logo-lg-text-light">U</span> -->
                 </span>
             </a>
 
             <a href="index.php" class="logo logo-light text-center">
                 <span class="logo-sm">
-                    <img src="../assets/images/pqw-logo-white.svg" alt="" height="25">
+                    <img src="../assets/images/yasLogo.png" alt="" height="25">
                 </span>
                 <span class="logo-lg">
-                    <img src="../assets/images/pqw-logo-white.svg" alt="" height="30">
+                    <img src="../assets/images/yasLogo.png" alt="" height="30">
                 </span>
             </a>
         </div>

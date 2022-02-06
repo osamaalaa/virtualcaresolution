@@ -80,7 +80,7 @@
 			<div class="main-menu">
 				<div id="logo">
 					<a href="index.php">
-						<img src="assets/images/pqw-logo-white.svg" alt="alex-zane-logo">
+						<img src="assets/images/yasLogo.png" alt="alex-zane-logo">
 					</a>
 				</div>
 

@@ -17,6 +17,9 @@
 
 	<!-- Page Title -->
 	<title>VCS | Virtual Care Solution</title>
+	<!-- App css -->
+	<!-- <link href="assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+	<link href="assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" /> -->
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,900,200' rel='stylesheet' type='text/css'>
@@ -77,7 +80,7 @@
 			<div class="main-menu" style="display:flex;">
 				<div id="logo">
 					<a href="index.php">
-						<img src="assets/images/pqw-logo-white.svg" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
+						<img src="assets/images/yasLogo.png" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
 					</a>
 				</div>
 				<!-- Menu -->
@@ -120,27 +123,16 @@
 					<form action="javascript:void(0)" method="post" id="ajax-form">
 						<!-- Section One -->
 						<section class="section" id="section1">
-							<!-- <div class="darker"></div>
-							<div class="border">
-								<div class="frames">
-									<div></div>
-									<div></div>
-									<div></div>
-									<div></div>
-								</div>
-								<div class="corners">
-									<div></div>
-									<div></div>
-								</div>
-							</div> -->
-
 							<div class="cover-titles">
 								<div class="align-left">
 									<h1 class="title">Communicate</h1>
 									<p style="font-size: 34px;">For the future</p>
-
+									
+									<a href="#" onClick="document.getElementById('section2').scrollIntoView();" class="btn" style="color: white">
+													<span>Lets Begin</span>
+													<i class="fa fa-sign-in" style="color: white"></i>
+												</a>
 								</div>
-
 							</div>
 							</div>
 
@@ -166,46 +158,96 @@
 									width: 100%;
 								}
 							}
+
+							.card-group {
+								display: flex;
+								flex-flow: row wrap;
+							}
+
+							.card:not(:last-child) {
+								border-top-right-radius: 0;
+								border-bottom-right-radius: 0;
+							}
+
+							.card-group>.card {
+								flex: 1 0 0%;
+								margin-bottom: 0;
+							}
+
+							.card {
+								box-shadow: 0 .75rem 6rem rgba(56, 65, 74, .03);
+								margin-bottom: 24px;
+							}
+
+							.card {
+								position: relative;
+								display: flex;
+								flex-direction: column;
+								min-width: 0;
+								word-wrap: break-word;
+								/* background-color: #fff; */
+								background-image: url("assets/images/telemedicine.jpg.webp");
+								-webkit-background-size: cover;
+								-moz-background-size: cover;
+								-o-background-size: cover;
+								background-size: cover;
+								background-clip: border-box;
+								border: 0 solid #f7f7f7;
+								border-radius: .25rem;
+								border-top-right-radius: 0.25rem;
+								border-bottom-right-radius: 0.25rem;
+							}
 						</style>
 
 						<section class="section" id="section2" style="width:100%;height:100%">
-							<!-- style="display:flex;flex-wrap: wrap;align-content:margin: 0 -4px 0 0;padding: 0px; center;vertical-align: middle;margin: 0 auto; border: 1px solid red;" -->
-							<!-- <div class="1video-grid" id="1video" > -->
-							<div id="video" class="videoContainer" style="display:flex;flex-wrap:nowrap;position:relative;align-content:center;padding: 2px; vertical-align: middle;  border: 0px solid ;width:80%;top:10%">
-								<div id="local_stream" class="sample 1video- placeholder"></div>
-								<!--<div id="local_video_info" class="sample 1video- profile hide"    ></div>-->
-								<div id="video_autoplay_local" class="sample 1autoplay- fallback hide"></div>
+							<div class="row">
+								<div class="col-lg-6">
+									<!-- Simple card -->
+									<div class="card">
 
-								<!-- </div> -->
-							</div>
+										<div class="card-body">
 
-							<div class="cover-titles">
-								<div class="align-left" style="margin: auto;padding: 100px;">
-									<a href="#" id="join" class="btn">
-										<span>Join</span>
-										<i class="fa fa-arrow-right"></i>
-									</a>
+											<div id="local_stream" class="sample 1video- placeholder"></div>
+											<div class="cover-titles">
 
-									<a onclick="Copy()" href="#" class="btn" onclick="Copy()">
-										<span>COPY LINK</span>
-										<i class="fa fa-arrow-right"></i>
-									</a>
+												<a href="#" id="join" class="btn" style="color: white">
+													<span>Join</span>
+													<i class="fa fa-arrow-right"></i>
+												</a>
 
-									<a href="#" type="submit" class="btn" name="leave" id="leave">
-										<span>LEAVE</span>
-										<i class="fa fa-sign-out"></i>
-									</a>
+												<a onclick="Copy()" href="#" class="btn" onclick="Copy()" style="color: white">
+													<span>COPY LINK</span>
+													<i class="fa fa-arrow-right" style="color: white"></i>
+												</a>
 
-									<div id="remainingTime" name="timer" class="timer">
+												<a href="#" type="submit" class="btn" name="leave" id="leave" style="color: white">
+													<span>LEAVE</span>
+													<i class="fa fa-sign-out" style="color: white"></i>
+												</a>
+
+												<div id="remainingTime" name="timer" class="timer">
+												</div>
+												<div id="price" name="timer" class="timer" style="display: none;">
+												</div>
+											</div>
+										</div>
+
 									</div>
-									<div id="price" name="timer" class="timer" style="display: none;">
-									</div>
-
 								</div>
 
-							</div>
+								<div class="col-lg-6">
+									<div class="card">
 
-							<a href="#" onClick="window.open('https://app.smith.ai/chat/standalone-widget/ec95fb4d-da0c-43d2-8145-d3f8884bd3fe/', 'Chat', 'resizable,height=700,width=450'); return false;"><img src="https://s3-us-west-1.amazonaws.com/prod-smith-dynamic/static/chat/chat-icons/smithai-chat-icon.png" width="144" alt="Chat"></a>
+										<div class="card-body">
+
+											<div id="video" class="videoContainer">
+
+												<div id="video_autoplay_local" class="sample 1autoplay-fallback hide"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</section>
 					</form>
 					<!-- /Section One -->
@@ -776,6 +818,8 @@
 			Timer(twentyFourHours, display);
 		}
 	</script>
+
+
 
 </body>
 

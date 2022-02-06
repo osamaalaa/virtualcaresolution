@@ -165,7 +165,7 @@ require_once "db.php";
                                             <div class="text-end">
                                                 <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
                                                                                                             $username = $_SESSION['username'];
-                                                                                                            $sql = mysqli_query($conn, "SELECT count(*) as total from patients where doctor_name = '$username'");
+                                                                                                            $sql = mysqli_query($conn, "SELECT count(*) as total from patient_data");
                                                                                                             $data = mysqli_fetch_assoc($sql);
                                                                                                             echo "" . $data['total'] . "";
 

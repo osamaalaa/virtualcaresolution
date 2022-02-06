@@ -11,15 +11,18 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="./assets/images/fav.ico">
 
-    <!-- Plugin css -->
-    <link href="assets/dashboard/assets/libs/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
     <link href="assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
-    <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-    <link href="assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
+    <!-- Sweet Alert-->
+    <link href="assets/dashboard/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- Select CSS  -->
+    <link href="assets/dashboard/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -82,18 +85,16 @@
                                                     <h5 class="mt-0">Patients Data</h5>
                                                     <p class="sub-header">Patient Table For Doctor only.</p>
                                                     <div class="table-responsive">
-                                                        <table class="table table-centered mb-0" id="btn-editable">
+                                                        <table class="table activate-select dt-responsive nowrap w-100" id="datatable-vmr">
                                                             <thead>
                                                                 <tr>
                                                                     <th> # </th>
-                                                                    <th> Name </th>
                                                                     <th> UUID </th>
+                                                                    <th> Name </th>
                                                                     <th> Title </th>
                                                                     <th> language </th>
                                                                     <th> DOB </th>
                                                                     <th> Street </th>
-                                                                    <th> postal code </th>
-
                                                                     <th> City </th>
                                                                     <th> State </th>
                                                                     <th> Country Code </th>
@@ -105,38 +106,15 @@
                                                                     <th> SickLeave </th>
                                                                     <th> WFH </th>
                                                                     <th> MRI </th>
-                                                                  
+                                                                    <th> Physician </th>
                                                                 </tr>
                                                             </thead>
 
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Osama</td>
-                                                                    <td>784112345</td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-
-
-                                                                </tr>
-
 
                                                             </tbody>
                                                         </table>
+
                                                     </div> <!-- end .table-responsive-->
                                                 </div> <!-- end card-body -->
                                             </div> <!-- end card -->
@@ -253,73 +231,10 @@
     <!-- Vendor js -->
     <script src="assets/dashboard/assets/js/vendor.min.js"></script>
 
-    <!-- plugin js -->
-    <script src="assets/dashboard/assets/libs/moment/min/moment.min.js"></script>
-    <script src="assets/dashboard/assets/libs/fullcalendar/main.min.js"></script>
+
 
     <!-- Calendar init -->
-    <script src="assets/dashboard/assets/js/pages/calendar.init.js"></script>
-
-    <!-- App js -->
-    <script src="assets/dashboard/assets/js/app.min.js"></script>
-
-    <!-- ====================================================================================== -->
-    <!-- <script>
-        $(document).ready(function() {
-
-            $("#btn-save-patient").click(function() {
-
-                var pname = $("#pname").val();
-                var mri = $("#mri").val();
-                var cheifcomplaint = $("#cheifcomplaint").val();
-                // var wfh = $("#wfh").val();
-
-                if (pname == '' || mri == '' || cheifcomplaint == '') {
-                    alert("Please fill all fields.");
-                    return false;
-                }
-                var sickleave = $('input[name="sickleave"]:checked').val();
-                var wfh = $('input[name="wfh"]:checked').val();
-                var doctor_name = $("#doctor_name").val();
-                var pid = Math.floor(100000 + Math.random() * 900000)
-
-
-                console.log("pid", pid, doctor_name, wfh, sickleave, mri, cheifcomplaint, pname)
-                $.ajax({
-                    type: "POST",
-                    url: "models/patients.php",
-                    data: {
-                        pname: pname,
-                        mri: mri,
-                        cheifcomplaint: cheifcomplaint,
-                        wfh: wfh,
-                        sickleave: sickleave,
-                        doctor_name: doctor_name,
-                        pid: pid
-                    },
-                    cache: false,
-                    success: function(data) {
-                        Toast.notice("Link Copied to clipboard!");
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(xhr);
-                    }
-                });
-
-            });
-
-        });
-        $(function() {
-            var randomnumber = Math.floor(Math.random() * 11)
-            $('.pid input[type="text"]').val(randomnumber);
-            console.log("random", $('.pid input[type="text"]').val(randomnumber))
-
-        })
-    </script>    -->
-
-
-    <!-- ======================================================================================= -->
-
+    <script src="assets/dashboard/assets/js/pages/appointment.init.js"></script>
 
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
@@ -336,23 +251,43 @@
     <script src="assets/dashboard/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
     <script src="assets/dashboard/assets/libs/pdfmake/build/pdfmake.min.js"></script>
     <script src="assets/dashboard/assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <!-- Sweet Alerts js -->
-    <script src="assets/dashboard/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
-    <!-- Sweet alert init js-->
-    <script src="../assets/js/pages/sweet-alerts.init.js"></script>
-    <!-- third party js ends -->
-    <!-- Table Editable plugin-->
-    <script src="assets/dashboard/assets/libs/jquery-tabledit/jquery.tabledit.min.js"></script>
 
-    <!-- Table editable init-->
-    <script src="assets/dashboard/assets/js/pages/tabledit.init.js"></script>
+    <!-- third party js ends -->
+
+
 
     <script>
         $(document).ready(function() {
-            var table = $('#datatable-vmr').DataTable({
+            $('#datatable-vmr').DataTable({
                 dom: '<"top"Bif>rt<"bottom"lp><"clear">',
                 lengthChange: !1,
                 buttons: ["print", "pdf"],
+                "processing": true,
+                "serverSide": true,
+                "language": {
+                    "sEmptyTable": "No results found",
+                    "sInfo": "Showing START to END of TOTAL entries",
+                    "sInfoEmpty": "Showing 0 to 0 of 0 entries",
+                    "sInfoFiltered": "(filtered from MAX total entries)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "Show MENU entries",
+                    "sLoadingRecords": "Loading...",
+                    "sProcessing": "Processing...",
+                    "sSearch": "Search",
+                    "sZeroRecords": "No results found",
+                    "oPaginate": {
+                        "sFirst": "First",
+                        "sLast": "Last",
+                        "sNext": "Next",
+                        "sPrevious": "Previous"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": activate to sort column ascending",
+                        "sSortDescending": ": activate to sort column descending"
+                    }
+                },
+
                 buttons: {
                     buttons: [{
                             extend: "print",
@@ -364,20 +299,31 @@
                         }
                     ]
                 },
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 0
+                }],
+
                 "ajax": {
-                    "url": "appointments_control.php",
-                    "type": "GET",
+                    "url": "models/patientsForDoctor.php",
+                    "type": "POST",
                     "datatype": "json",
-                    "dataSrc": "",
+
 
 
                 },
+
+                serverSide: false,
+                processing: true,
+
+                //  responsive: true,
                 drawCallback: function() {
                     $(".dataTables_paginate > .pagination")
                         .addClass("pagination-rounded")
                 },
-                "columns": [
-
+                "columns": [{
+                        "data": "id"
+                    },
                     {
                         "data": "uuid"
                     },
@@ -385,104 +331,59 @@
                         "data": "patient_name"
                     },
                     {
-                        "data": "phone_number"
+                        "data": "title"
                     },
                     {
-                        "data": "notes"
+                        "data": "language"
                     },
                     {
-                        "data": "status_name"
+                        "data": "DOB"
                     },
                     {
-                        data: "status",
-                        render: function(data, type, row, meta) {
-                            var thisId = $('#appointments_id').val();
-                            console.log("ThisId", row.appointments_id)
-                            return (type === 'display' && data == 1) ?
-                                '<button class="btn btn-info"  id="notConfirmed" data-row= "' + row.appointments_id + '" data-id="' + data + '" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="' + row.appointments_id + '"><span class="mdi mdi-delete-circle"></span></button>' :
-                                (type === 'display' && data == 2) ?
-                                '<button class="btn btn-success" title="Confirm Appointment" data-row= "' + row.appointments_id + '" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="' + row.appointments_id + '"><span class="mdi mdi-delete-circle"></span></button>' :
-                                'Done'
-                        }
+                        "data": "street"
                     },
-                ]
-            });
 
-
-            $('#datatable-vmr tbody').on('click', 'tr', function() {
-                if ($(this).hasClass('selected')) {
-
-                    $(this).removeClass('selected');
-                } else {
-                    table.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                }
-            });
-            $(document).on("click", "#removeAppoint", function(e) {
-                e.preventDefault();
-                var appointments_id = $(this).data('remove');
-
-
-                $.ajax({
-                    url: "./models/delete_appointments.php",
-                    type: "POST",
-                    data: {
-                        appointments_id: appointments_id
+                    {
+                        "data": "city"
                     },
-                    success: function(data) {
-                        $('#appointment-table').DataTable().ajax.reload();
-                        Swal.fire({
-                            title: "Success !",
-                            text: "Appointment has been Deleted successfully!",
-                            icon: "success"
-                        })
-
+                    {
+                        "data": "state"
+                    },
+                    {
+                        "data": "country_code"
+                    },
+                    {
+                        "data": "phone_contact"
+                    },
+                    {
+                        "data": "email"
+                    },
+                    {
+                        "data": "date"
+                    },
+                    {
+                        "data": "sex"
+                    },
+                    {
+                        "data": "religion"
+                    },
+                    {
+                        "data": "sick_leave"
+                    },
+                    {
+                        "data": "wfh"
+                    },
+                    {
+                        "data": "MRI"
+                    },
+                    {
+                        "data": "doctor_name"
                     }
 
-                });
+                ],
+
             });
-            $(document).on("click", "#notConfirmed", function(e) {
-                e.preventDefault();
-                var appointments_id = $(this).data('row');
-                $.ajax({
-                    url: "./models/updateNotConfirmed.php",
-                    type: "POST",
-                    data: {
-                        appointments_id: appointments_id
-                    },
-                    success: function(data) {
-                        $('#appointment-table').DataTable().ajax.reload();
-                        Swal.fire({
-                            title: "Success !",
-                            text: "Appointment has been Updated Successfully!",
-                            icon: "success"
-                        })
-                    }
-                });
-            });
-            $(document).on("click", "#confirmed", function(e) {
-                e.preventDefault();
-                var appointments_id = $(this).data('row');
 
-
-                $.ajax({
-                    url: "./models/updateConfirmed.php",
-                    type: "POST",
-                    data: {
-                        appointments_id: appointments_id
-                    },
-                    success: function(data) {
-                        $('#appointment-table').DataTable().ajax.reload();
-                        Swal.fire({
-                            title: "Success !",
-                            text: "Appointment Done Successfully!",
-                            icon: "success"
-                        })
-
-                    }
-
-                });
-            });
         });
     </script>
 

@@ -78,7 +78,7 @@ require_once "db.php";
                 </div>
 
                 <!--- Sidemenu -->
-                <?php include './components/sidebar.php'; ?> 
+                <?php include './components/sidebar.php'; ?>
                 <!-- End Sidebar -->
 
                 <div class="clearfix"></div>
@@ -156,10 +156,10 @@ require_once "db.php";
                                                     <h3 data-plugin="counterup">
                                                         <?php
                                                         $username = $_SESSION['username'];
-                                                        $sql = mysqli_query($conn, "SELECT COUNT(*) AS total_patients FROM users WHERE role_id = 2");
+                                                        $sql = mysqli_query($conn, "SELECT COUNT(*) AS total_patients FROM patient_data");
                                                         $data = mysqli_fetch_assoc($sql);
                                                         $_SESSION['total_patients'] = $data['total_patients'];
-                                                        echo "" . $_SESSION['patients'] . "";
+                                                        echo "" . $_SESSION['total_patients'] . "";
                                                         ?></h3>
 
                                                     <p class="text-muted font-13 mb-0 text-truncate">Patients</p>
@@ -324,7 +324,7 @@ require_once "db.php";
     <script src="assets/dashboard/assets/js/pages/dashboard-4.init.js"></script>
 
     <!-- App js -->
-    <script src="assets/dashboard/assets/js/app.min.js"></script> 
+    <script src="assets/dashboard/assets/js/app.min.js"></script>
     <!-- -----------------------------Doctors------------------------------------------ -->
 
     <script type="text/javascript">

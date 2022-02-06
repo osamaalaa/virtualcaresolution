@@ -219,11 +219,9 @@
                                                 <table id="appointment-table"class="table activate-select dt-responsive nowrap w-100">
                                                     <thead>
                                                         <tr>
-                                                            <!-- <th> Appointment ID </th> -->
                                                             <th> UUID </th>
                                                             <th> Patient Name </th>
                                                             <th> Phone Number </th>
-                                                            <th> Notes </th>
                                                             <th> Date </th> 
                                                             <th> Time </th>
                                                             <th> Status </th>
@@ -321,18 +319,15 @@
                         .addClass("pagination-rounded")
                 },
                 "columns": [
-               
                     {
                         "data": "uuid"
                     },
+                 
                     {
                         "data": "patient_name"
                     },
                     {
                         "data": "phone_number"
-                    },
-                    {
-                        "data": "notes"
                     },
                     {
                         "data": "date"
@@ -350,7 +345,8 @@
                             return (type === 'display' && data == 1)  ?
                                 '<button class="btn btn-info"  id="notConfirmed" title="Confirm Appointment ?"  data-row= "'+ row.appointments_id +'" data-id="'+ data +'" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>'
                                   :(type === 'display' && data == 2) ? 
-                                  '<button class="btn btn-success" title="Finished ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' :
+                                  '<button class="btn btn-success" title="Finished ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' 
+                                  :
                                    'Done'
                             }}, 
                 ]
