@@ -235,6 +235,10 @@
                                 <option value="2">Patient</option>
                                 <option value="3">IT</option>
                                 <option value="4">Admin</option>
+                                <option value="5">Nurse</option>
+                                <option value="6">Reciptionist</option>
+                                <option value="7">Employee</option>
+                                <option value="8">AHP</option>
 
                             </select>
                         </div>

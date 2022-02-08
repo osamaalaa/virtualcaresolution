@@ -290,7 +290,7 @@
 </style>
 <div class='login'>
     <div>
-        <img src="http://localhost/new-vcs/assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
+        <img src="assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
     </div>
     <div class='login_title'>
         <span>Login to your account</span>
@@ -326,9 +326,9 @@
         <h2>Authentication Failed</h2>
         <p>PLEASE RESTART YOUR SITE</p>
     </div>
-    <div id="rasa-chat-widget" data-websocket-url="http://3.19.59.149:5005"></div>
+    <!-- <div id="rasa-chat-widget" data-websocket-url="http://3.19.59.149:5005"></div>
     <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
-
+ -->
 
 
     <div class='disclaimer'>

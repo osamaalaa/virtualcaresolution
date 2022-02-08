@@ -21,8 +21,6 @@
                 <span> Appointments </span>
             </a>
         </li>
-
-
         <li>
             <a href="sessions.php">
                 <i data-feather="video"></i>
@@ -65,7 +63,7 @@
             <li>
                 <a href="admin-dashboard.php">
                     <i data-feather="airplay"></i>
-                    <span> Admin Dashboard </span>
+                    <span> Dashboard </span>
                 </a>
             </li>
             <li>
@@ -74,6 +72,13 @@
                     <span> Users </span>
                 </a>
             </li>
+            <li>
+                <a href="admin-notifications.php">
+                    <i><span class="mdi mdi-notification-clear-all"></span></i>
+                    <span> Notifications </span>
+                </a>
+            </li>
+
 
         <?php } ?>
        
@@ -93,6 +98,48 @@
             </li>
 
 
+
+            <!--------------------------------Receptionist----------------------------------------------  -->
+
+
+            <li class="menu-title mt-2">Receptionist</li>
+            <li>
+                <a href="404.php">
+                    <i><span class="mdi mdi-desktop-mac-dashboard"></span></i>
+                    <span> Dahsboard </span>
+                </a>
+            </li>
+            <li>
+                <a href="404.php">
+                    <i><span class="mdi mdi-doctor"></span></i>
+                    <span> Physicians </span>
+                </a>
+            </li>
+            <li>
+                <a href="404.php">
+                    <i data-feather="notification"><span class="mdi mdi-av-timer"></span></i>
+                    <span> Appointments </span>
+                </a>
+            </li>
+            <li>
+                <a href="404.php">
+                    <i><span class="mdi mdi-notification-clear-all"></span></i>
+                    <span> Notification System </span>
+                </a>
+            </li>
+            <li>
+                <a href="404.php">
+                    <i><span class="mdi mdi-chat"></span></i>
+                    <span> Messages </span>
+                </a>
+            </li>
+            <li>
+                <a href="404.php">
+                    <i><span class="mdi mdi-contacts"></span></i>
+                    <span> Contacts </span>
+                </a>
+            </li>
+            <!-- ----------------------------------------------------------------------------------------- -->
 
 
 
