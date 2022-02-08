@@ -111,10 +111,11 @@
                             <i class="fe-bell noti-icon"></i>
                             <span class="badge bg-danger rounded-circle noti-icon-badge"><div id="notification_count"></div></span>
                     </a>
-                    
-                    <ul class="dropdown-menu">
+                   
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-lg">
 
                     </ul>
+        
                     </li>
                 <li class="dropdown notification-list topbar-dropdown">
                     <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
