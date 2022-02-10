@@ -258,7 +258,7 @@
     <div class="rightbar-overlay"></div>
 
     <!-- Vendor js -->
-    <script src="assets/dashboard/assets/js/vendor.min.js"></script>
+    <!-- <script src="assets/dashboard/assets/js/vendor.min.js"></script> -->
 
     <!-- plugin js -->
     <script src="assets/dashboard/assets/libs/moment/min/moment.min.js"></script>

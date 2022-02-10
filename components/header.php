@@ -112,7 +112,7 @@
                             <span class="badge bg-danger rounded-circle noti-icon-badge"><div id="notification_count"></div></span>
                     </a>
                    
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-lg">
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-lg dropdown-menu-not">
 
                     </ul>
         
@@ -228,7 +228,7 @@
                     },
                     dataType: "json",
                     success: function(data) {
-                        $('.dropdown-menu').html(data.notification);
+                        $('.dropdown-menu-not').html(data.notification);
                         if (data.unseen_notification > 0) {
                             $('#notification_count').html(data.unseen_notification);
                           
