@@ -134,7 +134,7 @@
                 </a>
             </li>
             <li>
-                <a href="404.php">
+                <a href="contacts.php">
                     <i><span class="mdi mdi-contacts"></span></i>
                     <span> Contacts </span>
                 </a>

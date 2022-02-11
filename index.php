@@ -251,7 +251,7 @@
 						</section>
 					</form>
 					<!-- /Section One -->
-
+					<div id="rasa-chat-widget" data-initial-payload="/get_start" data-websocket-url="http://3.19.59.149:5005"></div> 
 				</section>
 				<!-- /Content -->
 
@@ -277,7 +277,7 @@
 	<script type="text/javascript" src="assets/js/photoswipe.min.js"></script>
 	<script type="text/javascript" src="assets/js/photoswipe-ui-default.min.js"></script>
 	<!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-
+	<script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
 	<!-- Main js -->
 	<script src="assets/js/main.js"></script>
 	<script src="vendor/materialize.min.js"></script>
