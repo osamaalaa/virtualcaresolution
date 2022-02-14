@@ -7,22 +7,12 @@ $sql = "SELECT
 pa.id,
 pa.uuid, 
 pa.patient_name,
-pa.title, 
 pa.language,
 pa.DOB,
-pa.street,
 pa.city,
-pa.state,
-pa.country_code,
 pa.phone_contact,
-pa.email,
 pa.date,
 pa.sex,
-pa.religion,
-pa.wfh, 
-pa.sick_leave, 
-pa.MRI, 
-pa.appointments_id, 
 ap.doctor_name
 from patient_data pa
 LEFT JOIN appointments ap

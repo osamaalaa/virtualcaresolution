@@ -262,7 +262,6 @@ require_once "db.php";
                         <div class="card-body">
                             <div class="dropdown float-end">
                                 <form type="submit">
-
                             </div>
                             <h4 class="header-title mb-3">Lab Requests</h4>
 
@@ -270,7 +269,7 @@ require_once "db.php";
                                 <div class="wrapper">
 
                                     <div class="inputFields">
-                                        <input type="text" id="taskValue" placeholder="Enter a task.">
+                                        <input type="text" id="taskValue" placeholder="Enter The Lab Study">
                                         <button type="submit" id="addBtn" class="btn"><i class="fa fa-plus"></i></button>
                                     </div>
                                     <div class="content">

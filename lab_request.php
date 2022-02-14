@@ -8,7 +8,7 @@ include_once 'db.php'; ?>
     <title>Lab Request | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="VCS virtual care solutions for YAS CLINIC GROUP." name="description" />
-    <meta content="PQW" name="PQW" />
+    <meta content="VCS" name="YasClinicGroup" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="./assets/images/fav.ico">
@@ -78,37 +78,32 @@ include_once 'db.php'; ?>
                                 <div class="card-body">
 
                                     <div class="">
-
                                         <table id="patients-table" class="table table-condensed table-hover table-striped" style="width:100%;">
                                             <thead>
                                                 <tr>
                                                     <!-- <th data-column-id="id" >Project #</th> -->
-                                                    <th data-column-id="pid">Patient ID</th>
-                                                    <th data-column-id="pname">Patient Name</th>
-                                                    <th data-column-id="cheifcomplaint">Chief Complaint</th>
-                                                    <th data-column-id="mri">MRI</th>
-                                                    <th data-column-id="sickleave">Sick Leave</th>
-                                                    <th data-column-id="wfh">WFH</th>
-                                                    <th data-column-id="wfh">Date</th>
+                                                    <th data-column-id="id">#</th>
+                                                    <th data-column-id="uuid">Request Description</th>
+                                                    <th data-column-id="patient_name">Doctor Name</th>
+                                                    <th data-column-id="language">Request Date</th>
+
                                                     <!-- <th></th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $sql = $conn->query("SELECT pid , pname , cheifcomplaint , mri , sickleave , wfh , DATE(created_at) created_at  FROM patients where doctor_name='" . $_SESSION['username'] . "'") or die($conn->error);
+                                                $sql = $conn->query("SELECT id, title, doctor_name, createdAt FROM tasks") or die($conn->error);
                                                 if ($sql->num_rows) {
                                                     while ($row = $sql->fetch_assoc()) {
-                                                        echo '
-                                                                    <tr>
-                                                                        <td>' . $row['pid'] . '</td>
-                                                                        <td>' . $row['pname'] . '</td>
-                                                                        <td>' . $row['cheifcomplaint'] . '</td>
-                                                                        <td>' . $row['mri'] . '</td>
-                                                                        <td>' . $row['sickleave'] . '</td>
-                                                                        <td>' . $row['wfh'] . '</td>  
-                                                                        <td>' . $row['created_at'] . '</td>  
-                                                                    </tr>
-                                                                    ';
+                                                        echo ' <tr>
+                                                                            <td>' . $row['id'] . '</td>
+                                                                            <td>' . $row['title'] . '</td>
+                                                                            <td>' . $row['doctor_name'] . '</td>
+                                                                         
+                                                                            <td>' . $row['createdAt'] . '</td>
+                                                                            
+                                                                        </tr>
+                                                                        ';
                                                     }
                                                 }
                                                 ?>
