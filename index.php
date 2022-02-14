@@ -309,7 +309,7 @@
 
 		function Copy() {
 			Toast.notice("Link Copied to clipboard!");
-			var copyText = "https://virtualcaresolution.de/" + link;
+			var copyText = "http://localhost/new-vcs/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
 			//  copyText.select();
 			//copyText.setSelectionRange(0, 99999);

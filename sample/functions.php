@@ -89,7 +89,7 @@ class Servant
      */
     public function validateRequest($request)
     {
-        $this->user_id =  $request['uid'];
+        $this->user_id =  $_SESSION['user_id'];
         $channelname = $this->GetChannelName();
         if ($channelname == $request['channel']) {
             return true;
