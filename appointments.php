@@ -121,7 +121,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            <button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Create New Appointment</button>
+                                            <!-- <button class="btn btn-lg font-16 btn-primary w-100" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Create New Appointment</button> -->
 
                                             <div id="external-events">
                                                 <br>
