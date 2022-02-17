@@ -153,6 +153,7 @@
         bottom: 20px;
         left: 35px;
         width: 250px;
+        margin: -16px;
     }
 
     body .login_title {
@@ -389,7 +390,7 @@
 </style>
 <div class='login'>
     <div>
-        <img src="assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
+        <img src="assets/images/pqw-logo-white.svg" title="YAS CLINIC" alt="YAS CLINIC GROUP">
     </div>
     <div class='login_title'>
         <span>Login to your account</span>
@@ -414,8 +415,11 @@
                 <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
             </div>
         </div>
+
         <div class='login_fields__submit'>
             <input type='submit' value='Log In'>
+            <!-- <br /> -->
+            <input type='button' value='portal Registartion' style="margin-top: 15px">
             <div class='forgot'>
                 <a href='#'>Forgotten password?</a>
             </div>
@@ -425,32 +429,18 @@
         <h2>Authentication Failed</h2>
         <p>PLEASE RESTART YOUR SITE</p>
     </div>
-    <!-- <div id="rasa-chat-widget" data-websocket-url="http://3.19.59.149:5005"></div>
-    <script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
- -->
 
 
     <div class='disclaimer'>
-        <p>© Copyright by.PQW - IT Managment consulting - Germany for YAS Clinic Group 2022</p>
+        <p>© Copyright by.PQW - IT Managment consulting - Germany</p>
     </div>
 </div>
 <div class='authent'>
     <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/puff.svg'>
     <p>Authenticating...</p>
 </div>
-<div id="hamburger">
-    <div id="wrapper">
-        <span class="icon-bar" id="one"></span>
-        <span class="icon-bar" id="two"></span>
-        <span class="icon-bar" id="thr"></span>
-    </div>
-</div>
-<div class="nav" id="settings">
-    <i class="material-icons" title="chatbot">chat</i>
-</div>
-<div class="nav" id="thumb">
-    <i class="material-icons" title="Create Patient Request">create</i>
-</div>
+
+
 
 <script src="vendor/jquery.min.js"></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
@@ -525,6 +515,10 @@
                 }
             });
         }
+    });
+
+    $('input[type="button"]').click(function() {
+         window.location.href = 'portal_request.php';
     });
 
     $('input[type="text"],input[type="password"]').focus(function() {

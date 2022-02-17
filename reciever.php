@@ -1,4 +1,3 @@
-
 <?php
 include "conf/database.php";
 include "sample/functions.php";
@@ -6,9 +5,8 @@ $database = new Database();
 $db = $database->getConnection();
 $servant = new Servant($db);
 $request = $_GET;
-if (isset($_GET['token']) && isset($_SESSION['id']) && isset($_GET['channel'])) {
-
-    if ($servant->validateRequest($request)) {
+if (isset($_GET['token']) && isset($_GET['uid']) && isset($_GET['channel'])) {
+    if ($servant->validateRequest($_SESSION['user_id'])) {
         $request['token'] =  str_replace(" ", "+", urldecode($request['token']));
 ?>
         <!DOCTYPE html>
@@ -20,7 +18,6 @@ if (isset($_GET['token']) && isset($_SESSION['id']) && isset($_GET['channel'])) 
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <title>VCS | DOCTOR Patient</title>
             <link rel="stylesheet" href="./assets/vcs-old/common.css" />
-
             <!--====== Bootstrap css ======-->
             <!-- <link rel="stylesheet" href="./assets/css/bootstrap.min.css"> -->
             <link rel="stylesheet" href="./assets/vcs-old/css/bootstrap.min.css">
@@ -39,7 +36,6 @@ if (isset($_GET['token']) && isset($_SESSION['id']) && isset($_GET['channel'])) 
             <!--====== Style css ======-->
             <link rel="stylesheet" href="./assets/vcs-old/css/style.css">
             <link rel="stylesheet" href="./assets/vcs-old/css/styles.css">
-
         </head>
 
         <body class="agora-theme">
