@@ -593,7 +593,7 @@ if (isset($_GET['token']) && isset($_GET['uid']) && isset($_GET['channel'])) {
         </html>
 <?php
     } else {
-        echo "<h2 style='text-align:center;'>PLEASE CHECK THE LINK MAYBE IT'S EXPIRED OR BROKEN</h2 style='margin:auto;'>";
+        echo "<h2 style='text-align:center;'>PLEASE CHECK THE LINK MAYBE IT'S EXPIRED OR BROKEN</h2 style='margin:auto;'>";       
     }
 } else {
     echo "<h2 style='text-align:center;'>YOU HAVE NO ACCESS HERE</h2 style='margin:auto;'>";
