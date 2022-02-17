@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="./assets/images/fav.ico">
-
-
+    <!-- icons -->
+    <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
     @import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
@@ -287,6 +288,104 @@
     .brand img {
         width: 30px;
     }
+
+    #hamburger {
+        z-index: 10;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        bottom: 10%;
+        right: 5%;
+        background-color: #003A70;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 2px 2px 10px rgba(10, 10, 10, 0.3);
+        transition: all 0.2s ease-in-out;
+    }
+
+    #hamburger .icon-bar {
+        display: block;
+        background-color: #fff;
+        width: 22px;
+        height: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #hamburger .icon-bar+.icon-bar {
+        margin-top: 4px;
+    }
+
+    .nav {
+        z-index: 9;
+        position: fixed;
+        bottom: 10.5%;
+        right: 5.5%;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: #003A70;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        visibilty: hidden;
+        opacity: 0;
+        box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.48);
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+        color: white;
+    }
+
+    .material-icons {
+        font-size: 24px;
+        color: "#FFFFF";
+    }
+
+    #settings.show {
+        transform: translateY(-125%);
+    }
+
+    #thumb.show {
+        transform: translateY(-250%);
+    }
+
+    #create.show {
+        transform: translateY(-375%);
+    }
+
+    #share.show {
+        transform: translateY(-500%);
+    }
+
+    #hamburger.show {
+        box-shadow: 7px 7px 10px 0px rgba(0, 0, 0, 0.48);
+    }
+
+    #hamburger.show #wrapper {
+        transition: transform 0.4s ease-in-out;
+        transform: rotateZ(90deg);
+    }
+
+    #hamburger.show #one {
+        transform: translateY(6px) rotateZ(45deg) scaleX(0.9);
+    }
+
+    #hamburger.show #thr {
+        transform: translateY(-6px) rotateZ(-45deg) scaleX(0.9);
+    }
+
+    #hamburger.show #two {
+        opacity: 0;
+    }
+
+    .nav.show {
+        visibility: visible;
+        opacity: 1;
+    }
 </style>
 <div class='login'>
     <div>
@@ -339,12 +438,30 @@
     <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/puff.svg'>
     <p>Authenticating...</p>
 </div>
+<div id="hamburger">
+    <div id="wrapper">
+        <span class="icon-bar" id="one"></span>
+        <span class="icon-bar" id="two"></span>
+        <span class="icon-bar" id="thr"></span>
+    </div>
+</div>
+<div class="nav" id="settings">
+    <i class="material-icons" title="chatbot">chat</i>
+</div>
+<div class="nav" id="thumb">
+    <i class="material-icons" title="Create Patient Request">create</i>
+</div>
 
 <script src="vendor/jquery.min.js"></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 <script src="vendor/materialize.min.js">
 </script>
 <script>
+    $('#hamburger').click(function() {
+        $('#hamburger').toggleClass('show');
+        $('#overlay').toggleClass('show');
+        $('.nav').toggleClass('show');
+    });
     $('input[type="submit"]').click(function() {
         if ($('#username').val != '' && $('#password').val()) {
             $('.login').addClass('test')
@@ -398,10 +515,10 @@
                 type: 'POST',
                 data: data,
                 success: function(response) {
-                    if(response){
-                        if(response === "2"){
+                    if (response) {
+                        if (response === "2") {
                             window.location.href = "./patient/index.php";
-                        }else {
+                        } else {
                             window.location.href = "./index.php";
                         }
                     }

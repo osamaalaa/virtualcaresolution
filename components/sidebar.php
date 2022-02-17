@@ -17,7 +17,7 @@
         <li class="menu-title mt-2">Apps</li>
         <li>
             <a href="appointments.php">
-                <i data-feather="users"></i>
+                <i data-feather="mdi mdi-contacts"></i>
                 <span> Appointments </span>
             </a>
         </li>
@@ -33,12 +33,12 @@
                 <span> VMR </span>
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a href="patientlist.php">
                 <i data-feather="activity"></i>
                 <span> Patients </span>
             </a>
-        </li>
+        </li> -->
         <li>
             <a href="lab_request.php">
                 <i data-feather="clipboard"></i>
@@ -128,7 +128,7 @@
                 </a>
             </li>
             <li>
-                <a href="404.php">
+                <a href="messages.php">
                     <i><span class="mdi mdi-chat"></span></i>
                     <span> Messages </span>
                 </a>

@@ -16,16 +16,11 @@ require_once "db.php";
     <link rel="shortcut icon" href="./assets/images/fav.ico">
 
     <!-- Select2 Css-->
-    <link href="assets/dashboard/assets/css/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/dashboard/assets/css/select2/css/select2.min.css" rel="stylesheet" type="text/css" /> -->
 
     <!-- App css -->
     <link href="assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
-
-    <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
-
-
-    <link href="assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
@@ -38,10 +33,10 @@ require_once "db.php";
     <!-- Begin page -->
     <div id="wrapper">
         <!-- Topbar Start -->
-             <?php include './components/header.php'; ?>
+        <?php include './components/header.php'; ?>
         <!-- end Topbar -->
-   <!-- ========== Left Sidebar Start ========== -->
-   <div class="left-side-menu">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
             <div class="h-100" data-simplebar>
                 <!-- User box -->
                 <div class="user-box text-center">
@@ -133,8 +128,8 @@ require_once "db.php";
                                                 <div class="table-responsive">
                                                     <table class="table table-centered table-nowrap mb-0">
                                                         <tbody>
-                                                    
-                                                          
+
+
                                                             <tr class="text-end">
                                                                 <td colspan="2">
                                                                     <h6 class="m-0">Discount:</h6>
@@ -160,8 +155,8 @@ require_once "db.php";
                                         </div> <!-- end col-->
                                         <div class="col-lg-8">
                                             <div class="tab-content p-3">
-                                          
-                                                <div class="tab-pane fade active show"  id="custom-v-pills-payment" role="tabpanel" aria-labelledby="custom-v-pills-payment-tab">
+
+                                                <div class="tab-pane fade active show" id="custom-v-pills-payment" role="tabpanel" aria-labelledby="custom-v-pills-payment-tab">
                                                     <div>
                                                         <h4 class="header-title">Payment Selection</h4>
                                                         <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
@@ -219,21 +214,21 @@ require_once "db.php";
                                                                         <label for="card-cvv" class="form-label">CVV code</label>
                                                                         <input type="text" id="card-cvv" class="form-control" data-toggle="input-mask" data-mask-format="000" placeholder="012">
                                                                     </div>
-                                                                   
+
                                                                 </div>
                                                             </div> <!-- end row -->
                                                         </div>
                                                         <!-- end Credit/Debit Card box-->
 
-                                           
+
                                                         <!-- end Cash on Delivery box-->
 
                                                         <div class="row mt-4">
-                                                         
+
                                                             <div class="col-sm-6">
                                                                 <div class="text-sm-end mt-2 mt-sm-0">
                                                                     <a href="#" class="btn btn-success">
-                                                                        <i class="mdi mdi-cash-multiple me-1"></i> Checkout  </a>
+                                                                        <i class="mdi mdi-cash-multiple me-1"></i> Checkout </a>
                                                                 </div>
                                                             </div> <!-- end col -->
                                                         </div> <!-- end row-->
@@ -271,36 +266,38 @@ require_once "db.php";
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
-   <!-- Vendor js -->
-   <script src="assets/dashboard/assets/js/vendor.min.js"></script>
+    <!-- Vendor js -->
+    <!-- <script src="assets/dashboard/assets/js/vendor.min.js"></script> -->
 
 
-   <!-- -----------------Select ------------------------ -->
-    <script src="assets/dashboard/assets/select2/js/select2.min.js"></script>
+    <!-- -----------------Select ------------------------ -->
+    <!-- <script src="assets/dashboard/assets/select2/js/select2.min.js"></script> -->
     <!-- ----------------------------------------------- -->
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
+    <!-- <script>
         $('[data-toggle="select2"]').select2();
-    </script>
+    </script> -->
     <script type="text/javascript">
-                $(document).ready(function($){
-                var doctor_name = $('#doctor_name').val();
-                // ajax
-                $.ajax({
-                type:"POST",
+        $(document).ready(function($) {
+            var doctor_name = $('#doctor_name').val();
+            // ajax
+            $.ajax({
+                type: "POST",
                 url: "models/total_price.php",
-                data: { doctor_name: doctor_name },
-                dataType: 'json', 
-                success: function(res){
+                data: {
+                    doctor_name: doctor_name
+                },
+                dataType: 'json',
+                success: function(res) {
                     $('#total').html(res.total);
                     $('#currency').html(res.currency)
-                    }
-                });
-               
-                });
+                }
+            });
+
+        });
     </script>
 </body>
- 
+
 </html>

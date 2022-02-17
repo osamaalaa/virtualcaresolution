@@ -112,13 +112,13 @@ require_once "db.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
+                                               <a href="sessions.php"> <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
                                                                                                             $username = $_SESSION['username'];
                                                                                                             $sql = mysqli_query($conn, "SELECT ROUND(SEC_TO_TIME(sum( TIME_TO_SEC(session_time))),0) as total from sessions where doctor_name = '$username'");
                                                                                                             $data = mysqli_fetch_assoc($sql);
                                                                                                             echo "" . $data['total'] . "";
                                                                                                             ?></span></h3>
-                                                <p class="text-muted mb-0 text-truncate">Total Hours</p>
+                                                <p class="text-muted mb-0 text-truncate">Total Hours</p></a>
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@ require_once "db.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <h3 class="text-dark my-1"><span data-plugin="counterup"> <?php
+                                            <a href="sessions.php"> <h3 class="text-dark my-1"><span data-plugin="counterup"> <?php
                                                                                                             $username = $_SESSION['username'];
                                                                                                             $sql = mysqli_query($conn, "SELECT count(*) as total from sessions where doctor_name = '$username'");
                                                                                                             $data = mysqli_fetch_assoc($sql);
@@ -145,7 +145,7 @@ require_once "db.php";
 
 
                                                                                                             ?></span></h3>
-                                                <p class="text-muted mb-0 text-truncate">Total Sessions</p>
+                                                <p class="text-muted mb-0 text-truncate">Total Sessions</p></a>
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +163,7 @@ require_once "db.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
+                                            <a href="patients.php">   <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
                                                                                                             $username = $_SESSION['username'];
                                                                                                             $sql = mysqli_query($conn, "SELECT count(*) as total from patient_data");
                                                                                                             $data = mysqli_fetch_assoc($sql);
@@ -171,7 +171,7 @@ require_once "db.php";
 
 
                                                                                                             ?></span></h3>
-                                                <p class="text-muted mb-0 text-truncate">Patients</p>
+                                                <p class="text-muted mb-0 text-truncate">Patients</p></a>
                                             </div>
                                         </div>
                                     </div>
@@ -189,13 +189,13 @@ require_once "db.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
+                                            <a href="payMyBill.php"><h3 class="text-dark my-1"><span data-plugin="counterup"><?php
                                                                                                             $username = $_SESSION['username'];
                                                                                                             $sql = mysqli_query($conn, "SELECT  FLOOR(SUM(DISTINCT total_cost)) as total from sessions WHERE doctor_name = '" . $username . "'");
                                                                                                             $data = mysqli_fetch_assoc($sql);
                                                                                                             echo "" . $data['total'] . "";
                                                                                                             ?></span> AED</h3>
-                                                <p class="text-muted mb-0 text-truncate">Total Price</p>
+                                                <p class="text-muted mb-0 text-truncate">Total Price</p></a>
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +262,6 @@ require_once "db.php";
                         <div class="card-body">
                             <div class="dropdown float-end">
                                 <form type="submit">
-
                             </div>
                             <h4 class="header-title mb-3">Lab Requests</h4>
 
@@ -270,7 +269,7 @@ require_once "db.php";
                                 <div class="wrapper">
 
                                     <div class="inputFields">
-                                        <input type="text" id="taskValue" placeholder="Enter a task.">
+                                        <input type="text" id="taskValue" placeholder="Enter The Lab Study">
                                         <button type="submit" id="addBtn" class="btn"><i class="fa fa-plus"></i></button>
                                     </div>
                                     <div class="content">

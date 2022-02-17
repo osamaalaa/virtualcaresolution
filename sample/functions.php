@@ -4,7 +4,6 @@ class Servant
 
     // database connection and table name
     private $conn;
-    private $table_name = "users";
 
     // object properties
     public $user_id;
@@ -17,10 +16,12 @@ class Servant
     public $token = 0;
     public $auth_id = 0;
     public $expense_request_id;
+    private $dbConnect = false;
     // constructor with $db as database connection
     public function __construct($db)
     {
         $this->conn = $db;
+         $this->dbConnect = $db;
     }
     /**
      * function to check signin through user email and password
@@ -28,6 +29,34 @@ class Servant
      * @param string password 
      * return state @param bool
      */
+
+
+    private function getData($sqlQuery) {
+		// $result = mysqli_query($this->conn, $sqlQuery);
+		// if(!$result){
+		// 	die('Error in query');
+		// }
+		// $data= array();
+		// while ($row = mysqli_fetch_array($result)) {
+		// 	$data[]=$row;            
+		// }
+		// return $data;
+        $stmt = $this->conn->prepare($sqlQuery);
+        $stmt->execute();
+
+        echo $stmt;
+        // $result = mysqli_query($this->dbConnect, $sqlQuery);
+		// if(!$result){
+		// 	die('Error in query: ');
+		// }
+		// $data= array();
+		// while ($row = mysqli_fetch_array($result)) {
+		// 	$data[]=$row;            
+		// }
+		// return $data;
+	}
+
+
     public function signin()
     {
         //$query = "SELECT * FROM users a left join `profile` b on a.username=b.username where  a.username = '$this->username' and a.password = '$this->password'";
@@ -60,7 +89,7 @@ class Servant
      */
     public function validateRequest($request)
     {
-        $this->user_id =  $request['uid'];
+        $this->user_id =  $_SESSION['user_id'];
         $channelname = $this->GetChannelName();
         if ($channelname == $request['channel']) {
             return true;
@@ -83,6 +112,15 @@ class Servant
         }
     }
 
+	public function chatUsers($username){
+		 $query = "
+         SELECT * FROM users 
+         WHERE username != '$username'";
+        $query = $this->conn->query( $query);
+        $query->execute();
+        $max = $query;
+        return $max;
+	}
 
     public function getOldPassword()
     {
