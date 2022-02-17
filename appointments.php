@@ -245,7 +245,6 @@
             <!-- Footer Start -->
             <?php include './components/footer.php'; ?>
             <!-- end Footer -->
-
         </div>
 
         <!-- ============================================================== -->

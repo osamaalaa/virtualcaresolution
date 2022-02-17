@@ -7,7 +7,7 @@
             <div class="col-md-6">
                 <script>
                     document.write(new Date().getFullYear())
-                </script> &copy; Copyright by.PQW - IT Managment consulting - Germany for YAS Clinic Group <a href=""></a>
+                </script> &copy; Copyright by.PQW - IT Managment consulting - Germany <a href=""></a>
             </div>
 
         </div>

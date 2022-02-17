@@ -49,7 +49,12 @@
         </li>
 
         <!-- ---------------------------------------------------- -->
-
+        <li>
+            <a href="patient_contacts.php">
+            <i><span class="mdi mdi-contacts"></span></i>
+                <span> Contacts </span>
+            </a>
+        </li>
     </ul>
 </div>
 
