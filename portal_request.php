@@ -7,15 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="./assets/images/fav.ico">
+
+    <!-- Plugins css -->
+    <link href="assets/dashboard/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/dashboard/assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
+
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
+    <!-- Sweet Alert-->
+    <link href="assets/dashboard/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- Select CSS  -->
+    <link href="assets/dashboard/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <style>
-    @import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
-    /*custom font*/
-    @import url(https://fonts.googleapis.com/css?family=Montserrat);
-
     /*basic reset*/
     * {
         margin: 0;
@@ -121,7 +127,7 @@
         color: white;
         text-transform: uppercase;
         font-size: 9px;
-        width: 33.33%;
+        width: 19.99%;
         float: left;
         position: relative;
     }
@@ -166,51 +172,170 @@
     }
 </style>
 <!-- multistep form -->
-<form id="msform">
+<form id="msform" action="portalrequest.php" method="POST">
     <!-- progressbar -->
     <ul id="progressbar">
-        <li class="active">Contact Information</li>
+        <li class="active">Y/N Questions</li>
+        <li>Contact Information</li>
         <li>Profile Information</li>
-        <li>Personal Details</li>
+        <li>Personal Attachments</li>
+        <li>Insurance</li>
     </ul>
+
+    <fieldset>
+        <h2 class="fs-title">Y/N Questions</h2>
+        <h3 class="fs-subtitle"></h3>
+        <h3>Are you registering for yourself?</h3>
+        <div>
+            <input type="radio" id="q1a" value="1" name="q1a">
+            <label for="male">Yes</label>
+        </div>
+
+        <div>
+            <input type="radio" id="q1a" value="2" name="q1a">
+            <label for="female">No</label>
+        </div>
+        <h3>Are you registering on behalf of others?</h3>
+        <div>
+            <input type="radio" id="q2a" value="1" name="q2a">
+            <label for="male">Yes</label>
+        </div>
+
+        <div>
+            <input type="radio" id="q2a" value="2" name="q2a">
+            <label for="female">No</label>
+        </div>
+
+        <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
     <!-- fieldsets -->
     <fieldset>
         <h2 class="fs-title">Contact Information</h2>
-        <h3 class="fs-subtitle"></h3>
-        <input type="text" name="fname" placeholder="First Name" />
-        <input type="text" name="fname" placeholder="Last Name" />
-        <input type="text" name="email" placeholder="Email" />
-        <input type="text" name="phone" placeholder="Phone No. ( please Begin With Country code )" />
 
-        <input type="button" name="next" class="next action-button" value="Next" />
-    </fieldset>
-    <fieldset>
-        <h2 class="fs-title">Profile Information</h2>
-        <!-- <h3 class="fs-subtitle">Your presence on the social network</h3> -->
-        <input type="text" name="jobtitle" placeholder="Job Title" />
-        <input type="text" name="address" placeholder="Address" />
-        <input placeholder="BirthDate" class="textbox-n" type="text" onfocus="(this.type='date')" id="date">
-        <input type="text" name="gplus" placeholder="Google Plus" />
+        <input type="text" id="fname" name="fname" placeholder="First Name" required />
+        <input type="text" id="lname" name="lname" placeholder="Last Name" required />
+        <input type="text" id="email" name="email" placeholder="Email" />
+        <input type="text" id="phone" name="phone" placeholder="Phone No. ( please start With Country code )" required/>
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
 
     <fieldset>
-        <h2 class="fs-title">Personal Details</h2>
-        <h3 class="fs-subtitle">We will never sell it</h3>
-        <input type="text" name="fname" placeholder="First Name" />
-        <input type="text" name="lname" placeholder="Last Name" />
-        <input type="text" name="phone" placeholder="Phone" />
-        <textarea name="address" placeholder="Address"></textarea>
+        <h2 class="fs-title">Profile Information</h2>
+        <h3 class="fs-subtitle"> If No National ID, Please put Your Passport Number </h3>
+        <input type="text" id="uuid" name="uuid" placeholder="NationalID / PassportNumber" required />
+        <input id="birthdate" placeholder="BirthDate" class="textbox-n" type="text" onfocus="(this.type='date')" />
+        <input type="text" id="jobtitle" name="jobtitle" placeholder="Job Title" />
+        <input type="text" id="nationality" name="nationality" placeholder="Nationality" required />
+        <textarea name="address" id="address" placeholder="Address"></textarea>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+
+    <fieldset>
+        <h2 class="fs-title">Attachments</h2>
+        <h3 class="fs-subtitle">Please Upload Your National ID</h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="mt-3">
+                                    <input type="file" id="idfront" name="idfront" data-plugins="dropify" data-max-file-size="3M" />
+                                    <p class="text-muted text-center mt-2 mb-0">Front Side</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="mt-3">
+                                    <input type="file" id="idback" name="idback" data-plugins="dropify" data-max-file-size="3M" />
+                                    <p class="text-muted text-center mt-2 mb-0">Back Side</p>
+                                </div>
+                            </div>
+                        </div> <!-- end row -->
+
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div><!-- end col -->
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+
+    <fieldset>
+        <h2 class="fs-title">Insurance</h2>
+        <h3 class="fs-subtitle">You Can Get This data From Your Insurance Card / If no insurance please leave it blank</h3>
+        <input type="text" id="insurancecompany" name="insurance-company" placeholder="Insurance Company" />
+        <input type="text" id="planename" name="planename" placeholder="Plan Name" />
+        <input type="text" id="policynumber" name="policy-number" placeholder="Policy Number" />
+        <input type="text" id="groupnumber" name="group-number" placeholder="Group Number" />
+        <input id="policydate" name="policy-date" placeholder="Policy Start Date" class="textbox-n" type="text" onfocus="(this.type='date')" />
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="submit" name="submit" class="submit action-button" value="Submit" />
     </fieldset>
+
 </form>
+
+
+
 
 
 <script src="vendor/jquery.min.js"></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
-<script src="vendor/materialize.min.js">
+<script src="vendor/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // msform
+        $("#msform").on('submit', function(event) {
+            var formData = new FormData()
+
+            formData.append("fname", $("#fname").val());
+            formData.append("lname", $("#lname").val());
+            formData.append("fname", $("#fname").val());
+            formData.append("email", $("#email").val());
+            formData.append("phone", $("#phone").val());
+            formData.append("uuid", $("#uuid").val());
+            formData.append("birthdate", $("#birthdate").val());
+            formData.append("jobtitle", $("#jobtitle").val());
+            formData.append("nationality", $("#nationality").val());
+            formData.append("address", $("#address").val());
+            formData.append("insurancecompany", $("#insurancecompany").val());
+            formData.append("planename", $("#planename").val());
+            formData.append("policynumber", $("#policynumber").val());
+            formData.append("groupnumber", $("#groupnumber").val());
+            formData.append("policydate", $("#policydate").val());
+            formData.append('idfront', $('#idfront')[0].files[0]);
+            formData.append('idback', $('#idback')[0].files[0]);
+
+                $.ajax({
+                    type: "POST",
+                    url: "portalrequest.php",
+                    data: formData,
+
+                    contentType: false,
+
+                    cache: false,
+
+                    processData: false,
+
+                    encode: true,
+                }).done(function(data) {
+                    console.log("adata", data)
+                    Swal.fire({
+                            title: "Success !",
+                            text: "Portal Registeration Request Has Been Sent!",
+                            icon: "success"
+                        })
+                        $('#msform').trigger("reset");
+                });
+            
+
+
+            event.preventDefault();
+
+        });
+    });
 </script>
 <script>
     //jQuery time
@@ -303,7 +428,26 @@
         });
     });
 
-    $(".submit").click(function() {
-        return false;
-    })
+    // $(".submit").click(function(e) {
+
+    //     // return false;
+    //     e.preventDefault();
+    //     console.log("Osama" , e)
+    //     Swal.fire({
+    //         title: "Success !",
+    //         text: "Portal Registeration Request Has Been Sent",
+    //         icon: "success"
+    //     })
+
+    // })
 </script>
+<!-- Plugins js -->
+<script src="assets/dashboard/assets/libs/dropzone/min/dropzone.min.js"></script>
+<script src="assets/dashboard/assets/libs/dropify/js/dropify.min.js"></script>
+
+<!-- Init js-->
+<script src="assets/dashboard/assets/js/pages/form-fileuploads.init.js"></script>
+
+<script src="assets/dashboard/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+<!-- Sweet alert init js-->
+<script src="assets/dashboard/assets/js/pages/sweet-alerts.init.js"></script>
