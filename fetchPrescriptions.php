@@ -8,6 +8,7 @@ $id = $_GET['appointment_id'];
 $sql = "select id, drug_name, strength, dose, duration_count,
 duration_type, start_date, comments from prescriptions
 where appointment_id = '". $id ."' order by id";
+
 $result = mysqli_query($conn,$sql);
 
 $json_array = array();

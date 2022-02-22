@@ -305,7 +305,77 @@
                                 </div> <!-- end modal dialog-->
                             </div>
                             <!-- End Add Prescription Modal -->
-                        </div>
+                      <!-- start edit prescription modal -->
+                      <div class="modal fade" id="presc-edit-modal" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title" id="modal-titleedit">Edit Prescription</h5>
+                                        </div>
+                                        <div class="modal-body px-4 pb-4 pt-0">
+                                            <form class="needs-validation" name="presc-formedit" id="form-prescedit" novalidate>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Drug Name</label>
+                                                            <input class="form-control" placeholder="" type="text" name="drug_namee"   id="drug_nameedit" required />
+                                                            <div class="invalid-feedback">Please provide a valid drug name</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Dose</label>
+                                                            <div class="input-group">
+                                                            <input type="text" class="form-control" name="Strength" id="Strengthedit" placeholder="Strength"  required />
+                                                            <input type="text" class="form-control" name="dose" id="doseedit" required placeholder="Dose" />
+                                                            <input  type="text" class="form-control" name="Duration" id="Durationedit" required  placeholder="Duration"/>
+                                                            <select  class="form-control" name="Durationt" id="Durationtedit" required> Duration Type
+                                                                <option value="1">Daily</option>
+                                                                <option value="7">Weekly</option>
+                                                                <option value="30">Monthly</option>
+                                                            </select>
+
+                                                            </div>
+                                                            
+
+                                                            <div class="invalid-feedback">Please provide a valid Duration</div>
+                                                            <div class="invalid-feedback">Please provide a valid dose</div>
+                                                            <div class="invalid-feedback">Please provide a valid strength</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Start Date</label>
+                                                            <input type="date" class="form-control" name="startDate" id="startDateedit"  />
+
+                                                            <div class="invalid-feedback">Please provide a valid Start Date</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Comments / Directions For Use</label>
+                                                            <textarea class="form-control" name="comments" id="commentsedit"  rows="3"></textarea>
+
+                                                            <div class="invalid-feedback">Please provide a valid comment</div>
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" id="doctor_nameedit" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-12 col-8 text-end">
+                                                        <button type="button" id="discardedit" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-success" id="btn-save-prescedit">Save</button>
+                                                        <!-- <button type="submit" class="btn btn-success" id="btn-complete-presc">Complete</button> -->
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div> 
+                                    </div> <!-- end modal-content-->
+                                </div> <!-- end modal dialog-->
+                            </div>
+                      <!-- end edit prescription modal -->
+                    </div>
                         <!-- end col-12 -->
                     </div> <!-- end row -->
                     <div class="row">
@@ -390,6 +460,8 @@
 
     <script>
         $presData ="";
+        $editData ="";
+        $drug ="";
         console.log('presData' ,$presData)
         $(document).ready(function() {
            var table = $('#appointment-table').DataTable({
@@ -467,9 +539,25 @@
                             $(this).addClass('selected');
                         }
             } );
-            
+            //prescription edit modal
+            $('#presc-edit-modal').on('show.bs.modal', function (e) {
+                var product = $(e.relatedTarget).data();
+                $editData = product
+                console.log($editData, '------')
+                $('#drug_nameedit').val(product.drug_name);
+                $('#Strengthedit').val(product.strength);
+                $('#doseedit').val(product.dose);
+                $('#Durationedit').val(product.duration_count);
+                $('#Durationtedit').val(product.duration_type);
+                $('#startDateedit').val(product.start_date);
+                $('#commentsedit').val(product.comments)
+               
+            });
+            //prescription edit modal end
             //prescription table
             $('#presc-modal').on('show.bs.modal', function (e) {
+                
+              
                 var product = $(e.relatedTarget).data();
                 console.log('product to fetch', product)
                 $presData = product
@@ -488,6 +576,7 @@
                         }
                     ]
                 },
+                retrieve: true,
                 "ajax": {
                     "url": "fetchPrescriptions.php",
                     "type": "GET",
@@ -496,11 +585,11 @@
                     data: {
                             appointment_id: product.row
                         }
-
                 },
                 drawCallback: function() {
                     $(".dataTables_paginate > .pagination")
                         .addClass("pagination-rounded")
+
                 },
                 "columns": [
                     {
@@ -529,16 +618,18 @@
                         "data": "comments"
                     },
                     {
-      data: null,
-      render: function ( data, type, row ) {
-          console.log('row is', row)
-        return '<!-- Button trigger modal --><button class="btn btn-info"  id="editPrescr" title="Edit Prescription ?"  data-row= "'+ row.id +'" data-id="'+ data +'" ><span class="mdi mdi-tooltip-edit"></span></button>  <button class="btn btn-danger" title="Delete Prescription" id="removePresc" data-remove="'+ row.id +'"><span class="mdi mdi-delete-circle"></span></button>';
- 
- 
-      }
-    } 
+                    data: null,
+                    render: function ( data, type, row ) {
+                        console.log('row is', row)
+                        return '<!-- Button trigger modal --><button data-bs-toggle="modal" data-bs-target="#presc-edit-modal" class="btn btn-info"  id="editPrescr" title="Edit Prescription ?"  data-drug_name= "'+ row.drug_name +'" data-id="'+ data.id + '" data-strength="'+ data.strength +'" data-dose="'+ data.dose + '" data-duration_count="'+ data.duration_count + '" data-duration_type="'+ data.duration_type + '" data-start_date="'+ data.start_date + '" data-comments="'+ data.comments +'" ><span class="mdi mdi-tooltip-edit"></span></button>  <button class="btn btn-danger" title="Delete Prescription" id="removePresc" data-remove="'+ row.id +'"><span class="mdi mdi-delete-circle"></span></button>';
+                
+                
+                    }
+                    } 
                 ]
             });
+           
+           
         });
         
         
@@ -589,6 +680,41 @@
                     });
             });
             //del prescription end
+            //edit prescription start
+            
+            $(document).on("click", "#btn-save-prescedit", function(e) { 
+                    e.preventDefault();
+                    value="<?php echo $_SESSION['user_id']; ?>"
+                    var data = {
+                'drug_name': $('#drug_nameedit').val(),
+                'Strength': $('#Strengthedit').val(),
+                'dose': $('#doseedit').val(),
+                'Duration': $('#Durationedit').val(),
+                'Durationt': $('#Durationtedit').val(),
+                'startDate': $('#startDateedit').val(),
+                'doctorid': value,
+                'comments': $('#commentsedit').val(),
+                'prescid' : $editData.id
+            }
+          
+                    $.ajax({
+                        url: "./models/edit_prescription.php",
+                        type: "POST",
+                        
+                        data: data,
+                        success: function(data) {
+                           
+                                Swal.fire
+                                ({title:"Success !",
+                                text:"Prescription has been updated successfully!",
+                                icon:"success"})
+                               // $("#presc-formedit")[0].reset();
+                                $('#presc-edit-modal').modal('toggle');
+                        }
+
+                    });
+            });
+            //edit prescription end
             $(document).on("click", "#btn-save-presc", function(e) { 
                     e.preventDefault();
                     value="<?php echo $_SESSION['user_id']; ?>"
