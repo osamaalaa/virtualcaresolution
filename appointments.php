@@ -389,6 +389,7 @@
                                                 <table id="appointment-table"class="table activate-select dt-responsive nowrap w-100">
                                                     <thead>
                                                         <tr>
+                                                            <!-- <th>click<th> -->
                                                             <th> UUID </th>
                                                             <th> Patient Name </th>
                                                             <th> Phone Number </th>
@@ -492,6 +493,12 @@
                         .addClass("pagination-rounded")
                 },
                 "columns": [
+            //         {
+            //     "className":      'details-control',
+            //     "orderable":      false,
+            //     "data":           null,
+            //     "defaultContent": ''
+            // },
                     {
                         "data": "uuid"
                     },
@@ -521,24 +528,47 @@
                                   :(type === 'display' && data == 4) ? 
                                   '<button class="btn btn-success" title="Finished ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' 
                                   :(type === 'display' && data == 2) ? 
-                                  '<button class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#presc-modal" title="Add Prescription ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="prescription"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-success" title="Finish Prescription ?" id="btn-complete-presc" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="addPresc" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' 
+                                  '<button class="btn btn-info details-control"   title="Show Prescription ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="showprescription"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#presc-modal" title="Add Prescription ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="prescription"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-success" title="Finish Prescription ?" id="btn-complete-presc" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="addPresc" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' 
                                   :
                                    'Done'
                             }}, 
                 ]
             })
             ;
+            function format(d) {
+        // `d` is the original data object for the row
+        return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+            '<tr>' +
+            '<td>Full name:</td>' +
+            '<td>' + 'abc' + '</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>Extension number:</td>' +
+            '<td>' + 'abc' + '</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>Extra info:</td>' +
+            '<td>And any further details here (images etc)...</td>' +
+            '</tr>' +
+            '</table>';
+    }
+            $('#appointment-table tbody').on('click', 'button.details-control', function () {
+                console.log('hiii')
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+ console.log('data is', row.data())
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
             
-            $('#appointment-table tbody').on( 'click', 'tr', function () {
-                        if ( $(this).hasClass('selected') ) {
-                                
-                            $(this).removeClass('selected');
-                        }
-                        else {
-                            table.$('tr.selected').removeClass('selected');
-                            $(this).addClass('selected');
-                        }
-            } );
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    } );
             //prescription edit modal
             $('#presc-edit-modal').on('show.bs.modal', function (e) {
                 var product = $(e.relatedTarget).data();
@@ -632,7 +662,7 @@
            
         });
         
-        
+      
             //prescription table end
             $(document).on("click", "#removeAppoint", function(e) { 
                     e.preventDefault();
