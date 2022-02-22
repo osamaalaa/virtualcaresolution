@@ -41,12 +41,6 @@
     body .authent {
         display: none;
         background: #35394a;
-        /* Old browsers */
-        /* FF3.6+ */
-        /* Chrome,Safari4+ */
-        /* Chrome10+,Safari5.1+ */
-        /* Opera 11.10+ */
-        /* IE10+ */
         background: linear-gradient(45deg, #35394a 0%, #1f222e 100%);
         /* W3C */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#35394a', endColorstr='#1f222e', GradientType=1);
@@ -390,7 +384,7 @@
 </style>
 <div class='login'>
     <div>
-        <img src="assets/images/pqw-logo-white.svg" title="YAS CLINIC" alt="YAS CLINIC GROUP">
+        <img src="assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
     </div>
     <div class='login_title'>
         <span>Login to your account</span>
@@ -518,7 +512,7 @@
     });
 
     $('input[type="button"]').click(function() {
-         window.location.href = 'portal_request.php';
+        window.location.href = 'portal_request.php';
     });
 
     $('input[type="text"],input[type="password"]').focus(function() {
