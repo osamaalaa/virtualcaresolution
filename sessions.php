@@ -153,7 +153,7 @@ include_once 'db.php'; ?>
     <div class="rightbar-overlay"></div>
 
     <!-- Vendor js -->
-    <script src="assets/dashboard/assets/js/vendor.min.js"></script>
+    <!-- <script src="assets/dashboard/assets/js/vendor.min.js"></script> -->
 
 
 

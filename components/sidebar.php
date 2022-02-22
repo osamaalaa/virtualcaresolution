@@ -6,6 +6,9 @@
 <div id="sidebar-menu">
     <ul id="side-menu">
         <!-- <li class="menu-title"> <a href="dashboard.php">VCS</a></li> -->
+      
+
+        <li class="menu-title mt-2">Physician</li>
         <li>
             <a href="dashboard.php">
                 <i data-feather="airplay"></i>
@@ -13,11 +16,9 @@
                 <span> Dashboard </span>
             </a>
         </li>
-
-        <li class="menu-title mt-2">Apps</li>
         <li>
-            <a href="appointments.php">
-                <i data-feather="mdi mdi-contacts"></i>
+            <a href="appointments.php"> 
+                <i><span class="mdi mdi-contacts"></span></i>
                 <span> Appointments </span>
             </a>
         </li>

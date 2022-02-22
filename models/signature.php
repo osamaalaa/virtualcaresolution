@@ -27,7 +27,7 @@ $result = mysqli_query($conn, $sql);
 
  if ($result) {
     file_put_contents($file, $image_base64);
-    echo "1";
+    echo "1"; 
 
     } else {
         echo "0";

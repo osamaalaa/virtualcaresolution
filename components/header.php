@@ -76,47 +76,19 @@
                         </div>
                     </div>
                 </li>
-
-                <!-- <li class="dropdown notification-list topbar-dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <i class="fe-bell noti-icon"></i>
-                            <span class="badge bg-danger rounded-circle noti-icon-badge">1</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-                         
-                            <div class="dropdown-item noti-title">
-                                <h5 class="m-0">
-                                    <span class="float-end">
-                                        <a href="" class="text-dark">
-                                            <small>Clear All</small>
-                                        </a>
-                                    </span>Notification
-                                </h5>
-                            </div>
-
-                            <div class="noti-scroll" data-simplebar>
-                              <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-primary">
-                                        <i class="mdi mdi-comment-account-outline"></i>
-                                    </div>
-                                    <p class="notify-details">Hi, Welcome to VCS
-                                        <small class="text-muted">1 min ago</small>
-                                    </p>
-                                </a>
-                            </div>
-                    </li> -->
-
-                    <li class="dropdown notification-list topbar-dropdown">
+                <li class="dropdown notification-list topbar-dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <i class="fe-bell noti-icon"></i>
-                            <span class="badge bg-danger rounded-circle noti-icon-badge"><div id="notification_count"></div></span>
+                        <i class="fe-bell noti-icon"></i>
+                        <span class="badge bg-danger rounded-circle noti-icon-badge">
+                            <div id="notification_count"></div>
+                        </span>
                     </a>
-                   
+
                     <ul class="dropdown-menu dropdown-menu-end dropdown-lg dropdown-menu-not">
 
                     </ul>
-        
-                    </li>
+
+                </li>
                 <li class="dropdown notification-list topbar-dropdown">
                     <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img src=<?php echo $_SESSION["imgpath"] ?> alt="user-image" class="rounded-circle">
@@ -164,21 +136,21 @@
             <div class="logo-box">
                 <a href="index.php" class="logo logo-dark text-center">
                     <span class="logo-sm">
-                        <img src="assets/images/pqw-logo-white.svg" alt="" height="30">
+                        <img src="assets/images/yasLogo.png" alt="" height="30">
                         <!-- <span class="logo-lg-text-light">UBold</span> -->
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/pqw-logo-white.svg" alt="" height="30">
+                        <img src="assets/images/yasLogo.png" alt="" height="30">
                         <!-- <span class="logo-lg-text-light">U</span> -->
                     </span>
                 </a>
 
                 <a href="index.php" class="logo logo-light text-center">
                     <span class="logo-sm">
-                        <img src="assets/images/pqw-logo-white.svg" alt="" height="25">
+                        <img src="assets/images/yasLogo.png" alt="" height="25">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/pqw-logo-white.svg" alt="" height="30">
+                        <img src="assets/images/yasLogo.png" alt="" height="30">
                     </span>
                 </a>
             </div>
@@ -211,14 +183,14 @@
         </div>
     </div>
     <!-- end Topbar -->
-    
+
     <!-- Vendor js -->
     <script src="assets/dashboard/assets/js/vendor.min.js"></script>
-    
-    <script>
 
+    <script>
         $(document).ready(function() {
             load_unseen_notification()
+
             function load_unseen_notification(view = '') {
                 $.ajax({
                     url: "models/get_notifications.php",
@@ -231,18 +203,18 @@
                         $('.dropdown-menu-not').html(data.notification);
                         if (data.unseen_notification > 0) {
                             $('#notification_count').html(data.unseen_notification);
-                          
-                           
+
+
                         }
-                  
+
                     }
                 });
             }
-                $(document).on('click', '.dropdown-toggle', function(){
+            $(document).on('click', '.dropdown-toggle', function() {
                 $('#notification_count').html(0);
                 load_unseen_notification('yes');
-                });
-         
+            });
+
         });
     </script>
 
