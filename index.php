@@ -252,7 +252,7 @@
 					</form>
 					<script>
 						window.watsonAssistantChatOptions = {
-							integrationID: "20ba6c35-f207-4ce1-93f4-fc81e106c386", // The ID of this integration.
+							integrationID: "9da6599e-92bf-4240-9453-65a9772a6eb5", // The ID of this integration.
 							region: "us-south", // The region your integration is hosted in.
 							serviceInstanceID: "b16deb95-a2fd-439f-b784-09b7f437b6e7", // The ID of your service instance.
 							onLoad: function(instance) { instance.render(); }
@@ -263,7 +263,7 @@
 							document.head.appendChild(t);
 						});
 						</script>
-					<!-- /Section One -->
+											<!-- /Section One -->
 					<!-- <div id="rasa-chat-widget" data-initial-payload="/get_start" data-websocket-url="http://3.19.59.149:5005"></div>  -->
 				</section>
 				<!-- /Content -->
