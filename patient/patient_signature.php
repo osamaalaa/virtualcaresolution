@@ -11,20 +11,21 @@ require_once "../db.php";
     <meta content="Virtual Care Solution" name="description" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <!-- App favicon -->
     <link rel="shortcut icon" href="../assets/images/fav.ico">
+    <!-- Plugins css -->
+    <link href="../assets/dashboard/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/dashboard/assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
     <link href="../assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="../assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
-    <!-- <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" /> -->
-    <!-- Lightbox css -->
-    <link href="../assets/dashboard/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+
+    <link href="../assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="../assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
 
     <!-- icons -->
     <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link type="text/css" href="../assets/dashboard/assets/css/jquery.signature.css" rel="stylesheet">
     <style>
         .kbw-signature {
             width: 800px;
@@ -297,7 +298,7 @@ require_once "../db.php";
 
         });
     </script>
-   
+
     <!-- ------------------------------------------------------------------------------ -->
 </body>
 

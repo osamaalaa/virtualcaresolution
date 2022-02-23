@@ -2,12 +2,12 @@
 <html lang="en">
 
 <!--- Sidemenu -->
-
 <div id="sidebar-menu">
     <ul id="side-menu">
+    <?php
+        $role = $_SESSION["role_id"];
+        if ($role == 4 || $role == 1){ ?>
         <!-- <li class="menu-title"> <a href="dashboard.php">VCS</a></li> -->
-      
-
         <li class="menu-title mt-2">Physician</li>
         <li>
             <a href="dashboard.php">
@@ -47,12 +47,12 @@
             </a>
         </li>
         <li>
-            <a href="PayMyBill.php">
+            <a href="paymybill.php">
                 <i data-feather="user-check"></i>
                 <span> Checkout </span>
             </a>
         </li>
-
+        <?php } ?>
 
         <!-- --------------------------------------Admin------------------------------------->
 
@@ -82,8 +82,10 @@
 
 
         <?php } ?>
-       
         <!-- ----------------------------------------------------------------------------------------    -->
+        <?php
+        $role = $_SESSION["role_id"];
+        if ($role == 2){ ?>
         <li class="menu-title mt-2">Patient</li>
             <li>
                 <a href="patient/patient_dashboard.php">
@@ -91,17 +93,18 @@
                     <span> Patient Dashboard </span>
                 </a>
             </li>
-            <li>
+
+            <!-- <li>
                 <a href="admin_users.php">
                     <i data-feather="users"></i>
                     <span> Users </span>
                 </a>
-            </li>
-
-
-
+            </li> -->
+            <?php } ?>
             <!--------------------------------Receptionist----------------------------------------------  -->
-
+            <?php
+                $role = $_SESSION["role_id"];
+                if ($role == 6){ ?>
 
             <li class="menu-title mt-2">Receptionist</li>
             <li>
@@ -141,9 +144,7 @@
                 </a>
             </li>
             <!-- ----------------------------------------------------------------------------------------- -->
-
-
-
+            <?php } ?>
     </ul>
 </div>
 

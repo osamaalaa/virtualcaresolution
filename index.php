@@ -250,8 +250,21 @@
 							</div>
 						</section>
 					</form>
+					<script>
+						window.watsonAssistantChatOptions = {
+							integrationID: "20ba6c35-f207-4ce1-93f4-fc81e106c386", // The ID of this integration.
+							region: "us-south", // The region your integration is hosted in.
+							serviceInstanceID: "b16deb95-a2fd-439f-b784-09b7f437b6e7", // The ID of your service instance.
+							onLoad: function(instance) { instance.render(); }
+						};
+						setTimeout(function(){
+							const t=document.createElement('script');
+							t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+							document.head.appendChild(t);
+						});
+						</script>
 					<!-- /Section One -->
-					<div id="rasa-chat-widget" data-initial-payload="/get_start" data-websocket-url="http://3.19.59.149:5005"></div> 
+					<!-- <div id="rasa-chat-widget" data-initial-payload="/get_start" data-websocket-url="http://3.19.59.149:5005"></div>  -->
 				</section>
 				<!-- /Content -->
 
@@ -309,7 +322,7 @@
 
 		function Copy() {
 			Toast.notice("Link Copied to clipboard!");
-			var copyText = "http://localhost/new-vcs/" + link;
+			var copyText = "https://virtualcaresolution.de/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
 			//  copyText.select();
 			//copyText.setSelectionRange(0, 99999);

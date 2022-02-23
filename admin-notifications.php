@@ -8,21 +8,28 @@ require_once "db.php";
     <meta charset="utf-8" />
     <title>Notifications | Virtual Care Solution</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Virtual Care Solution" name="description" />
+    <meta content="VirtualCareSolution VCS" name="description" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+
+ 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="./assets/images/fav.ico">   
+    <link rel="shortcut icon" href="./assets/images/fav.ico">
+
+    <!-- Plugins css -->
+    <link href="assets/dashboard/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/dashboard/assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
     <link href="assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
     <link href="assets/dashboard/assets/css/config/default/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
-    <!-- <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" /> -->
 
+    <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
+    <link href="assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
+   
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <script src="assets/dashboard/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- quill css -->
     <link href="assets/dashboard/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
     <link href="assets/dashboard/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />

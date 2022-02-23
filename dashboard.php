@@ -1,12 +1,10 @@
 <?php
 require_once "db.php";
 include "src/gaurd.php";
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
     <meta charset="utf-8" />
@@ -376,7 +374,7 @@ include "src/gaurd.php";
                                         </div>
                                         <div class="col-6">
                                             <div class="text-end">
-                                                <a href="payMyBill.php">
+                                                <a href="paymybill.php">
                                                     <h3 class="text-dark my-1"><span data-plugin="counterup"><?php
                                                                                                                 $username = $_SESSION['username'];
                                                                                                                 $sql = mysqli_query($conn, "SELECT  FLOOR(SUM(DISTINCT total_cost)) as total from sessions WHERE doctor_name = '" . $username . "'");
@@ -674,9 +672,6 @@ include "src/gaurd.php";
     <script src="assets/dashboard/assets/js/app.min.js"></script>
     <!-- Todo app -->
     <script src="assets/dashboard/assets/js/pages/jquery.todo.js"></script>
-
-
-
     <script src="assets/dashboard/assets/libs/apexcharts/apexcharts.min.js"></script>
     <script src="https://apexcharts.com/samples/assets/ohlc.js"></script>
     <script src="assets/dashboard/assets/js/dashboard.init.js"></script>

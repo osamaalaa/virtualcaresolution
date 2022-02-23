@@ -8,8 +8,13 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="../assets/images/fav.ico">
+      <!-- App favicon -->
+      <link rel="shortcut icon" href="../assets/images/fav.ico">
+
+
+    <!-- Plugins css -->
+    <link href="../assets/dashboard/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/dashboard/assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
     <link href="../assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
@@ -20,7 +25,6 @@
 
     <!-- icons -->
     <link href="../assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <!-- body start -->

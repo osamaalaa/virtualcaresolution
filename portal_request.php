@@ -280,7 +280,7 @@
 
 
 
-<script src="vendor/jquery.min.js"></script>
+<script src="vendor/jquery.min.js"></script> 
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 <script src="vendor/materialize.min.js"></script>
 
@@ -289,7 +289,6 @@
         // msform
         $("#msform").on('submit', function(event) {
             var formData = new FormData()
-
             formData.append("fname", $("#fname").val());
             formData.append("lname", $("#lname").val());
             formData.append("fname", $("#fname").val());
@@ -307,7 +306,6 @@
             formData.append("policydate", $("#policydate").val());
             formData.append('idfront', $('#idfront')[0].files[0]);
             formData.append('idback', $('#idback')[0].files[0]);
-
                 $.ajax({
                     type: "POST",
                     url: "portalrequest.php",
@@ -330,8 +328,6 @@
                         $('#msform').trigger("reset");
                 });
             
-
-
             event.preventDefault();
 
         });

@@ -2,19 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />    
     <title>Profile | Virtual Care Solutions VCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Virtual Care Solution | VCS" name="description" />
     <meta content="YasClinicGroup" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/dashboard/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="./assets/images/fav.ico">
 
     <!-- Plugins css -->
     <link href="assets/dashboard/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/dashboard/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/dashboard/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- Plugins css -->
+    <link href="assets/dashboard/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/dashboard/assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
 
     <!-- App css -->
     <link href="assets/dashboard/assets/css/config/default/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
@@ -22,7 +27,7 @@
 
     <link href="assets/dashboard/assets/css/config/default/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" />
     <link href="assets/dashboard/assets/css/config/default/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet" />
-
+   
     <!-- icons -->
     <link href="assets/dashboard/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
@@ -30,7 +35,7 @@
 
 <!-- body start -->
 
-<body >
+<body>
     <!-- Begin page -->
     <div id="wrapper">
         <?php include './components/header.php'; ?>
@@ -41,7 +46,7 @@
             <div class="h-100" data-simplebar>
                 <!-- User box -->
                 <div class="user-box text-center">
-                    <img src="assets/dashboard/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                    <img src="<?php echo $_SESSION["password"] ?>" alt="user-img" title="<?php echo $_SESSION["username"] ?>" class="rounded-circle avatar-md">
                     <div class="dropdown">
                         <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown">Geneva Kennedy</a>
                         <div class="dropdown-menu user-pro-dropdown">
@@ -123,7 +128,7 @@
 
                                             <div class="mb-3">
                                                 <label for="project-overview" class="form-label">Email Address</label>
-                                                <input type="email" name="email" class="form-control" value="<?php echo $_SESSION["email"] ?>" placeholder="" id="input-email">
+                                                <input type="email" name="email" class="form-control" value="<?php echo $_SESSION["email"] ?>" placeholder="" id="input-email" disabled>
                                                 <!-- <textarea class="form-control" id="project-overview" rows="5" placeholder="Enter some brief about project.."></textarea> -->
                                             </div>
                                             <div class="mb-3">
@@ -131,19 +136,19 @@
                                                 <!-- <input type="password" name="password" class="form-control" value="<?php echo $_SESSION["password"] ?>" placeholder="" id="input-adddress"> -->
                                                 <!-- <i class="fa fa-eye-slash"   aria-hidden="true"> -->
                                                 <div class="input-group" id="show_hide_password">
-                                                <input class="form-control" type="password" value="<?php echo $_SESSION["password"] ?>">
-                                                <div class="input-group-addon" style="padding: 10px 0;background-color: #efefef;">
-                                                    <a href=""><i class="fa fa-eye-slash" style="color: #333;" aria-hidden="true"></i></a>
-                                                </div>
+                                                    <input class="form-control" type="password" value="<?php echo $_SESSION["password"] ?>">
+                                                    <div class="input-group-addon" style="padding: 10px 0;background-color: #efefef;">
+                                                        <a href=""><i class="fa fa-eye-slash" style="color: #333;" aria-hidden="true"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                       
+
                                                 <label class="form-label" for="input-telephone">Phone number</label>
-                                                <input type="tel" name="phone" class="form-control" value="<?php echo $_SESSION["mobile"] ?>" placeholder="" id="input-telephone">
-                                             
+                                                <input type="tel" name="phone" class="form-control" value="<?php echo $_SESSION["mobile"] ?>" placeholder="" id="input-telephone" disabled>
+
                                             </div>
-                                     
+
 
                                         </div> <!-- end col-->
                                         <div class="col-xl-6">
@@ -153,19 +158,19 @@
                                                 <label for="projectname" class="mb-0 form-label">Profile Image</label>
                                                 <p class="text-muted font-14">Recommended thumbnail size 800x400 (px).</p>
                                                 <a href="javascript:void(0);" class="d-inline-block" style="display: block;padding: 11px;">
-                                                       <center> <img src="<?php echo $_SESSION["imgpath"]; ?>" class="rounded-circle avatar-xxl" alt="friend" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Mike Baker"></center>
+                                                    <center> <img src="<?php echo $_SESSION["imgpath"]; ?>" class="rounded-circle avatar-xxl" alt="friend" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $_SESSION["username"] ?>"></center>
                                                 </a>
 
-                                                <form action="/" method="post" class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
+                                                <form  id="imgForm" method="POST" class="dropzone"  data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
                                                     <div class="fallback">
-                                                        <input name="file" type="file" />
+                                                    <input type="file" id="imgpath" name="imgpath" data-plugins="dropify" data-max-file-size="3M" />
                                                     </div>
 
                                                     <div class="dz-message needsclick">
                                                         <i class="h3 text-muted dripicons-cloud-upload"></i>
                                                         <h4>Drop files here or click to upload.</h4>
                                                     </div>
-                                                </form>
+                                                
 
                                                 <!-- Preview -->
                                                 <div class="dropzone-previews mt-3" id="file-previews"></div>
@@ -193,35 +198,35 @@
                                                     </div>
                                                 </div>
                                                 <!-- end file preview template -->
-                                            </div>   
+                                            </div>
                                         </div> <!-- end col-->
                                     </div>
                                     <!-- end row -->
 
                                     <div class="row mt-3">
                                         <div class="col-12 text-center">
-                                            <button type="button" class="btn btn-success waves-effect waves-light m-1"><i class="fe-check-circle me-1"></i> Save</button>
+                                            <button type="submit" class="btn btn-success waves-effect waves-light m-1"><i class="fe-check-circle me-1"></i> Save</button>
                                             <!-- <button type="button" class="btn btn-light waves-effect waves-light m-1"><i class="fe-x me-1"></i> Cancel</button> -->
                                         </div>
                                     </div>
-
+                                    </form>
                                 </div> <!-- end card-body -->
                             </div> <!-- end card-->
                         </div> <!-- end col-->
                     </div>
-                
-                </fieldset>
 
-            </div>
-            </form>
+                    </fieldset>
 
-        </div> <!-- container -->
+                </div>
+                </form>
 
-    </div> <!-- content -->
+            </div> <!-- container -->
 
-    <!-- Footer Start -->
+        </div> <!-- content -->
 
-    <!-- end Footer -->
+        <!-- Footer Start -->
+
+        <!-- end Footer -->
 
     </div>
 
@@ -256,7 +261,7 @@
                 </li>
             </ul>
 
-       
+
 
         </div> <!-- end slimscroll-menu-->
     </div>
@@ -266,7 +271,7 @@
     <div class="rightbar-overlay"></div>
 
     <!-- Vendor js -->
-    <script src="assets/dashboard/assets/js/vendor.min.js"></script>
+    <!-- <script src="assets/dashboard/assets/js/vendor.min.js"></script> -->
 
     <!-- plugin js -->
     <script src="assets/dashboard/assets/libs/dropzone/min/dropzone.min.js"></script>
@@ -278,23 +283,61 @@
 
     <!-- App js -->
     <script src="assets/dashboard/assets/js/app.min.js"></script>
+    <script src="assets/dashboard/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- Sweet alert init js-->
+    <script src="assets/dashboard/assets/js/pages/sweet-alerts.init.js"></script>
 
     <script>
         $(document).ready(function() {
-    $("#show_hide_password a").on('click', function(event) {
-        event.preventDefault();
-        if($('#show_hide_password input').attr("type") == "text"){
-            $('#show_hide_password input').attr('type', 'password');
-            $('#show_hide_password i').addClass( "fa-eye-slash" );
-            $('#show_hide_password i').removeClass( "fa-eye" );
-        }else if($('#show_hide_password input').attr("type") == "password"){
-            $('#show_hide_password input').attr('type', 'text');
-            $('#show_hide_password i').removeClass( "fa-eye-slash" );
-            $('#show_hide_password i').addClass( "fa-eye" );
-        }
-    });
-});
+            $("#show_hide_password a").on('click', function(event) {
+                event.preventDefault();
+                if ($('#show_hide_password input').attr("type") == "text") {
+                    $('#show_hide_password input').attr('type', 'password');
+                    $('#show_hide_password i').addClass("fa-eye-slash");
+                    $('#show_hide_password i').removeClass("fa-eye");
+                } else if ($('#show_hide_password input').attr("type") == "password") {
+                    $('#show_hide_password input').attr('type', 'text');
+                    $('#show_hide_password i').removeClass("fa-eye-slash");
+                    $('#show_hide_password i').addClass("fa-eye");
+                }
+            });
+        });
     </script>
+    
+    <script>
+    $(document).ready(function() {
+        // msform
+        $("#imgForm").on('submit', function(event) {
+            var formData = new FormData()
+  
+            formData.append('imgpath', $('#imgpath')[0].files[0]);
+        
+                $.ajax({
+                    type: "POST",
+                    url: "imgprofile.php",
+                    data: formData,
+
+                    contentType: false,
+
+                    cache: false,
+
+                    processData: false,
+
+                    encode: true,
+                }).done(function(data) {
+                    Swal.fire({
+                            title: "Success !",
+                            text: "Profile Info Saved Sucessfully!",
+                            icon: "success"
+                        })
+                        $('#msform').trigger("reset");
+                });
+            
+            event.preventDefault();
+
+        });
+    });
+</script>
 </body>
 
 </html>

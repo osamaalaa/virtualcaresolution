@@ -22,7 +22,4 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "<li><span class='text'>No Requests Found.</span></li>";
 }
-    
-    
-
 ?>
