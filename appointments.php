@@ -1,3 +1,6 @@
+<?php
+  require_once "db.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -200,7 +203,7 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                        </div> 
+                                        </div>
                                     </div> <!-- end modal-content-->
                                 </div> <!-- end modal dialog-->
                             </div>
@@ -227,17 +230,17 @@
                                                         <div class="mb-3">
                                                             <label class="form-label">Dose</label>
                                                             <div class="input-group">
-                                                            <input type="text" class="form-control" name="Strength" id="Strength" placeholder="Strength"  required />
-                                                            <input type="text" class="form-control" name="dose" id="dose" required placeholder="Dose" />
-                                                            <input  type="text" class="form-control" name="Duration" id="Duration" required  placeholder="Duration"/>
-                                                            <select  class="form-control" name="Durationt" id="Durationt" required> Duration Type
-                                                                <option value="1">Daily</option>
-                                                                <option value="7">Weekly</option>
-                                                                <option value="30">Monthly</option>
-                                                            </select>
+                                                                <input type="text" class="form-control" name="Strength" id="Strength" placeholder="Strength" required />
+                                                                <input type="text" class="form-control" name="dose" id="dose" required placeholder="Dose" />
+                                                                <input type="text" class="form-control" name="Duration" id="Duration" required placeholder="Duration" />
+                                                                <select class="form-control" name="Durationt" id="Durationt" required> Duration Type
+                                                                    <option value="1">Daily</option>
+                                                                    <option value="7">Weekly</option>
+                                                                    <option value="30">Monthly</option>
+                                                                </select>
 
                                                             </div>
-                                                            
+
 
                                                             <div class="invalid-feedback">Please provide a valid Duration</div>
                                                             <div class="invalid-feedback">Please provide a valid dose</div>
@@ -247,7 +250,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label class="form-label">Start Date</label>
-                                                            <input type="date" class="form-control" name="startDate" id="startDate"  />
+                                                            <input type="date" class="form-control" name="startDate" id="startDate" />
 
                                                             <div class="invalid-feedback">Please provide a valid Start Date</div>
                                                         </div>
@@ -255,7 +258,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label class="form-label">Comments / Directions For Use</label>
-                                                            <textarea class="form-control" name="comments" id="comments"  rows="3"></textarea>
+                                                            <textarea class="form-control" name="comments" id="comments" rows="3"></textarea>
 
                                                             <div class="invalid-feedback">Please provide a valid comment</div>
                                                         </div>
@@ -263,35 +266,35 @@
                                                     <input type="hidden" id="doctor_name" name="doctor_name" value="<?php echo $_SESSION["username"] ?>">
                                                 </div>
                                                 <div class="row">
-                        <div class="col-12">
- 
-                            <div class="card">
-                                <div class="card-body">
-                                <div class="row"> 
-                                        <div class="col-lg-12">
-                                            <div class="table-responsive" id="presc-container">
-                                                <table id="presc-table"class="table activate-select dt-responsive nowrap w-100">
-                                                    <thead>
-                                                        <tr>
-                                                            <th> Id </th>
-                                                            <th> Name </th>
-                                                            <th> Strength </th>
-                                                            <th> Dose </th> 
-                                                            <th> Duration </th>
-                                                            <th> Type </th>
-                                                            <th> Start Date </th>
-                                                            <th> Comments </th>
-                                                            <th colspan="3"> Action </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                         </div>
-                                     </div>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                                    <div class="col-12">
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="table-responsive" id="presc-container">
+                                                                            <table id="presc-table" class="table activate-select dt-responsive nowrap w-100">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th> Id </th>
+                                                                                        <th> Name </th>
+                                                                                        <th> Strength </th>
+                                                                                        <th> Dose </th>
+                                                                                        <th> Duration </th>
+                                                                                        <th> Type </th>
+                                                                                        <th> Start Date </th>
+                                                                                        <th> Comments </th>
+                                                                                        <th colspan="3"> Action </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row mt-2">
                                                     <div class="col-md-12 col-8 text-end">
                                                         <button type="button" id="discard" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
@@ -300,13 +303,13 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                        </div> 
+                                        </div>
                                     </div> <!-- end modal-content-->
                                 </div> <!-- end modal dialog-->
                             </div>
                             <!-- End Add Prescription Modal -->
-                      <!-- start edit prescription modal -->
-                      <div class="modal fade" id="presc-edit-modal" tabindex="-1">
+                            <!-- start edit prescription modal -->
+                            <div class="modal fade" id="presc-edit-modal" tabindex="-1">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header py-3 px-4 border-bottom-0 d-block">
@@ -319,7 +322,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label class="form-label">Drug Name</label>
-                                                            <input class="form-control" placeholder="" type="text" name="drug_namee"   id="drug_nameedit" required />
+                                                            <input class="form-control" placeholder="" type="text" name="drug_namee" id="drug_nameedit" required />
                                                             <div class="invalid-feedback">Please provide a valid drug name</div>
                                                         </div>
                                                     </div>
@@ -327,17 +330,17 @@
                                                         <div class="mb-3">
                                                             <label class="form-label">Dose</label>
                                                             <div class="input-group">
-                                                            <input type="text" class="form-control" name="Strength" id="Strengthedit" placeholder="Strength"  required />
-                                                            <input type="text" class="form-control" name="dose" id="doseedit" required placeholder="Dose" />
-                                                            <input  type="text" class="form-control" name="Duration" id="Durationedit" required  placeholder="Duration"/>
-                                                            <select  class="form-control" name="Durationt" id="Durationtedit" required> Duration Type
-                                                                <option value="1">Daily</option>
-                                                                <option value="7">Weekly</option>
-                                                                <option value="30">Monthly</option>
-                                                            </select>
+                                                                <input type="text" class="form-control" name="Strength" id="Strengthedit" placeholder="Strength" required />
+                                                                <input type="text" class="form-control" name="dose" id="doseedit" required placeholder="Dose" />
+                                                                <input type="text" class="form-control" name="Duration" id="Durationedit" required placeholder="Duration" />
+                                                                <select class="form-control" name="Durationt" id="Durationtedit" required> Duration Type
+                                                                    <option value="1">Daily</option>
+                                                                    <option value="7">Weekly</option>
+                                                                    <option value="30">Monthly</option>
+                                                                </select>
 
                                                             </div>
-                                                            
+
 
                                                             <div class="invalid-feedback">Please provide a valid Duration</div>
                                                             <div class="invalid-feedback">Please provide a valid dose</div>
@@ -347,7 +350,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label class="form-label">Start Date</label>
-                                                            <input type="date" class="form-control" name="startDate" id="startDateedit"  />
+                                                            <input type="date" class="form-control" name="startDate" id="startDateedit" />
 
                                                             <div class="invalid-feedback">Please provide a valid Start Date</div>
                                                         </div>
@@ -355,7 +358,7 @@
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label class="form-label">Comments / Directions For Use</label>
-                                                            <textarea class="form-control" name="comments" id="commentsedit"  rows="3"></textarea>
+                                                            <textarea class="form-control" name="comments" id="commentsedit" rows="3"></textarea>
 
                                                             <div class="invalid-feedback">Please provide a valid comment</div>
                                                         </div>
@@ -370,30 +373,30 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                        </div> 
+                                        </div>
                                     </div> <!-- end modal-content-->
                                 </div> <!-- end modal dialog-->
                             </div>
-                      <!-- end edit prescription modal -->
-                    </div>
+                            <!-- end edit prescription modal -->
+                        </div>
                         <!-- end col-12 -->
                     </div> <!-- end row -->
                     <div class="row">
                         <div class="col-12">
- 
+
                             <div class="card">
                                 <div class="card-body">
-                                <div class="row"> 
+                                    <div class="row">
                                         <div class="col-lg-12">
                                             <div class="table-responsive" id="appointments-container">
-                                                <table id="appointment-table"class="table activate-select dt-responsive nowrap w-100">
+                                                <table id="appointment-table" class="table activate-select dt-responsive nowrap w-100">
                                                     <thead>
                                                         <tr>
                                                             <!-- <th>click<th> -->
                                                             <th> UUID </th>
                                                             <th> Patient Name </th>
                                                             <th> Phone Number </th>
-                                                            <th> Date </th> 
+                                                            <th> Date </th>
                                                             <th> Time </th>
                                                             <th> Status </th>
                                                             <th colspan="3"> Action </th>
@@ -401,14 +404,14 @@
                                                     </thead>
                                                 </table>
                                             </div>
-                                         </div>
-                                     </div>    
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- ------------------------------------Rasa------------------------------------- -->
-  
+
                     <!-- -------------------------------------------------------------------------------- -->
                 </div> <!-- container -->
 
@@ -460,12 +463,13 @@
 
 
     <script>
-        $presData ="";
-        $editData ="";
-        $drug ="";
-        console.log('presData' ,$presData)
+        $presData = "";
+        $editData = "";
+        $drug = "";
+        $apptid =0;
+        console.log('presData', $presData)
         $(document).ready(function() {
-           var table = $('#appointment-table').DataTable({
+            var table = $('#appointment-table').DataTable({
                 dom: '<"top"Bif>rt<"bottom"lp><"clear">',
                 lengthChange: !1,
                 buttons: ["print", "pdf"],
@@ -493,16 +497,16 @@
                         .addClass("pagination-rounded")
                 },
                 "columns": [
-            //         {
-            //     "className":      'details-control',
-            //     "orderable":      false,
-            //     "data":           null,
-            //     "defaultContent": ''
-            // },
+                    //         {
+                    //     "className":      'details-control',
+                    //     "orderable":      false,
+                    //     "data":           null,
+                    //     "defaultContent": ''
+                    // },
                     {
                         "data": "uuid"
                     },
-                 
+
                     {
                         "data": "patient_name"
                     },
@@ -518,59 +522,114 @@
                     {
                         "data": "status_name"
                     },
-                    {data: "status" , render : function ( data, type, row, meta ) {
-                        var thisId = $('#appointments_id').val();
-                        //$presData =row
-                        console.log('presData' ,$presData)
-                            console.log("ThisId" , row.appointments_id)
-                            return (type === 'display' && data == 1)  ?
-                                '<button class="btn btn-info"  id="notConfirmed" title="Confirm Appointment ?"  data-row= "'+ row.appointments_id +'" data-id="'+ data +'" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>'
-                                  :(type === 'display' && data == 4) ? 
-                                  '<button class="btn btn-success" title="Finished ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' 
-                                  :(type === 'display' && data == 2) ? 
-                                  '<button class="btn btn-info details-control"   title="Show Prescription ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="showprescription"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#presc-modal" title="Add Prescription ?"data-patient_name= "'+ row.patient_name +'" data-date= "'+ row.created_at +'" data-phone_number= "'+ row.phone_number +'" data-uuid= "'+ row.uuid +'" data-row= "'+ row.appointments_id +'" id="prescription"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-success" title="Finish Prescription ?" id="btn-complete-presc" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="addPresc" data-remove="'+ row.appointments_id +'"><span class="mdi mdi-delete-circle"></span></button>' 
-                                  :
-                                   'Done'
-                            }}, 
+                    {
+                        data: "status",
+                        render: function(data, type, row, meta) {
+                            var thisId = $('#appointments_id').val();
+                            //$presData =row
+                            console.log('presData', $presData)
+                            console.log("ThisId", row.appointments_id)
+                            return (type === 'display' && data == 1) ?
+                                '<button class="btn btn-info"  id="notConfirmed" title="Confirm Appointment ?"  data-row= "' + row.appointments_id + '" data-id="' + data + '" ><span class="mdi mdi-book-information-variant"></span></button>  <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="' + row.appointments_id + '"><span class="mdi mdi-delete-circle"></span></button>' :
+                                (type === 'display' && data == 4) ?
+                                '<button class="btn btn-success" title="Finished ?"data-patient_name= "' + row.patient_name + '" data-date= "' + row.created_at + '" data-phone_number= "' + row.phone_number + '" data-uuid= "' + row.uuid + '" data-row= "' + row.appointments_id + '" id="confirmed"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="removeAppoint" data-remove="' + row.appointments_id + '"><span class="mdi mdi-delete-circle"></span></button>' :
+                                (type === 'display' && data == 2) ?
+                                '<button class="btn btn-info details-control"   title="Show Prescription ?"data-patient_name= "' + row.patient_name + '" data-date= "' + row.created_at + '" data-phone_number= "' + row.phone_number + '" data-uuid= "' + row.uuid + '" data-row= "' + row.appointments_id + '" id="showprescription"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#presc-modal" title="Add Prescription ?"data-patient_name= "' + row.patient_name + '" data-date= "' + row.created_at + '" data-phone_number= "' + row.phone_number + '" data-uuid= "' + row.uuid + '" data-row= "' + row.appointments_id + '" id="prescription"> <span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-success" title="Finish Prescription ?" id="btn-complete-presc" data-remove="' + row.appointments_id + '"><span class="mdi mdi-ticket-confirmation"></span></button> <button class="btn btn-danger" title="Delete Appointment" id="addPresc" data-remove="' + row.appointments_id + '"><span class="mdi mdi-delete-circle"></span></button>' :
+                                'Done'
+                        }
+                    },
                 ]
-            })
-            ;
+            });
+          
+
             function format(d) {
-        // `d` is the original data object for the row
-        return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
-            '<tr>' +
-            '<td>Full name:</td>' +
-            '<td>' + 'abc' + '</td>' +
-            '</tr>' +
-            '<tr>' +
-            '<td>Extension number:</td>' +
-            '<td>' + 'abc' + '</td>' +
-            '</tr>' +
-            '<tr>' +
-            '<td>Extra info:</td>' +
-            '<td>And any further details here (images etc)...</td>' +
-            '</tr>' +
-            '</table>';
-    }
-            $('#appointment-table tbody').on('click', 'button.details-control', function () {
+                // `d` is the original data object for the row
+                var abc= 'this is text';
+                var appt_idd = d.appointments_id;
+                return '<table cellpadding="5" data-id="" cellspacing="0" border="0" style="padding-left:50px;">' +
+               
+               '<thead>'+ 
+               '<th> Id </th>'+
+               '<th> Drug name </th>'+
+               '<th> strength </th>'+
+               '<th> Dose </th>'+
+               '<th> Duration </th>'+
+               '<th> duration type </th>'+
+               '<th> Start Date </th>'+
+               '<th> Comments </th>'+
+               '<th> Action </th>'+
+               '</thead>'+
+               
+
+                + '<?php   
+                $sql = "SELECT 
+                            id, drug_name, strength, dose, duration_count,
+                            duration_type, Date(start_date) as start_date, comments
+                            from prescriptions 
+                            ";
+                            $result = mysqli_query($conn,$sql);
+                            
+                            while ($row = mysqli_fetch_assoc($result)) 
+                            {
+                ?>'+
+                    '<tr>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['id'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['drug_name'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['strength'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['dose'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['duration_count'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['duration_type'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['start_date'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<?php
+                                    echo "" . $row['comments'] . "";
+                                    ?>'
+                    + '</td>' +
+                    '<td>' + '<button data-bs-toggle="modal" data-bs-target="#presc-edit-modal" class="btn btn-info"  id="editPrescr" title="Edit Prescription ?"  data-drug_name= "<?php echo $row['drug_name'];?>" data-id="<?php echo $row['id'];?>" data-strength="<?php echo $row['strength'];?>" data-dose="<?php echo $row['dose'];?>" data-duration_count="<?php echo $row['duration_count'];?>" data-duration_type="<?php echo $row['duration_type'];?>" data-start_date="<?php echo $row['start_date'];?>" data-comments="<?php echo $row['comments'];?>" ><span class="mdi mdi-tooltip-edit"></span></button>  <button class="btn btn-danger" title="Delete Prescription" id="removePresc" data-remove="<?php echo $row['id'];?>"><span class="mdi mdi-delete-circle"></span></button>'
+                    + '</td>' +
+                    '</tr>' +
+                    '<?php } ?>' + 
+                    '</table>';
+            }
+            $('#appointment-table tbody').on('click', 'button.details-control', function() {
                 console.log('hiii')
-        var tr = $(this).closest('tr');
-        var row = table.row( tr );
- console.log('data is', row.data())
-        if ( row.child.isShown() ) {
-            // This row is already open - close it
-            row.child.hide();
-            tr.removeClass('shown');
-        }
-        else {
-            // Open this row
-            
-            row.child( format(row.data()) ).show();
-            tr.addClass('shown');
-        }
-    } );
+                var tr = $(this).closest('tr');
+                var row = table.row(tr);
+                console.log('data is', row.data())
+                if (row.child.isShown()) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                } else {
+                    // Open this row
+                    var d = row.data()
+                    $apptid =  d.appointments_id;
+                    row.child(format(row.data())).show();
+                    tr.addClass('shown');
+                }
+            });
             //prescription edit modal
-            $('#presc-edit-modal').on('show.bs.modal', function (e) {
+            $('#presc-edit-modal').on('show.bs.modal', function(e) {
                 var product = $(e.relatedTarget).data();
                 $editData = product
                 console.log($editData, '------')
@@ -581,307 +640,311 @@
                 $('#Durationtedit').val(product.duration_type);
                 $('#startDateedit').val(product.start_date);
                 $('#commentsedit').val(product.comments)
-               
+
             });
             //prescription edit modal end
             //prescription table
-            $('#presc-modal').on('show.bs.modal', function (e) {
-                
-              
+            $('#presc-modal').on('show.bs.modal', function(e) {
+
+
                 var product = $(e.relatedTarget).data();
                 console.log('product to fetch', product)
                 $presData = product
-            var table = $('#presc-table').DataTable({
-                dom: '<"top"Bif>rt<"bottom"lp><"clear">',
-                lengthChange: !1,
-                buttons: ["print", "pdf"],
-                buttons: {
-                    buttons: [{
-                            extend: "print",
-                            className: "btn-light"
-                        },
-                        {
-                            extend: "pdf",
-                            className: "btn-light"
-                        }
-                    ]
-                },
-                retrieve: true,
-                "ajax": {
-                    "url": "fetchPrescriptions.php",
-                    "type": "GET",
-                    "datatype": "json",
-                    "dataSrc": "",
-                    data: {
+                var table = $('#presc-table').DataTable({
+                    dom: '<"top"Bif>rt<"bottom"lp><"clear">',
+                    lengthChange: !1,
+                    buttons: ["print", "pdf"],
+                    buttons: {
+                        buttons: [{
+                                extend: "print",
+                                className: "btn-light"
+                            },
+                            {
+                                extend: "pdf",
+                                className: "btn-light"
+                            }
+                        ]
+                    },
+                    retrieve: true,
+                    "ajax": {
+                        "url": "fetchPrescriptions.php",
+                        "type": "GET",
+                        "datatype": "json",
+                        "dataSrc": "",
+                        data: {
                             appointment_id: product.row
                         }
-                },
-                drawCallback: function() {
-                    $(".dataTables_paginate > .pagination")
-                        .addClass("pagination-rounded")
+                    },
+                    drawCallback: function() {
+                        $(".dataTables_paginate > .pagination")
+                            .addClass("pagination-rounded")
 
-                },
-                "columns": [
-                    {
-                        "data": "id"
                     },
-                 
-                    {
-                        "data": "drug_name"
-                    },
-                    {
-                        "data": "strength"
-                    },
-                    {
-                        "data": "dose"
-                    },
-                    {
-                        "data": "duration_count"
-                    },
-                    {
-                        "data": "duration_type"
-                    },
-                    {
-                        "data": "start_date"
-                    },
-                    {
-                        "data": "comments"
-                    },
-                    {
-                    data: null,
-                    render: function ( data, type, row ) {
-                        console.log('row is', row)
-                        return '<!-- Button trigger modal --><button data-bs-toggle="modal" data-bs-target="#presc-edit-modal" class="btn btn-info"  id="editPrescr" title="Edit Prescription ?"  data-drug_name= "'+ row.drug_name +'" data-id="'+ data.id + '" data-strength="'+ data.strength +'" data-dose="'+ data.dose + '" data-duration_count="'+ data.duration_count + '" data-duration_type="'+ data.duration_type + '" data-start_date="'+ data.start_date + '" data-comments="'+ data.comments +'" ><span class="mdi mdi-tooltip-edit"></span></button>  <button class="btn btn-danger" title="Delete Prescription" id="removePresc" data-remove="'+ row.id +'"><span class="mdi mdi-delete-circle"></span></button>';
-                
-                
-                    }
-                    } 
-                ]
-            });
-           
-           
-        });
-        
-      
-            //prescription table end
-            $(document).on("click", "#removeAppoint", function(e) { 
-                    e.preventDefault();
-                    var appointments_id = $(this).data('remove');
-
-          
-                    $.ajax({
-                        url: "./models/delete_appointments.php",
-                        type: "POST",
-                        data: {
-                            appointments_id: appointments_id
+                    "columns": [{
+                            "data": "id"
                         },
-                        success: function(data) {
-                            $('#appointment-table').DataTable().ajax.reload();
-                                Swal.fire
-                                ({title:"Success !",
-                                text:"Appointment has been Deleted successfully!",
-                                icon:"success"})
-                
-                        }
 
-                    });
+                        {
+                            "data": "drug_name"
+                        },
+                        {
+                            "data": "strength"
+                        },
+                        {
+                            "data": "dose"
+                        },
+                        {
+                            "data": "duration_count"
+                        },
+                        {
+                            "data": "duration_type"
+                        },
+                        {
+                            "data": "start_date"
+                        },
+                        {
+                            "data": "comments"
+                        },
+                        {
+                            data: null,
+                            render: function(data, type, row) {
+                                console.log('row is', row)
+                                return '<!-- Button trigger modal --><button data-bs-toggle="modal" data-bs-target="#presc-edit-modal" class="btn btn-info"  id="editPrescr" title="Edit Prescription ?"  data-drug_name= "' + row.drug_name + '" data-id="' + data.id + '" data-strength="' + data.strength + '" data-dose="' + data.dose + '" data-duration_count="' + data.duration_count + '" data-duration_type="' + data.duration_type + '" data-start_date="' + data.start_date + '" data-comments="' + data.comments + '" ><span class="mdi mdi-tooltip-edit"></span></button>  <button class="btn btn-danger" title="Delete Prescription" id="removePresc" data-remove="' + row.id + '"><span class="mdi mdi-delete-circle"></span></button>';
+
+
+                            }
+                        }
+                    ]
+                });
+
+
+            });
+
+
+            //prescription table end
+            $(document).on("click", "#removeAppoint", function(e) {
+                e.preventDefault();
+                var appointments_id = $(this).data('remove');
+
+
+                $.ajax({
+                    url: "./models/delete_appointments.php",
+                    type: "POST",
+                    data: {
+                        appointments_id: appointments_id
+                    },
+                    success: function(data) {
+                        $('#appointment-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Appointment has been Deleted successfully!",
+                            icon: "success"
+                        })
+
+                    }
+
+                });
             });
             //del prescription
-            $(document).on("click", "#removePresc", function(e) { 
-                    e.preventDefault();
-                    var id = $(this).data('remove');
+            $(document).on("click", "#removePresc", function(e) {
+                e.preventDefault();
+                var id = $(this).data('remove');
+                $.ajax({
+                    url: "./models/delete_prescriptions.php",
+                    type: "POST",
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        $('#presc-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Prescription has been Deleted successfully!",
+                            icon: "success"
+                        })
 
-          
-                    $.ajax({
-                        url: "./models/delete_prescriptions.php",
-                        type: "POST",
-                        data: {
-                            id: id
-                        },
-                        success: function(data) {
-                            $('#presc-table').DataTable().ajax.reload();
-                                Swal.fire
-                                ({title:"Success !",
-                                text:"Prescription has been Deleted successfully!",
-                                icon:"success"})
-                
-                        }
+                    }
 
-                    });
+                });
             });
             //del prescription end
             //edit prescription start
-            
-            $(document).on("click", "#btn-save-prescedit", function(e) { 
-                    e.preventDefault();
-                    value="<?php echo $_SESSION['user_id']; ?>"
-                    var data = {
-                'drug_name': $('#drug_nameedit').val(),
-                'Strength': $('#Strengthedit').val(),
-                'dose': $('#doseedit').val(),
-                'Duration': $('#Durationedit').val(),
-                'Durationt': $('#Durationtedit').val(),
-                'startDate': $('#startDateedit').val(),
-                'doctorid': value,
-                'comments': $('#commentsedit').val(),
-                'prescid' : $editData.id
-            }
-          
-                    $.ajax({
-                        url: "./models/edit_prescription.php",
-                        type: "POST",
-                        
-                        data: data,
-                        success: function(data) {
-                           
-                                Swal.fire
-                                ({title:"Success !",
-                                text:"Prescription has been updated successfully!",
-                                icon:"success"})
-                               // $("#presc-formedit")[0].reset();
-                                $('#presc-edit-modal').modal('toggle');
-                        }
 
-                    });
+            $(document).on("click", "#btn-save-prescedit", function(e) {
+                e.preventDefault();
+                value = "<?php echo $_SESSION['user_id']; ?>"
+                var data = {
+                    'drug_name': $('#drug_nameedit').val(),
+                    'Strength': $('#Strengthedit').val(),
+                    'dose': $('#doseedit').val(),
+                    'Duration': $('#Durationedit').val(),
+                    'Durationt': $('#Durationtedit').val(),
+                    'startDate': $('#startDateedit').val(),
+                    'doctorid': value,
+                    'comments': $('#commentsedit').val(),
+                    'prescid': $editData.id
+                }
+
+                $.ajax({
+                    url: "./models/edit_prescription.php",
+                    type: "POST",
+
+                    data: data,
+                    success: function(data) {
+
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Prescription has been updated successfully!",
+                            icon: "success"
+                        })
+                        // $("#presc-formedit")[0].reset();
+                        $('#presc-edit-modal').modal('toggle');
+                    }
+
+                });
             });
             //edit prescription end
-            $(document).on("click", "#btn-save-presc", function(e) { 
-                    e.preventDefault();
-                    value="<?php echo $_SESSION['user_id']; ?>"
-                    var uuid =   $(this).data('uuid');
-                    var data = {
-                'drug_name': $('#drug_name').val(),
-                'Strength': $('#Strength').val(),
-                'dose': $('#dose').val(),
-                'Duration': $('#Duration').val(),
-                'Durationt': $('#Durationt').val(),
-                'startDate': $('#startDate').val(),
-                'uuid': $presData.uuid,
-                'doctorid': value,
-                'comments': $('#comments').val(),
-                'appointments_id': $presData.row
-            }
-          
-                    $.ajax({
-                        url: "./models/add_prescription.php",
-                        type: "POST",
-                        
-                        data: data,
-                        success: function(data) {
-                            $('#appointment-table').DataTable().ajax.reload();
-                                Swal.fire
-                                ({title:"Success !",
-                                text:"Prescription has been added successfully!",
-                                icon:"success"})
-                                $("#form-presc")[0].reset();
-                
-                        }
+            $(document).on("click", "#btn-save-presc", function(e) {
+                e.preventDefault();
+                value = "<?php echo $_SESSION['user_id']; ?>"
+                var uuid = $(this).data('uuid');
+                var data = {
+                    'drug_name': $('#drug_name').val(),
+                    'Strength': $('#Strength').val(),
+                    'dose': $('#dose').val(),
+                    'Duration': $('#Duration').val(),
+                    'Durationt': $('#Durationt').val(),
+                    'startDate': $('#startDate').val(),
+                    'uuid': $presData.uuid,
+                    'doctorid': value,
+                    'comments': $('#comments').val(),
+                    'appointments_id': $presData.row
+                }
 
-                    });
+                $.ajax({
+                    url: "./models/add_prescription.php",
+                    type: "POST",
+
+                    data: data,
+                    success: function(data) {
+                        $('#appointment-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Prescription has been added successfully!",
+                            icon: "success"
+                        })
+                        $("#form-presc")[0].reset();
+
+                    }
+
+                });
             });
-            $(document).on("click", "#notConfirmed", function(e) { 
-                    e.preventDefault();
-                    var appointments_id = $(this).data('row');
+            $(document).on("click", "#notConfirmed", function(e) {
+                e.preventDefault();
+                var appointments_id = $(this).data('row');
 
-          
-                    $.ajax({
-                        url: "./models/updateNotConfirmed.php",
-                        type: "POST",
-                        data: {
-                            appointments_id: appointments_id
-                        },
-                        success: function(data) {
-                            $('#appointment-table').DataTable().ajax.reload();
-                                Swal.fire
-                                ({title:"Success !",
-                                text:"Appointment has been Updated Successfully!",
-                                icon:"success"})
-                
-                        }
 
-                    });
+                $.ajax({
+                    url: "./models/updateNotConfirmed.php",
+                    type: "POST",
+                    data: {
+                        appointments_id: appointments_id
+                    },
+                    success: function(data) {
+                        $('#appointment-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Appointment has been Updated Successfully!",
+                            icon: "success"
+                        })
+
+                    }
+
+                });
             });
-           
-            $(document).on("click", "#btn-complete-presc", function(e) { 
-                    e.preventDefault();
-                    $.ajax({
-                        url: "./models/prescriptionAdded.php",
-                        type: "POST",
-                        data: {
-                            appointments_id: $presData.appointments_id
-                        },
-                        success: function(data) {
-                            $('#appointment-table').DataTable().ajax.reload();
-                                Swal.fire
-                                ({title:"Success !",
-                                text:"Prescription has been completed Successfully!",
-                                icon:"success"})
-                                // $('#presc-modal').modal('toggle');
-                
-                        }
 
-                    });
+            $(document).on("click", "#btn-complete-presc", function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "./models/prescriptionAdded.php",
+                    type: "POST",
+                    data: {
+                        appointments_id: $presData.appointments_id
+                    },
+                    success: function(data) {
+                        $('#appointment-table').DataTable().ajax.reload();
+                        Swal.fire({
+                            title: "Success !",
+                            text: "Prescription has been completed Successfully!",
+                            icon: "success"
+                        })
+                        // $('#presc-modal').modal('toggle');
+
+                    }
+
+                });
             });
-            $(document).on("click", "#confirmed", function(e) { 
-                    e.preventDefault();
-                    var appointments_id = $(this).data('row');
-                    var patient_name = $(this).data('patient_name');
-                    var phone_number = $(this).data('phone_number');
-                    var uuid =  $(this).data('uuid');
-                    var date =  $(this).data('date');
-                    // var rows = $("#appointment-table tr").map(function() {
-                    //                 return {
-                    //                     phone_number: $('#phone_number').val(),
-                    //                     // ...
-                    //                 };
-                    //             });
+            $(document).on("click", "#confirmed", function(e) {
+                e.preventDefault();
+                var appointments_id = $(this).data('row');
+                var patient_name = $(this).data('patient_name');
+                var phone_number = $(this).data('phone_number');
+                var uuid = $(this).data('uuid');
+                var date = $(this).data('date');
+                // var rows = $("#appointment-table tr").map(function() {
+                //                 return {
+                //                     phone_number: $('#phone_number').val(),
+                //                     // ...
+                //                 };
+                //             });
 
 
-                                console.log("RRow" , uuid ,phone_number, patient_name , date )
+                console.log("RRow", uuid, phone_number, patient_name, date)
 
 
-                     $.ajax({
-                        url: "./models/patient_insertion.php",
-                        type: "POST",
-                        data: {
-                            appointments_id: appointments_id,
-                            patient_name: patient_name,
-                            phone_number: phone_number,
-                            uuid: uuid,
-                            date: date
-                        },
-                        success: function(data) { 
-                            // $('#appointment-table').DataTable().ajax.reload();
-                                // Swal.fire
-                                // ({title:"Success !",
-                                // text:"Appointment Done Successfully!",
-                                // icon:"success"})
-                                
-                                $.ajax({
-                                    url: "./models/updateConfirmed.php",
-                                    type: "POST",
-                                    data: {
-                                        appointments_id: appointments_id
-                                    },
-                                    success: function(data) {
+                $.ajax({
+                    url: "./models/patient_insertion.php",
+                    type: "POST",
+                    data: {
+                        appointments_id: appointments_id,
+                        patient_name: patient_name,
+                        phone_number: phone_number,
+                        uuid: uuid,
+                        date: date
+                    },
+                    success: function(data) {
+                        // $('#appointment-table').DataTable().ajax.reload();
+                        // Swal.fire
+                        // ({title:"Success !",
+                        // text:"Appointment Done Successfully!",
+                        // icon:"success"})
+
+                        $.ajax({
+                            url: "./models/updateConfirmed.php",
+                            type: "POST",
+                            data: {
+                                appointments_id: appointments_id
+                            },
+                            success: function(data) {
 
 
-                                    
 
 
-                                        $('#appointment-table').DataTable().ajax.reload();
-                                            Swal.fire
-                                            ({title:"Success !",
-                                            text:"Appointment Done Successfully!",
-                                            icon:"success"})
-                            
-                                    }
 
-                                });
-                
-                        }
+                                $('#appointment-table').DataTable().ajax.reload();
+                                Swal.fire({
+                                    title: "Success !",
+                                    text: "Appointment Done Successfully!",
+                                    icon: "success"
+                                })
 
-                    });
+                            }
+
+                        });
+
+                    }
+
+                });
 
             });
         });
