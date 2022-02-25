@@ -223,6 +223,8 @@
                                                         <div class="mb-3">
                                                             <label class="form-label">Drug Name</label>
                                                             <input class="form-control" placeholder="" type="text" name="drug_name" id="drug_name" required />
+                                                            
+                                       
                                                             <div class="invalid-feedback">Please provide a valid drug name</div>
                                                         </div>
                                                     </div>
@@ -318,7 +320,7 @@
                                         </div>
                                         <div class="modal-body px-4 pb-4 pt-0">
                                             <form class="needs-validation" name="presc-formedit" id="form-prescedit" novalidate>
-                                                <div class="row">
+                                            <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
                                                             <label class="form-label">Drug Name</label>
@@ -541,13 +543,12 @@
                 ]
             });
           
-
             function format(d) {
                 // `d` is the original data object for the row
                 var abc= 'this is text';
                 var appt_idd = d.appointments_id;
+                
                 return '<table cellpadding="5" data-id="" cellspacing="0" border="0" style="padding-left:50px;">' +
-               
                '<thead>'+ 
                '<th> Id </th>'+
                '<th> Drug name </th>'+
@@ -559,11 +560,11 @@
                '<th> Comments </th>'+
                '<th> Action </th>'+
                '</thead>'+
-               
 
-                + '<?php   
+                + '<?php
+               
                 $sql = "SELECT 
-                            id, drug_name, strength, dose, duration_count,
+                           appointment_id, id, drug_name, strength, dose, duration_count,
                             duration_type, Date(start_date) as start_date, comments
                             from prescriptions 
                             ";
