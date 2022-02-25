@@ -544,6 +544,7 @@
             });
           
             function format(d) {
+                //latest code
                 // `d` is the original data object for the row
                 var abc= 'this is text';
                 var appt_idd = d.appointments_id;
