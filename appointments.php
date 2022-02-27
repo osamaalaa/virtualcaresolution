@@ -550,7 +550,6 @@
                 var appt_idd = d.appointments_id;
                 document.cookie = `var1=${appt_idd}`;
                 
-        
                 return '<table cellpadding="5" data-id="" cellspacing="0" border="0" style="padding-left:50px;">' +
                '<thead>'+ 
                '<th> Id </th>'+
@@ -567,7 +566,8 @@
                 + '<?php  
                 $id = $_COOKIE['var1'];
 
-
+                echo $id;
+                
                 
                 $sql = "SELECT 
                            appointment_id, id, drug_name, strength, dose, duration_count,
