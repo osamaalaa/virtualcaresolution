@@ -223,6 +223,8 @@
                                                         <div class="mb-3">
                                                             <label class="form-label">Drug Name</label>
                                                             <input class="form-control" placeholder="" type="text" name="drug_name" id="drug_name" required />
+                                                            
+                                       
                                                             <div class="invalid-feedback">Please provide a valid drug name</div>
                                                         </div>
                                                     </div>
@@ -542,9 +544,13 @@
             });
           
             function format(d) {
+                //latest code
                 // `d` is the original data object for the row
                 var abc= 'this is text';
                 var appt_idd = d.appointments_id;
+                document.cookie = `var1=${appt_idd}`;
+                
+        
                 return '<table cellpadding="5" data-id="" cellspacing="0" border="0" style="padding-left:50px;">' +
                '<thead>'+ 
                '<th> Id </th>'+
@@ -558,56 +564,60 @@
                '<th> Action </th>'+
                '</thead>'+
 
-                + '<?php
-                $id_app = $_POST["appt_idd"];
+                + '<?php  
+                $id = $_COOKIE['var1'];
+
+
+                
                 $sql = "SELECT 
-                            id, drug_name, strength, dose, duration_count,
+                           appointment_id, id, drug_name, strength, dose, duration_count,
                             duration_type, Date(start_date) as start_date, comments
-                            from prescriptions WHERE id = '$id_app ';
+                            from prescriptions  WHERE appointment_id = '" . mysqli_real_escape_string($conn, $id) . "'
                             ";
                             $result = mysqli_query($conn,$sql);
                             
                             while ($row = mysqli_fetch_assoc($result)) 
                             {
-                ?>'+
-                    '<tr>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['id'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['drug_name'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['strength'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['dose'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['duration_count'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['duration_type'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['start_date'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<?php
-                                    echo "" . $row['comments'] . "";
-                                    ?>'
-                    + '</td>' +
-                    '<td>' + '<button data-bs-toggle="modal" data-bs-target="#presc-edit-modal" class="btn btn-info"  id="editPrescr" title="Edit Prescription ?"  data-drug_name= "<?php echo $row['drug_name'];?>" data-id="<?php echo $row['id'];?>" data-strength="<?php echo $row['strength'];?>" data-dose="<?php echo $row['dose'];?>" data-duration_count="<?php echo $row['duration_count'];?>" data-duration_type="<?php echo $row['duration_type'];?>" data-start_date="<?php echo $row['start_date'];?>" data-comments="<?php echo $row['comments'];?>" ><span class="mdi mdi-tooltip-edit"></span></button>  <button class="btn btn-danger" title="Delete Prescription" id="removePresc" data-remove="<?php echo $row['id'];?>"><span class="mdi mdi-delete-circle"></span></button>'
-                    + '</td>' +
-                    '</tr>' +
-                    '<?php } ?>' + 
+                            ?>'+
+                                '<tr>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['appointment_id'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['drug_name'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['strength'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['dose'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['duration_count'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['duration_type'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['start_date'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<?php
+                                                echo "" . $row['comments'] . "";
+                                                ?>'
+                                + '</td>' +
+                                '<td>' + '<button data-bs-toggle="modal" data-bs-target="#presc-edit-modal" class="btn btn-info"  id="editPrescr" title="Edit Prescription ?"  data-drug_name= "<?php echo $row['drug_name'];?>" data-id="<?php echo $row['id'];?>" data-strength="<?php echo $row['strength'];?>" data-dose="<?php echo $row['dose'];?>" data-duration_count="<?php echo $row['duration_count'];?>" data-duration_type="<?php echo $row['duration_type'];?>" data-start_date="<?php echo $row['start_date'];?>" data-comments="<?php echo $row['comments'];?>" ><span class="mdi mdi-tooltip-edit"></span></button>  <button class="btn btn-danger" title="Delete Prescription" id="removePresc" data-remove="<?php echo $row['id'];?>"><span class="mdi mdi-delete-circle"></span></button>'
+                                + '</td>' +
+                                '</tr>' +
+                                '<?php } ?>' + 
                     '</table>';
+
             }
             $('#appointment-table tbody').on('click', 'button.details-control', function() {
                 console.log('hiii')
@@ -615,7 +625,7 @@
                 var row = table.row(tr);
                 console.log('data is', row.data())
                 if (row.child.isShown()) {
-                    // This row is already open - close it
+                    // This row is already open - close i   t
                     row.child.hide();
                     tr.removeClass('shown');
                 } else {
