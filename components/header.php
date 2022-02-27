@@ -93,11 +93,11 @@ require_once "db.php";
                 <li class="dropdown notification-list topbar-dropdown">
                     <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
 
-                        <img src="https://virtualcaresolution.de/<?php $username = $_SESSION['username'];
-                                                            $sql = mysqli_query($conn, "SELECT imgpath AS imgpath FROM users");
-                                                            $data = mysqli_fetch_assoc($sql);
-                                                            $_SESSION['imgpath'] = $data['imgpath'];
-                                                            echo "" . $_SESSION['imgpath'] . ""; ?>" alt="user-image" class="rounded-circle">
+                        <img src="http://localhost/new-vcs/<?php $username = $_SESSION['username'];
+                                                                $sql = mysqli_query($conn, "SELECT imgpath AS imgpath FROM users");
+                                                                $data = mysqli_fetch_assoc($sql);
+                                                                $_SESSION['imgpath'] = $data['imgpath'];
+                                                                echo "" . $_SESSION['imgpath'] . ""; ?>" alt="user-image" class="rounded-circle">
                         <span class="pro-user-name ms-1">
                             <?php echo $_SESSION["username"] ?> <i class="mdi mdi-chevron-down"></i>
                         </span>
@@ -129,34 +129,32 @@ require_once "db.php";
 
                     </div>
                 </li>
-
                 <!-- <li class="dropdown notification-list">
                         <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
                             <i class="fe-settings noti-icon"></i>
                         </a>
                     </li> -->
-
             </ul>
 
             <!-- LOGO -->
             <div class="logo-box">
                 <a href="index.php" class="logo logo-dark text-center">
                     <span class="logo-sm">
-                        <img src="assets/images/yasLogo.png" alt="" height="30">
+                        <img src="assets/images/pqw-logo-white.svg" alt="" height="30">
                         <!-- <span class="logo-lg-text-light">UBold</span> -->
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/yasLogo.png" alt="" height="30">
+                        <img src="assets/images/pqw-logo-white.svg" alt="" height="30">
                         <!-- <span class="logo-lg-text-light">U</span> -->
                     </span>
                 </a>
 
                 <a href="index.php" class="logo logo-light text-center">
                     <span class="logo-sm">
-                        <img src="assets/images/yasLogo.png" alt="" height="25">
+                        <img src="assets/images/pqw-logo-white.svg" alt="" height="25">
                     </span>
                     <span class="logo-lg">
-                        <img src="assets/images/yasLogo.png" alt="" height="30">
+                        <img src="assets/images/pqw-logo-white.svg" alt="" height="30">
                     </span>
                 </a>
             </div>

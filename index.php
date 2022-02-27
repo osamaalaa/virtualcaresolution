@@ -80,7 +80,7 @@
 			<div class="main-menu" style="display:flex;">
 				<div id="logo">
 					<a href="index.php">
-						<img src="assets/images/yasLogo.png" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
+						<img src="assets/images/pqw-logo-white.svg" alt="yas-clinic-group" style="width:140px;height:40px;padding:1px;">
 					</a>
 				</div>
 				<!-- Menu -->
@@ -127,11 +127,10 @@
 								<div class="align-left">
 									<h1 class="title">Communicate</h1>
 									<p style="font-size: 34px;">For the future</p>
-									
 									<a href="#" onClick="document.getElementById('section2').scrollIntoView();" class="btn" style="color: white">
-													<span>Lets Begin</span>
-													<i class="fa fa-sign-in" style="color: white"></i>
-												</a>
+										<span>Lets Begin</span>
+										<i class="fa fa-sign-in" style="color: white"></i>
+									</a>
 								</div>
 							</div>
 							</div>
@@ -255,15 +254,17 @@
 							integrationID: "9da6599e-92bf-4240-9453-65a9772a6eb5", // The ID of this integration.
 							region: "us-south", // The region your integration is hosted in.
 							serviceInstanceID: "b16deb95-a2fd-439f-b784-09b7f437b6e7", // The ID of your service instance.
-							onLoad: function(instance) { instance.render(); }
+							onLoad: function(instance) {
+								instance.render();
+							}
 						};
-						setTimeout(function(){
-							const t=document.createElement('script');
-							t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+						setTimeout(function() {
+							const t = document.createElement('script');
+							t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
 							document.head.appendChild(t);
 						});
-						</script>
-											<!-- /Section One -->
+					</script>
+					<!-- /Section One -->
 					<!-- <div id="rasa-chat-widget" data-initial-payload="/get_start" data-websocket-url="http://3.19.59.149:5005"></div>  -->
 				</section>
 				<!-- /Content -->
@@ -322,7 +323,7 @@
 
 		function Copy() {
 			Toast.notice("Link Copied to clipboard!");
-			var copyText = "https://virtualcaresolution.de/" + link;
+			var copyText = "http://localhost/new-vcs/" + link;
 			$('<input>').val(copyText).appendTo('body').select();
 			//  copyText.select();
 			//copyText.setSelectionRange(0, 99999);

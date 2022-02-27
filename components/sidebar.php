@@ -79,6 +79,12 @@
                     <span> Notifications </span>
                 </a>
             </li>
+            <li>
+                <a href="admin_portal_requests.php">
+                    <i><span class="mdi mdi-order-numeric-descending"></span></i>
+                    <span> Portal Requests </span>
+                </a>
+            </li>
 
 
         <?php } ?>

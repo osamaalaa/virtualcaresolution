@@ -384,7 +384,7 @@
 </style>
 <div class='login'>
     <div>
-        <img src="assets/images/yasLogo.png" title="YAS CLINIC" alt="YAS CLINIC GROUP">
+        <img src="assets/images/pqw-logo-white.svg" title="YAS CLINIC" alt="YAS CLINIC GROUP">
     </div>
     <div class='login_title'>
         <span>Login to your account</span>

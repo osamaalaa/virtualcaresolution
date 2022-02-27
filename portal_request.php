@@ -215,7 +215,7 @@
         <input type="text" id="fname" name="fname" placeholder="First Name" required />
         <input type="text" id="lname" name="lname" placeholder="Last Name" required />
         <input type="text" id="email" name="email" placeholder="Email" />
-        <input type="text" id="phone" name="phone" placeholder="Phone No. ( please start With Country code )" required/>
+        <input type="text" id="phone" name="phone" placeholder="Phone No. ( please start With Country code )" required />
         <input type="button" name="previous" class="previous action-button" value="Previous" />
         <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
@@ -280,14 +280,24 @@
 
 
 
-<script src="vendor/jquery.min.js"></script> 
+<script src="vendor/jquery.min.js"></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 <script src="vendor/materialize.min.js"></script>
 
 <script>
     $(document).ready(function() {
+
+        console.log('osama', $("#fname").val())
         // msform
         $("#msform").on('submit', function(event) {
+            // if( $("#fname").val() == ''){
+            //     Swal.fire({
+            //                 title: "Success !",
+            //                 text: "ToozFeek!",
+            //                 icon: "success"
+            //             })
+            // }
+
             var formData = new FormData()
             formData.append("fname", $("#fname").val());
             formData.append("lname", $("#lname").val());
@@ -306,28 +316,28 @@
             formData.append("policydate", $("#policydate").val());
             formData.append('idfront', $('#idfront')[0].files[0]);
             formData.append('idback', $('#idback')[0].files[0]);
-                $.ajax({
-                    type: "POST",
-                    url: "portalrequest.php",
-                    data: formData,
+            $.ajax({
+                type: "POST",
+                url: "portalrequest.php",
+                data: formData,
 
-                    contentType: false,
+                contentType: false,
 
-                    cache: false,
+                cache: false,
 
-                    processData: false,
+                processData: false,
 
-                    encode: true,
-                }).done(function(data) {
-                    console.log("adata", data)
-                    Swal.fire({
-                            title: "Success !",
-                            text: "Portal Registeration Request Has Been Sent!",
-                            icon: "success"
-                        })
-                        $('#msform').trigger("reset");
-                });
-            
+                encode: true,
+            }).done(function(data) {
+                Swal.fire({
+                    title: "Success !",
+                    text: "Portal Registeration Request Has Been Sent!",
+                    icon: "success"
+                })
+                $('#msform').trigger("reset");
+
+            });
+
             event.preventDefault();
 
         });
@@ -423,19 +433,6 @@
             easing: 'easeInOutBack'
         });
     });
-
-    // $(".submit").click(function(e) {
-
-    //     // return false;
-    //     e.preventDefault();
-    //     console.log("Osama" , e)
-    //     Swal.fire({
-    //         title: "Success !",
-    //         text: "Portal Registeration Request Has Been Sent",
-    //         icon: "success"
-    //     })
-
-    // })
 </script>
 <!-- Plugins js -->
 <script src="assets/dashboard/assets/libs/dropzone/min/dropzone.min.js"></script>
